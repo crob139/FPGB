@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/craig robertson/Desktop/ise test/FPGB/tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="39" />
+   <wvobject fp_name="/tb/ext_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ext_clk</obj_property>
+      <obj_property name="ObjectShortName">ext_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/core_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">core_clk</obj_property>
+      <obj_property name="ObjectShortName">core_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/reset_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/data_bus_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_bus_out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_bus_out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/data_bus" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_bus[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_bus[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/address_bus" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">address_bus[15:0]</obj_property>
+      <obj_property name="ObjectShortName">address_bus[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/cpu_control_inst/T_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">T_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">T_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/cpu_control_inst/IR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">IR[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IR[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/cpu_control_inst/CB_IR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">CB_IR[7:0]</obj_property>
+      <obj_property name="ObjectShortName">CB_IR[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/SP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SP[15:0]</obj_property>
+      <obj_property name="ObjectShortName">SP[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/control_word" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">control_word[73:0]</obj_property>
+      <obj_property name="ObjectShortName">control_word[73:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/A" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/B" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/C" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">C[7:0]</obj_property>
+      <obj_property name="ObjectShortName">C[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/D" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/E" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">E[7:0]</obj_property>
+      <obj_property name="ObjectShortName">E[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/H" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">H[7:0]</obj_property>
+      <obj_property name="ObjectShortName">H[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/L" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">L[7:0]</obj_property>
+      <obj_property name="ObjectShortName">L[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/W" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">W[7:0]</obj_property>
+      <obj_property name="ObjectShortName">W[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/Z" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Z[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Z[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/ALU_inst/ALU_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALU_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/ALU_inst/ADD" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ADD[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ADD[15:0]</obj_property>
+      <obj_property name="label">ADD[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/ALU_inst/F" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">F[7:0]</obj_property>
+      <obj_property name="ObjectShortName">F[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/cpu_top_inst/mem_we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_we</obj_property>
+      <obj_property name="ObjectShortName">mem_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/addr_bus_we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">addr_bus_we</obj_property>
+      <obj_property name="ObjectShortName">addr_bus_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/address_bus_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">address_bus_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">address_bus_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/address_bus_offset" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">address_bus_offset[15:0]</obj_property>
+      <obj_property name="ObjectShortName">address_bus_offset[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/high_RAM/addr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addr[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/external_cart_rom/addr_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addr_reg[20:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_reg[20:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/data_out_VRAM_bank0" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out_VRAM_bank0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_VRAM_bank0[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/data_out_VRAM_bank1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out_VRAM_bank1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_VRAM_bank1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/data_out_high_RAM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out_high_RAM[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_high_RAM[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/data_out_boot_ROM" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_out_boot_ROM[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_boot_ROM[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/BCPS_BGPI" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">BCPS_BGPI[7:0]</obj_property>
+      <obj_property name="ObjectShortName">BCPS_BGPI[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/OCPS_OBPI" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">OCPS_OBPI[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OCPS_OBPI[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/IF" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">IF[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IF[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/IE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">IE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">IE[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/FPGB_inst/memory_inst/SVBK" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SVBK[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SVBK[7:0]</obj_property>
+   </wvobject>
+</wave_config>
