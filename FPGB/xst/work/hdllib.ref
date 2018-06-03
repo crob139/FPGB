@@ -1,2 +1,10 @@
-MO ROM NULL rtl/ROM.v vlg5A/_r_o_m.bin 1525956385
-MO RAM NULL rtl/RAM.v vlg14/_r_a_m.bin 1525956385
+MO ROM NULL rtl/ROM.v vlg5A/_r_o_m.bin 1527355979
+MO chrontel_CH7301C_driver NULL rtl/chrontel_CH7301C_driver.v vlg5A/chrontel___c_h7301_c__driver.bin 1527355979
+MO chrontel_serial_bus_driver NULL rtl/chrontel_serial_bus_driver.v vlg6A/chrontel__serial__bus__driver.bin 1527355979
+MO cpu_top NULL rtl/cpu_top.v vlg22/cpu__top.bin 1527355979
+MO memory NULL rtl/memory.v vlg69/memory.bin 1527355979
+MO systemPLL NULL ipcore_dir/systemPLL.v vlg4D/system_p_l_l.bin 1527355979
+MO RAM NULL rtl/RAM.v vlg14/_r_a_m.bin 1527355979
+MO cpu_control NULL rtl/cpu_control.v vlg64/cpu__control.bin 1527355979
+MO ALU NULL rtl/ALU.v vlg2A/_a_l_u.bin 1527355979
+MO FPGB NULL rtl/FPGB.v vlg23/_f_p_g_b.bin 1527355979

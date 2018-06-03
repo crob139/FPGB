@@ -1,0 +1,6 @@
+verilog isim_temp "systemPLL.v"
+verilog isim_temp "i2c_mini.v"
+verilog isim_temp "chrontel_serial_bus_driver.v"
+verilog isim_temp "chrontel_CH7301C_driver.v"
+verilog isim_temp "tb.v"
+verilog isim_temp "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

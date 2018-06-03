@@ -1,5 +1,5 @@
 module ALU(
-	core_clk,
+	clk4_2,
 	reset_n,
 	ALU_out,
 	control_word,
@@ -12,7 +12,7 @@ module ALU(
 
 `include "control_word.vh"
 
-input								core_clk;
+input								clk4_2;
 input								reset_n;
 input			[CTRL_MSB:0]	control_word;
 input			[15:0]			ALU_input0, ALU_input1;
@@ -56,7 +56,7 @@ reg			[7:0]				SWAP;
 
 
 // A register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		A <= 8'h00;
 	end
@@ -78,6 +78,15 @@ always @(posedge core_clk or negedge reset_n) begin
 		end
 		else if (control_word[A_WR_RLA]) begin
 			A <= {ALU_input0[6:0], F[4]};
+		end
+		else if (control_word[A_WR_RRA]) begin
+			A <= {F[4], ALU_input0[7:1]};
+		end
+		else if (control_word[A_WR_RLCA]) begin
+			A <= {ALU_input0[6:0], ALU_input0[7]};
+		end
+		else if (control_word[A_WR_RRCA]) begin
+			A <= {ALU_input0[0], ALU_input0[7:1]};
 		end
 		else if (control_word[A_WR_AND]) begin
 			A <= AND;
@@ -154,7 +163,7 @@ always @(*) begin
 end
 
 // Assign correct operaion to ALU outpu register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		ALU_out <= 16'h0000;
 		F <= 8'h00;
@@ -384,6 +393,15 @@ always @(posedge core_clk or negedge reset_n) begin
 				F[6] <= 1'b1;
 				F[5] <= !SUB_BORROW_HALF_8b;
 				F[4] <= !SUB_BORROW_8b;
+				F[3:0] <= F[3:0]; // Not Used
+			end
+			
+			5'b10001 : begin // Rotate right Accumulator
+				ALU_out <= ALU_out; // A directly assigned result. Leave this the same
+				F[7] <= 1'b0; // This is the only difference to the CB rotate left operations
+				F[6] <= 1'b0;
+				F[5] <= 1'b0;
+				F[4] <= ALU_input0[0];
 				F[3:0] <= F[3:0]; // Not Used
 			end
 			

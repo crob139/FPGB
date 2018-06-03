@@ -109,7 +109,7 @@ Addr_00B2:
 	LD	B,$18			; $00D6
 Addr_00D8:
 	LD	A,($FF00+C)		; $00D8
-	IN	C			; $00D9
+	INC	C			; $00D9
 	CP	(HL)			; $00DA
 Addr_00DB:
 	JR	NZ,Addr_00DB		; $00DB Halt if not equal
@@ -167,7 +167,7 @@ Addr_0204:
 	RET				; $0209
 
 
-Addr_0204:
+Addr_020A:
 	; Copy C bytes from (HL+) to (DE+)
 	LD	A,(HL+)			; $020A
 	LD	(DE),A			; $020B

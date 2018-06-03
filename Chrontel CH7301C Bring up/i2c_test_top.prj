@@ -1,0 +1,4 @@
+verilog work "systemPLL.v"
+verilog work "chrontel_serial_bus_driver.v"
+verilog work "chrontel_CH7301C_driver.v"
+verilog work "i2c_test_top.v"

@@ -1,0 +1,90 @@
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 
+xst -intstyle ise -ifn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.xst" -ofn "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc i2c_test_top.ucf -p xc5vlx50t-ff1136-1 "i2c_test_top.ngc" i2c_test_top.ngd  
+map -intstyle ise -p xc5vlx50t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o i2c_test_top_map.ncd i2c_test_top.ngd i2c_test_top.pcf 
+par -w -intstyle ise -ol high -mt off i2c_test_top_map.ncd i2c_test_top.ncd i2c_test_top.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml i2c_test_top.twx i2c_test_top.ncd -o i2c_test_top.twr i2c_test_top.pcf -ucf i2c_test_top.ucf 
+bitgen -intstyle ise -f i2c_test_top.ut i2c_test_top.ncd 

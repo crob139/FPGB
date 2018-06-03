@@ -1,6 +1,6 @@
 Links:
 Instruction set: http://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
-Documentation: http://problemkaputt.de/pandocs.htm#interrupts
+Documentation: http://problemkaputt.de/pandocs.htm
 Z80 User Manual with Instruction Descriptions: http://www.meditronik.com.pl/doc/plus/um0080.pdf
 University Paper: http://ece545.com/F15/reports/F14_GameboyColor.pdf
 Good info: https://github.com/Dooskington/GameLad/wiki/Part-01---Setup

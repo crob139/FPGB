@@ -7,37 +7,53 @@ Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/ROM.v" in
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/RAM.v" into library work
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/cpu_control.v" into library work
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/ALU.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/special_registers.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/ppu.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/memory_router.v" into library work
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/memory.v" into library work
-Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/fpga_heartbeat.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/mbc.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/dma_engine.v" into library work
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/cpu_top.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/chrontel_serial_bus_driver.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/chrontel_CH7301C_driver.v" into library work
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/ipcore_dir/systemPLL.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/i2c_mini.v" into library work
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/FPGB.v" into library work
-WARNING:HDLCompiler:35 - "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/FPGB.v" Line 78: <lcd_stat_int_req> is already implicitly declared earlier.
 Analyzing Verilog file "C:/Users/craig robertson/Desktop/FPGB/FPGB/rtl/tb.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Compiling module IBUFG
+Compiling module IBUFGDS
 Compiling module BUFG
-Compiling module PLL_ADV(CLKFBOUT_MULT=4,CLKIN1_P...
+Compiling module PLL_ADV(CLKFBOUT_MULT=63,CLKIN1_...
 Compiling module systemPLL
-Compiling module fpga_heartbeat
+Compiling module chrontel_serial_bus_driver
+Compiling module ODDR(DDR_CLK_EDGE="SAME_EDGE")
+Compiling module OBUFDS
+Compiling module chrontel_CH7301C_driver
 Compiling module cpu_control
 Compiling module ALU
 Compiling module cpu_top
-Compiling module ROM(FILENAME="rtl/roms/GBC_boot_...
+Compiling module memory_router
+Compiling module mbc
+Compiling module dma_engine
 Compiling module RAM(ADDRESS_WIDTH=13,MEM_SIZE=81...
+Compiling module RAM(ADDRESS_WIDTH=8,MEM_SIZE=160...
+Compiling module RAM(ADDRESS_WIDTH=6,MEM_SIZE=64)
+Compiling module ppu
+Compiling module ROM(FILENAME="rtl/roms/GBC_boot_...
 Compiling module RAM(MEM_SIZE=4096)
 Compiling module RAM(ADDRESS_WIDTH=7,MEM_SIZE=127...
-Compiling module RAM(ADDRESS_WIDTH=6,MEM_SIZE=64)
 Compiling module memory
+Compiling module special_registers
 Compiling module FPGB
 Compiling module ROM(ADDRESS_WIDTH=21,MEM_SIZE=20...
+Compiling module i2c_mini
 Compiling module tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 7 sub-compilation(s) to finish...
-Compiled 18 Verilog Units
+Waiting for 14 sub-compilation(s) to finish...
+Compiled 28 Verilog Units
 Built simulation executable C:/Users/craig robertson/Desktop/FPGB/FPGB/tb_isim_beh.exe
-Fuse Memory Usage: 44636 KB
-Fuse CPU Usage: 1356 ms
+Fuse Memory Usage: 45588 KB
+Fuse CPU Usage: 1606 ms

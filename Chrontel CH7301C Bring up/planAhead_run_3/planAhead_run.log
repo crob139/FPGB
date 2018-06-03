@@ -1,0 +1,70 @@
+
+****** PlanAhead v14.7 (64-bit)
+  **** Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -54 day(s)
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source {C:/Users/craig robertson/Desktop/i2c/i2c/pa.fromHdl.tcl}
+# create_project -name i2c -dir "C:/Users/craig robertson/Desktop/i2c/i2c/planAhead_run_3" -part xc5vlx50tff1136-1
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "i2c_test_top.ucf" [current_fileset -constrset]
+Adding file 'C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {systemPLL.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {chrontel_serial_bus_driver.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {chrontel_CH7301C_driver.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {i2c_test_top.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set_property top i2c_test_top $srcset
+# add_files [list {i2c_test_top.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc5vlx50tff1136-1
+Using Verific elaboration
+Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/i2c/i2c/systemPLL.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/i2c/i2c/chrontel_serial_bus_driver.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/i2c/i2c/chrontel_CH7301C_driver.v" into library work
+Analyzing Verilog file "C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.v" into library work
+INFO: [Designutils 20-910] Reading macro library C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/virtex5/virtex5lx/hd_int_macros.edn
+Parsing EDIF File [C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/virtex5/virtex5lx/hd_int_macros.edn]
+Finished Parsing EDIF File [C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/virtex5/virtex5lx/hd_int_macros.edn]
+INFO: [Device 21-21] Reading bus macro file C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/virtex5/pr_bus_macros.xml
+Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/virtex5/virtex5lxt/xc5vlx50t/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/virtex5/virtex5lxt/xc5vlx50t/ClockBuffers.xml
+Loading package from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/virtex5/virtex5lxt/xc5vlx50t/ff1136/Package.xml
+Loading io standards from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/virtex5/IOStandards.xml
+INFO: [Device 21-19] Loading pkg sso from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/virtex5/virtex5lxt/xc5vlx50t/ff1136/SSORules.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/virtex5/drc.xml
+Parsing UCF File [C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.ucf]
+Finished Parsing UCF File [C:/Users/craig robertson/Desktop/i2c/i2c/i2c_test_top.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: d524f6c0
+open_rtl_design: Time (s): elapsed = 00:00:10 . Memory (MB): peak = 695.348 ; gain = 266.660
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin AD26 [get_ports LED_test]
+endgroup
+set_property iostandard LVCMOS18 [get_ports [list LED_test]]
+save_constraints
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Thu May 24 23:34:34 2018...
+INFO: [Common 17-83] Releasing license: PlanAhead

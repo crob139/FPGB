@@ -1,34 +1,58 @@
 module cpu_control(
-	core_clk,
+	clk4_2,
 	reset_n,
 	IR,
 	CB_IR,
 	F,
 	control_word,
-	interrupts,
-	clear_interrupt
+	v_blank_int_req,
+	lcd_stat_int_req,
+	timer_int_req,
+	serial_int_req,
+	joypad_int_req,
+	cpu_v_blank_int_clear,
+	cpu_lcd_stat_int_clear,
+	cpu_timer_int_clear,
+	cpu_serial_int_clear,
+	cpu_joypad_int_clear,
+	DMA_start,
+	GDMA_finished
 	);
 
 `include "control_word.vh"
 
-input								core_clk;
+input								clk4_2;
 input								reset_n;
 input			[7:0]				IR;
 input			[7:0]				CB_IR;
 input			[7:0]				F;
-input			[4:0]				interrupts;
+input								v_blank_int_req;
+input								lcd_stat_int_req;
+input								timer_int_req;
+input								serial_int_req;
+input								joypad_int_req;
+input								DMA_start;
+input								GDMA_finished;
 output reg	[CTRL_MSB:0]	control_word;
-output							clear_interrupt;
+output reg						cpu_v_blank_int_clear;
+output reg						cpu_lcd_stat_int_clear;
+output reg						cpu_timer_int_clear;
+output reg						cpu_serial_int_clear;
+output reg						cpu_joypad_int_clear;
 
 reg	[3:0]				T_state, next_T_state, next_T_state_decoder, next_T_state_prefixCB;
 reg	[CTRL_MSB:0]	decode_control_word, control_word_prefixCB;
 
-reg						service_isr, decode_service_isr;
+reg						service_isr;
 
-assign clear_interrupt = decode_control_word[CLEAR_INT];
+reg						cpu_halt;
+
+wire	[4:0]				interrupts;
+
+assign interrupts = {joypad_int_req, serial_int_req, timer_int_req, lcd_stat_int_req, v_blank_int_req};
 
 // State Machine
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		T_state <= 4'b1111;
 	end
@@ -41,7 +65,16 @@ always @(*) begin
 	case (T_state)
 		4'b0000 : begin
 			control_word = 0; // Do this so we can come back to this state at the end of an instruction without having to clean up
-			if (|interrupts) begin
+			if (DMA_start || cpu_halt) begin
+				next_T_state = 4'b0000;
+				if (GDMA_finished) begin
+					cpu_halt = 1'b0;
+				end
+				else begin
+					cpu_halt = 1'b1;
+				end
+			end
+			else if (|interrupts) begin
 				next_T_state = 4'b0010;
 				service_isr = 1'b1;
 			end
@@ -65,37 +98,44 @@ always @(*) begin
 			control_word[IR_WR] = 1'b0;
 			next_T_state = next_T_state_decoder;
 			control_word = decode_control_word;
-			service_isr = decode_service_isr;
 		end
 		
 		default : begin
 			next_T_state = next_T_state_decoder;
 			control_word = decode_control_word;
-			service_isr = decode_service_isr;
 		end
 		
 		4'b1111 : begin // Reset state
 			next_T_state = 4'b0000;
 			control_word = 0;
 			service_isr = 1'b0;
+			cpu_halt = 1'b0;
 		end
 	endcase
 end
 
 // Decode logic
 always @(*) begin
-	decode_control_word = 0; // Default
+	// Default
+	decode_control_word = 0;
+	cpu_v_blank_int_clear = 1'b0;
+	cpu_lcd_stat_int_clear = 1'b0;
+	cpu_timer_int_clear = 1'b0;
+	cpu_serial_int_clear = 1'b0;
+	cpu_joypad_int_clear = 1'b0;
 	
 	if (service_isr) begin
 		if (T_state == 4'b0010) begin
 			next_T_state_decoder = 4'b0011;
 			decode_control_word[SP_DEC] = 1'b1; // Decrement SP
+			decode_control_word[IME_RESET] = 1'b1; // Turn interrupts off
 		end
 		else if (T_state == 4'b0011) begin
 			next_T_state_decoder = 4'b0100;
 			decode_control_word[ADDR_BUS_MSB:ADDR_BUS_LSB] = 4'b0111; // Put SP on the address bus
 			decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b1111; // Put PC[15:8] onto data bus
 			decode_control_word[SP_DEC] = 1'b1; // Decrement SP again
+			decode_control_word[IME_RESET] = 1'b0;
 			decode_control_word[ADDR_BUS_WR] = 1'b1;
 			decode_control_word[MEM_WR] = 1'b1;
 		end
@@ -106,9 +146,27 @@ always @(*) begin
 			decode_control_word[SP_DEC] = 1'b0;
 			decode_control_word[ADDR_BUS_WR] = 1'b1;
 			decode_control_word[MEM_WR] = 1'b1;
-			decode_control_word[IME_RESET] = 1'b1; // Turn interrupts off
-			decode_control_word[CLEAR_INT] = 1'b1; // Clear current interrupt (which defaults to highest priority). Must be high no longer than 1 cycle
-			decode_control_word[PC_WR_INT4:PC_WR_INT0] = interrupts; // Update PC with intererupt vector
+			// Clear interrupt in priority order and update PC with intererupt vector
+			if (interrupts[0]) begin
+				cpu_v_blank_int_clear = 1'b1;
+				decode_control_word[PC_WR_V_BLANK_INT] = 1'b1;
+			end
+			else if (interrupts[1]) begin
+				cpu_lcd_stat_int_clear = 1'b1;
+				decode_control_word[PC_WR_LCD_STAT_INT] = 1'b1;
+			end
+			else if (interrupts[2]) begin
+				cpu_timer_int_clear = 1'b1;
+				decode_control_word[PC_WR_TIMER_INT] = 1'b1;
+			end
+			else if (interrupts[3]) begin
+				cpu_serial_int_clear = 1'b1;
+				decode_control_word[PC_WR_SERIAL_INT] = 1'b1;
+			end
+			else begin
+				cpu_joypad_int_clear = 1'b1;
+				decode_control_word[PC_WR_JOYPAD_INT] = 1'b1;
+			end
 		end
 	end
 	else begin
@@ -222,6 +280,17 @@ always @(*) begin
 					decode_control_word[PC_INC] = 1'b0;
 					decode_control_word[ADDR_BUS_WR] = 1'b0;
 					decode_control_word[B_WR] = 1'b1;
+				end
+			end
+			
+			// RLCA								- 0x07
+			8'h07 : begin 
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01010; // Rotate left operation
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // Select A into ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+					decode_control_word[A_WR_RLCA] = 1'b1;
 				end
 			end
 			
@@ -364,6 +433,17 @@ always @(*) begin
 					decode_control_word[PC_INC] = 1'b0;
 					decode_control_word[ADDR_BUS_WR] = 1'b0;
 					decode_control_word[C_WR] = 1'b1;
+				end
+			end
+			
+			// RRCA								- 0x0F
+			8'h0F : begin 
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b10001; // Rotate right operation
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // Select A into ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+					decode_control_word[A_WR_RRCA] = 1'b1;
 				end
 			end
 			
@@ -583,6 +663,17 @@ always @(*) begin
 					decode_control_word[PC_INC] = 1'b0;
 					decode_control_word[ADDR_BUS_WR] = 1'b0;
 					decode_control_word[E_WR] = 1'b1;
+				end
+			end
+			
+			// RRA								- 0x1F
+			8'h1F : begin 
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b10001; // Rotate right operation
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // Select A into ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+					decode_control_word[A_WR_RRA] = 1'b1;
 				end
 			end
 			
@@ -1128,6 +1219,24 @@ always @(*) begin
 				end
 			end
 			
+			// CP (HL)							- 0xBE
+			8'hBE : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0011;
+					decode_control_word[ADDR_BUS_MSB:ADDR_BUS_LSB] = 4'b0101; // Put HL on the address bus
+					decode_control_word[ADDR_BUS_WR] = 1'b1;
+				end
+				else if (T_state == 4'b0011) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ADDR_BUS_WR] = 1'b0;
+					decode_control_word[PC_INC] = 1'b0;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b1100; // data_bus to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01011; // Select compare operation in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+				end
+			end
+			
 			// POP BC							- 0xC1
 			8'hC1 : begin
 				if (T_state == 4'b0010) begin
@@ -1176,7 +1285,7 @@ always @(*) begin
 					next_T_state_decoder = 4'b0000;
 					decode_control_word[W_WR] = 1'b0;
 					if (!F[7]) begin
-						control_word[PC_WR_WZ] = 1'b1;
+						decode_control_word[PC_WR_WZ] = 1'b1;
 					end
 				end
 			end
@@ -1272,7 +1381,7 @@ always @(*) begin
 					next_T_state_decoder = 4'b0000;
 					decode_control_word[W_WR] = 1'b0;
 					if (F[7]) begin
-						control_word[PC_WR_WZ] = 1'b1;
+						decode_control_word[PC_WR_WZ] = 1'b1;
 					end
 				end
 			end
@@ -1308,17 +1417,22 @@ always @(*) begin
 				else if (T_state == 4'b0011) begin
 					next_T_state_decoder = 4'b0100;
 					decode_control_word[Z_WR] = 1'b1;
-					decode_control_word[PC_INC] = 1'b1;
+					decode_control_word[PC_INC] = 1'b1; // Inc PC again
 					decode_control_word[ADDR_BUS_WR] = 1'b1;
-					decode_control_word[SP_DEC] = 1'b1; // Decrement SP
 				end
 				else if (T_state == 4'b0100) begin
-					next_T_state_decoder = 4'b0101;
+					if (F[7]) begin
+						next_T_state_decoder = 4'b0101;
+						decode_control_word[SP_DEC] = 1'b1; // Decrement SP
+					end
+					else begin
+						next_T_state_decoder = 4'b0000;
+						decode_control_word[SP_DEC] = 1'b0; // Don't Decrement SP and finish
+					end
 					decode_control_word[ADDR_BUS_WR] = 1'b0;
 					decode_control_word[Z_WR] = 1'b0;
 					decode_control_word[W_WR] = 1'b1;
 					decode_control_word[PC_INC] = 1'b0;
-					decode_control_word[SP_DEC] = 1'b0;
 				end
 				else if (T_state == 4'b0101) begin
 					next_T_state_decoder = 4'b0110;
@@ -1335,9 +1449,7 @@ always @(*) begin
 					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b1011; // Put PC[7:0] onto data bus
 					decode_control_word[SP_DEC] = 1'b0;
 					decode_control_word[W_WR] = 1'b0;
-					if (F[7]) begin
-						decode_control_word[PC_WR_WZ] = 1'b1;
-					end
+					decode_control_word[PC_WR_WZ] = 1'b1;
 					decode_control_word[ADDR_BUS_WR] = 1'b1;
 					decode_control_word[MEM_WR] = 1'b1;
 				end
@@ -1434,7 +1546,7 @@ always @(*) begin
 					next_T_state_decoder = 4'b0000;
 					decode_control_word[W_WR] = 1'b0;
 					if (!F[4]) begin
-						control_word[PC_WR_WZ] = 1'b1;
+						decode_control_word[PC_WR_WZ] = 1'b1;
 					end
 				end
 			end
@@ -1482,6 +1594,30 @@ always @(*) begin
 				end
 			end
 			
+			// RETI								- 0xD9
+			8'hD9 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0011;
+					decode_control_word[ADDR_BUS_MSB:ADDR_BUS_LSB] = 4'b0111; // Put SP on the address bus
+					decode_control_word[ADDR_BUS_WR] = 1'b1;
+					decode_control_word[SP_INC] = 1'b1; // Increment SP
+				end
+				else if (T_state == 4'b0011) begin
+					next_T_state_decoder = 4'b0100;
+					decode_control_word[ADDR_BUS_MSB:ADDR_BUS_LSB] = 4'b0111; // Keep SP on the address bus
+					decode_control_word[PC_WR_LSB] = 1'b1; // Write LS Byte of PC
+					decode_control_word[SP_INC] = 1'b1; // Increment SP again
+					decode_control_word[ADDR_BUS_WR] = 1'b1;
+				end
+				else if (T_state == 4'b0100) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[PC_WR_MSB] = 1'b1; // Write MS Byte of PC
+					decode_control_word[ADDR_BUS_WR] = 1'b0;
+					decode_control_word[SP_INC] = 1'b0;
+					decode_control_word[IME_SET] = 1'b1; // Enable interrupts
+				end
+			end
+			
 			// JP C, a16						- 0xDA
 			8'hDA : begin
 				if (T_state == 4'b0010) begin
@@ -1506,7 +1642,7 @@ always @(*) begin
 					next_T_state_decoder = 4'b0000;
 					decode_control_word[W_WR] = 1'b0;
 					if (F[4]) begin
-						control_word[PC_WR_WZ] = 1'b1;
+						decode_control_word[PC_WR_WZ] = 1'b1;
 					end
 				end
 			end
@@ -1692,11 +1828,25 @@ always @(*) begin
 				end
 			end
 			
+			// LD A, (C)						- 0xF2
+			8'hF2 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0011;
+					decode_control_word[ADDR_BUS_MSB:ADDR_BUS_LSB] = 4'b1000; // Put {0xFF, C} on the address bus
+					decode_control_word[ADDR_BUS_WR] = 1'b1;
+				end
+				else if (T_state == 4'b0011) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ADDR_BUS_WR] = 1'b0;
+					decode_control_word[A_WR] = 1'b1;
+				end
+			end
+			
 			// DI									- 0xF3
 			8'hF3 : begin
 				if (T_state == 4'b0010) begin
 					next_T_state_decoder = 4'b0000;
-					control_word[IME_RESET] = 1'b1;
+					decode_control_word[IME_RESET] = 1'b1;
 				end
 			end
 			
@@ -1768,7 +1918,7 @@ always @(*) begin
 			8'hFB : begin
 				if (T_state == 4'b0010) begin
 					next_T_state_decoder = 4'b0000;
-					control_word[IME_SET] = 1'b1;
+					decode_control_word[IME_SET] = 1'b1;
 				end
 			end
 			

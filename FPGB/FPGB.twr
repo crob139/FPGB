@@ -1,0 +1,189 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 1
+-n 3 -fastpaths -xml FPGB.twx FPGB.ncd -o FPGB.twr FPGB.pcf -ucf FPGB.ucf
+
+Design file:              FPGB.ncd
+Physical constraint file: FPGB.pcf
+Device,package,speed:     xc5vlx50t,ff1136,-1 (PRODUCTION 1.73 2013-10-13, STEPPING level 0)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock ext_clk_n
+-------------+------------+------------+------------------+--------+
+             |Max Setup to|Max Hold to |                  | Clock  |
+Source       | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+-------------+------------+------------+------------------+--------+
+I2C_SDA_video|   -0.488(R)|    2.734(R)|clk25_2           |   0.000|
+ext_reset_n  |    2.742(R)|   -0.004(R)|clk25_2           |   0.000|
+             |    3.046(R)|    2.392(R)|clk25_2_270deg    |   0.000|
+-------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock ext_clk_p
+-------------+------------+------------+------------------+--------+
+             |Max Setup to|Max Hold to |                  | Clock  |
+Source       | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+-------------+------------+------------+------------------+--------+
+I2C_SDA_video|   -0.488(R)|    2.734(R)|clk25_2           |   0.000|
+ext_reset_n  |    2.742(R)|   -0.004(R)|clk25_2           |   0.000|
+             |    3.046(R)|    2.392(R)|clk25_2_270deg    |   0.000|
+-------------+------------+------------+------------------+--------+
+
+Clock ext_clk_n to Pad
+-------------------+------------+------------------+--------+
+                   | clk (edge) |                  | Clock  |
+Destination        |   to PAD   |Internal Clock(s) | Phase  |
+-------------------+------------+------------------+--------+
+DVI_D<4>           |    9.076(R)|clk25_2_270deg    |   0.000|
+                   |    9.076(F)|clk25_2_270deg    |   0.000|
+DVI_D<5>           |    9.083(R)|clk25_2_270deg    |   0.000|
+                   |    9.083(F)|clk25_2_270deg    |   0.000|
+DVI_D<6>           |    9.129(R)|clk25_2_270deg    |   0.000|
+                   |    9.129(F)|clk25_2_270deg    |   0.000|
+DVI_D<7>           |    9.134(R)|clk25_2_270deg    |   0.000|
+                   |    9.134(F)|clk25_2_270deg    |   0.000|
+DVI_D<8>           |    9.078(R)|clk25_2_270deg    |   0.000|
+                   |    9.078(F)|clk25_2_270deg    |   0.000|
+DVI_D<9>           |    9.072(R)|clk25_2_270deg    |   0.000|
+                   |    9.072(F)|clk25_2_270deg    |   0.000|
+DVI_D<10>          |    9.150(R)|clk25_2_270deg    |   0.000|
+                   |    9.150(F)|clk25_2_270deg    |   0.000|
+DVI_D<11>          |    9.139(R)|clk25_2_270deg    |   0.000|
+                   |    9.139(F)|clk25_2_270deg    |   0.000|
+DVI_DE             |    9.074(R)|clk25_2_270deg    |   0.000|
+DVI_H              |   11.871(R)|clk25_2           |   0.000|
+DVI_V              |   12.524(R)|clk25_2           |   0.000|
+I2C_SCL_video      |   12.730(R)|clk25_2           |   0.000|
+I2C_SDA_video      |   12.750(R)|clk25_2           |   0.000|
+LED_test           |   12.223(R)|clk25_2           |   0.000|
+XCLK_N             |    7.940(R)|clk25_2           |   0.000|
+                   |    7.940(F)|clk25_2           |   0.000|
+XCLK_P             |    7.940(R)|clk25_2           |   0.000|
+                   |    7.940(F)|clk25_2           |   0.000|
+address_bus_out<0> |   17.743(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<1> |   15.711(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<2> |   18.479(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<3> |   17.391(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<4> |   16.220(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<5> |   16.271(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<6> |   16.363(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<7> |   16.659(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<8> |   16.302(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<9> |   17.527(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<10>|   17.577(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<11>|   18.110(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<12>|   16.810(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<13>|   16.862(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<14>|   16.808(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<15>|   17.342(R)|clk4_2_OBUF       |   0.000|
+-------------------+------------+------------------+--------+
+
+Clock ext_clk_p to Pad
+-------------------+------------+------------------+--------+
+                   | clk (edge) |                  | Clock  |
+Destination        |   to PAD   |Internal Clock(s) | Phase  |
+-------------------+------------+------------------+--------+
+DVI_D<4>           |    9.076(R)|clk25_2_270deg    |   0.000|
+                   |    9.076(F)|clk25_2_270deg    |   0.000|
+DVI_D<5>           |    9.083(R)|clk25_2_270deg    |   0.000|
+                   |    9.083(F)|clk25_2_270deg    |   0.000|
+DVI_D<6>           |    9.129(R)|clk25_2_270deg    |   0.000|
+                   |    9.129(F)|clk25_2_270deg    |   0.000|
+DVI_D<7>           |    9.134(R)|clk25_2_270deg    |   0.000|
+                   |    9.134(F)|clk25_2_270deg    |   0.000|
+DVI_D<8>           |    9.078(R)|clk25_2_270deg    |   0.000|
+                   |    9.078(F)|clk25_2_270deg    |   0.000|
+DVI_D<9>           |    9.072(R)|clk25_2_270deg    |   0.000|
+                   |    9.072(F)|clk25_2_270deg    |   0.000|
+DVI_D<10>          |    9.150(R)|clk25_2_270deg    |   0.000|
+                   |    9.150(F)|clk25_2_270deg    |   0.000|
+DVI_D<11>          |    9.139(R)|clk25_2_270deg    |   0.000|
+                   |    9.139(F)|clk25_2_270deg    |   0.000|
+DVI_DE             |    9.074(R)|clk25_2_270deg    |   0.000|
+DVI_H              |   11.871(R)|clk25_2           |   0.000|
+DVI_V              |   12.524(R)|clk25_2           |   0.000|
+I2C_SCL_video      |   12.730(R)|clk25_2           |   0.000|
+I2C_SDA_video      |   12.750(R)|clk25_2           |   0.000|
+LED_test           |   12.223(R)|clk25_2           |   0.000|
+XCLK_N             |    7.940(R)|clk25_2           |   0.000|
+                   |    7.940(F)|clk25_2           |   0.000|
+XCLK_P             |    7.940(R)|clk25_2           |   0.000|
+                   |    7.940(F)|clk25_2           |   0.000|
+address_bus_out<0> |   17.743(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<1> |   15.711(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<2> |   18.479(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<3> |   17.391(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<4> |   16.220(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<5> |   16.271(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<6> |   16.363(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<7> |   16.659(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<8> |   16.302(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<9> |   17.527(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<10>|   17.577(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<11>|   18.110(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<12>|   16.810(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<13>|   16.862(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<14>|   16.808(R)|clk4_2_OBUF       |   0.000|
+address_bus_out<15>|   17.342(R)|clk4_2_OBUF       |   0.000|
+-------------------+------------+------------------+--------+
+
+Clock to Setup on destination clock ext_clk_n
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+ext_clk_n      |   10.028|         |         |         |
+ext_clk_p      |   10.028|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock ext_clk_p
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+ext_clk_n      |   10.028|         |         |         |
+ext_clk_p      |   10.028|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+ext_clk_n      |clk4_2         |    9.583|
+ext_clk_p      |clk4_2         |    9.583|
+---------------+---------------+---------+
+
+
+Analysis completed Sat May 26 18:35:15 2018 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 378 MB
+
+
+

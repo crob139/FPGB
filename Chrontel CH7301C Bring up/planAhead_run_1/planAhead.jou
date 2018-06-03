@@ -1,0 +1,45 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Thu May 24 16:03:25 2018
+# Process ID: 16232
+# Log file: C:/Users/craig robertson/Desktop/i2c/i2c/planAhead_run_1/planAhead.log
+# Journal file: C:/Users/craig robertson/Desktop/i2c/i2c/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {C:/Users/craig robertson/Desktop/i2c/i2c/pa.fromHdl.tcl}
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin L19 [get_ports CLKIN1_P_IN]
+endgroup
+set_property iostandard LVDS_25 [get_ports [list CLKIN1_P_IN]]
+startgroup
+set_property package_pin U27 [get_ports I2C_SCL_video]
+endgroup
+startgroup
+set_property package_pin T29 [get_ports I2C_SDA_video]
+endgroup
+set_property iostandard LVCMOS25 [get_ports [list I2C_SDA_video]]
+set_property iostandard LVCMOS18 [get_ports [list I2C_SDA_video]]
+set_property iostandard LVCMOS18 [get_ports [list I2C_SCL_video]]
+startgroup
+set_property package_pin AE8 [get_ports DVI_DE]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list DVI_DE]]
+startgroup
+set_property package_pin AM12 [get_ports DVI_H]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list DVI_H]]
+startgroup
+set_property package_pin AM11 [get_ports DVI_V]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list DVI_V]]
+startgroup
+set_property package_pin AK6 [get_ports DVI_RESET_B]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list DVI_RESET_B]]
+startgroup
+set_property package_pin AL11 [get_ports XCLK_P]
+endgroup
+set_property iostandard LVDS_25 [get_ports [list XCLK_P]]
+save_constraints

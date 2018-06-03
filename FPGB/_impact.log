@@ -1,0 +1,614 @@
+iMPACT Version: 14.7
+
+iMPACT log file Started on Sat May 26 14:31:42 2018
+
+Welcome to iMPACT
+iMPACT Version: 14.7
+Project: 'C:\Xilinx\14.7\ISE_DS\ISE\bin\\auto_project.ipf' already exists.
+Original project has been renamed to'C:\Xilinx\14.7\ISE_DS\ISE\bin\\auto_project_1.ipf'.
+Project: C:\Xilinx\14.7\ISE_DS\ISE\bin\\auto_project.ipf created.
+// *** BATCH CMD : setMode -bs
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.4.4
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set todefault 6 MHz regardless of explicit arguments supplied for setting the baudrates
+PROGRESS_START - Starting Operation.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+ Driver file xusb_xlp.sys found.
+ Driver version: src=1029, dest=1029.
+ Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS14:14:44, version = 1021.
+ Cable PID = 0008.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1303.
+File version of C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      0 sec.
+Type = 0x0004.
+ESN option: 0000117F3BC301.
+Attempting to identify devices in the boundary-scan chain configuration...
+INFO:iMPACT - Current time: 26/05/2018 2:31:45 PM
+// *** BATCH CMD : Identify -inferir 
+PROGRESS_START - Starting Operation.
+Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc5vlx50t, Version : 8
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx50t.bsd...
+INFO:iMPACT:501 - '1': Added Device xc5vlx50t successfully.
+----------------------------------------------------------------------
+'1': : Manufacturer's ID = Xilinx xccace, Version : 0
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/14.7/ISE_DS/ISE/acecf/data/xccace.bsd...
+INFO:iMPACT:501 - '1': Added Device xccace successfully.
+----------------------------------------------------------------------
+'2': : Manufacturer's ID = Xilinx xc95144xl, Version : 5
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/14.7/ISE_DS/ISE/xc9500xl/data/xc95144xl.bsd...
+INFO:iMPACT:501 - '1': Added Device xc95144xl successfully.
+----------------------------------------------------------------------
+'3': : Manufacturer's ID = Xilinx xcf32p, Version : 15
+INFO:iMPACT:1777 - 
+   Reading C:/Xilinx/14.7/ISE_DS/ISE/xcfp/data/xcf32p.bsd...
+INFO:iMPACT:501 - '1': Added Device xcf32p successfully.
+----------------------------------------------------------------------
+'4': : Manufacturer's ID = Xilinx xcf32p, Version : 15
+INFO:iMPACT:501 - '1': Added Device xcf32p successfully.
+----------------------------------------------------------------------
+done.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+// *** BATCH CMD : identifyMPM 
+// *** BATCH CMD : assignFile -p 5 -file "C:/Users/craigrobertson/Desktop/FPGB/FPGB/fpgb.bit"
+'5': Loading file 'C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit' ...
+done.
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+UserID read from the bitstream file = 0xFFFFFFFF.
+----------------------------------------------------------------------
+INFO:iMPACT:501 - '5': Added Device xc5vlx50t successfully.
+----------------------------------------------------------------------
+INFO:iMPACT - Current time: 26/05/2018 2:32:07 PM
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   36.59 C, Min. Reading:   36.10 C, Max.Reading:   37.09 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+Cable is not connected.
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.4.4
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set todefault 6 MHz regardless of explicit arguments supplied for setting the baudrates
+PROGRESS_START - Starting Operation.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+ Driver file xusb_xlp.sys found.
+ Driver version: src=1029, dest=1029.
+ Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS14:14:44, version = 1021.
+ Cable PID = 0008.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1029.
+File version of C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+Downloading C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+Type = 0x0004.
+ESN option: 0000117F3BC301.
+INFO:iMPACT - Current time: 26/05/2018 2:59:01 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   36.10 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+Cable is not connected.
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.4.4
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set todefault 6 MHz regardless of explicit arguments supplied for setting the baudrates
+PROGRESS_START - Starting Operation.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+ Driver file xusb_xlp.sys found.
+ Driver version: src=1029, dest=1029.
+ Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS14:14:44, version = 1021.
+ Cable PID = 0008.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1029.
+File version of C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+Downloading C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+Type = 0x0004.
+ESN option: 0000117F3BC301.
+INFO:iMPACT - Current time: 26/05/2018 4:00:53 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   37.58 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+PROGRESS_START - Starting Operation.
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+INFO:iMPACT - Current time: 26/05/2018 4:07:51 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   38.07 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+Cable is not connected.
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.4.4
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set todefault 6 MHz regardless of explicit arguments supplied for setting the baudrates
+PROGRESS_START - Starting Operation.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+ Driver file xusb_xlp.sys found.
+ Driver version: src=1029, dest=1029.
+ Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS14:14:44, version = 1021.
+ Cable PID = 0008.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1029.
+File version of C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+Downloading C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+Type = 0x0004.
+ESN option: 0000117F3BC301.
+INFO:iMPACT - Current time: 26/05/2018 4:20:55 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   38.07 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+Cable is not connected.
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.4.4
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set todefault 6 MHz regardless of explicit arguments supplied for setting the baudrates
+PROGRESS_START - Starting Operation.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+ Driver file xusb_xlp.sys found.
+ Driver version: src=1029, dest=1029.
+ Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS14:14:44, version = 1021.
+ Cable PID = 0008.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1029.
+File version of C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+Downloading C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+Type = 0x0004.
+ESN option: 0000117F3BC301.
+INFO:iMPACT - Current time: 26/05/2018 4:41:53 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   38.07 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+Cable is not connected.
+GUI --- Auto connect to cable...
+// *** BATCH CMD : setCable -port auto
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.4.4
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set todefault 6 MHz regardless of explicit arguments supplied for setting the baudrates
+PROGRESS_START - Starting Operation.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+ Driver file xusb_xlp.sys found.
+ Driver version: src=1029, dest=1029.
+ Driver windrvr6.sys version = 10.2.1.0. WinDriver v10.21 Jungo (c) 1997 - 2010 Build Date: Aug 31 2010 x86_64 64bit SYS14:14:44, version = 1021.
+ Cable PID = 0008.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1029.
+File version of C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+Downloading C:/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex.
+Downloaded firmware version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+PROGRESS_END - End Operation.
+Elapsed time =      1 sec.
+Type = 0x0004.
+ESN option: 0000117F3BC301.
+INFO:iMPACT - Current time: 26/05/2018 6:01:18 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.07 C, Min. Reading:   38.07 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+INFO:iMPACT - Current time: 26/05/2018 6:06:27 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+5: Device Temperature: Current Reading:   39.05 C, Min. Reading:   37.58 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   0.999 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+PROGRESS_START - Starting Operation.
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+INFO:iMPACT - Current time: 26/05/2018 6:18:40 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   40.04 C, Min. Reading:   38.07 C, Max.Reading:   40.53 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+INFO:iMPACT - Current time: 26/05/2018 6:32:08 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   38.56 C, Max.Reading:   40.53 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+INFO:iMPACT - Current time: 26/05/2018 6:33:14 PM
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   38.07 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+INFO:iMPACT - Current time: 26/05/2018 6:37:45 PM
+Updating config file C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit...
+INFO:iMPACT:2257 - Startup Clock has been changed to 'JtagClk' in the bitstream   stored in memory,
+   but the original bitstream file remains unchanged.
+// *** BATCH CMD : Program -p 5 
+Maximum TCK operating frequency for this device chain: 10000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+PROGRESS_START - Starting Operation.
+5: Device Temperature: Current Reading:   38.56 C, Min. Reading:   38.07 C, Max.Reading:   39.05 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.002 V
+5: VCCAUX Supply: Current Reading:   2.487 V, Min. Reading:   2.484 V, Max.Reading:   2.490 V
+'5': Programming device...
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 0001 1110 0000 1011 1000 0000 
+INFO:iMPACT:579 - '5': Completed downloading bit file to device.
+INFO:iMPACT:188 - '5': Programming completed successfully.
+ Match_cycle = NoWait.
+Match cycle: NoWait
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '5': Checking done pin....done.
+'5': Programmed successfully.
+PROGRESS_END - End Operation.
+Elapsed time =      4 sec.
+Cable is not connected.
+Project: 'C:\Xilinx\14.7\ISE_DS\ISE\bin\\auto_project.ipf' created.
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : setMode -ss
+// *** BATCH CMD : setMode -sm
+// *** BATCH CMD : setMode -hw140
+// *** BATCH CMD : setMode -spi
+// *** BATCH CMD : setMode -acecf
+// *** BATCH CMD : setMode -acempm
+// *** BATCH CMD : setMode -pff
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : saveProjectFile -file"C:\Xilinx\14.7\ISE_DS\ISE\bin\\auto_project.ipf"
+// *** BATCH CMD : setMode -bs
+INFO:iMPACT - Launching WebTalk, please refer to the webtalk log at   C:\Xilinx\14.7\ISE_DS\ISE\bin\webtalk.log for details.
+INFO:iMPACT - Running wbtc successfully.
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+----------------------------------------------------------------------
+// *** BATCH CMD : deleteDevice -position 1
+// *** BATCH CMD : setMode -bs
+// *** BATCH CMD : setMode -ss
+// *** BATCH CMD : setMode -sm
+// *** BATCH CMD : setMode -hw140
+// *** BATCH CMD : setMode -spi
+// *** BATCH CMD : setMode -acecf
+// *** BATCH CMD : setMode -acempm
+// *** BATCH CMD : setMode -pff

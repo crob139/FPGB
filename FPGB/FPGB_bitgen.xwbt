@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\craig robertson\Desktop\FPGB\FPGB\FPGB.ncd
+OUTFILE=C:\Users\craig robertson\Desktop\FPGB\FPGB\FPGB.bit
+FAMILY=Virtex5
+PART=xc5vlx50t-1ff1136
+WORKINGDIR=C:\Users\craig robertson\Desktop\FPGB\FPGB
+LICENSE=WebPack
+USER_INFO=211317707_0_0_053

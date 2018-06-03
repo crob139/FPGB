@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Fri May 25 23:45:31 2018
+# Process ID: 10676
+# Log file: C:/Users/craig robertson/Desktop/FPGB/FPGB/planAhead_run_3/planAhead.log
+# Journal file: C:/Users/craig robertson/Desktop/FPGB/FPGB/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {C:/Users/craig robertson/Desktop/FPGB/FPGB/pa.fromHdl.tcl}
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin AJ6 [get_ports ext_reset_n]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list ext_reset_n]]
+save_constraints

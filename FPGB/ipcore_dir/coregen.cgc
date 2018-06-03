@@ -13,7 +13,7 @@
             <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.XAWFILENAME">C:\Users\craig robertson\Desktop\FPGB\FPGB\ipcore_dir\systemPLL.xaw</spirit:configurableElementValue>
          </spirit:configurableElementValues>
          <spirit:vendorExtensions>
-            <xilinx:instanceProperties>
+            <xilinx:instanceProperties xmlns:xilinx="http://www.xilinx.com">
                <xilinx:projectOptions>
                   <xilinx:projectName>coregen</xilinx:projectName>
                   <xilinx:outputDirectory>./</xilinx:outputDirectory>
@@ -42,7 +42,32 @@
                   <xilinx:simulationLanguage>Verilog</xilinx:simulationLanguage>
                   <xilinx:foundationSym>false</xilinx:foundationSym>
                </xilinx:simulationOptions>
+               <xilinx:packageInfo>
+                  <xilinx:sourceCoreCreationDate>2013-10-13+16:06</xilinx:sourceCoreCreationDate>
+               </xilinx:packageInfo>
             </xilinx:instanceProperties>
+            <xilinx:generationHistory>
+               <xilinx:fileSet>
+                  <xilinx:name>customization_generator</xilinx:name>
+               </xilinx:fileSet>
+               <xilinx:fileSet>
+                  <xilinx:name>model_parameter_resolution_generator</xilinx:name>
+               </xilinx:fileSet>
+               <xilinx:fileSet>
+                  <xilinx:name>asy_generator</xilinx:name>
+               </xilinx:fileSet>
+               <xilinx:fileSet>
+                  <xilinx:name>flist_generator</xilinx:name>
+                  <xilinx:file>
+                     <xilinx:name>./systemPLL_flist.txt</xilinx:name>
+                     <xilinx:userFileType>txtFlist</xilinx:userFileType>
+                     <xilinx:userFileType>txt</xilinx:userFileType>
+                     <xilinx:timeStamp>Sat May 26 16:27:22 GMT 2018</xilinx:timeStamp>
+                     <xilinx:checkSum>0xE0130DCD</xilinx:checkSum>
+                     <xilinx:generationId>generationID_706127423</xilinx:generationId>
+                  </xilinx:file>
+               </xilinx:fileSet>
+            </xilinx:generationHistory>
          </spirit:vendorExtensions>
       </spirit:componentInstance>
    </spirit:componentInstances>

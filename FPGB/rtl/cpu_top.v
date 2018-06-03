@@ -1,5 +1,5 @@
 module cpu_top(
-	core_clk,
+	clk4_2,
 	reset_n,
 	data_bus_in,
 	data_bus_out,
@@ -7,22 +7,42 @@ module cpu_top(
 	address_bus_we,
 	mem_we,
 	IME,
-	interrupts,
-	clear_interrupt
+	v_blank_int_req,
+	lcd_stat_int_req,
+	timer_int_req,
+	serial_int_req,
+	joypad_int_req,
+	cpu_v_blank_int_clear,
+	cpu_lcd_stat_int_clear,
+	cpu_timer_int_clear,
+	cpu_serial_int_clear,
+	cpu_joypad_int_clear,
+	DMA_start,
+	GDMA_finished
 	);
 
 `include "control_word.vh"
 
-input						core_clk;
+input						clk4_2;
 input						reset_n;
 input			[7:0]		data_bus_in;
-input			[4:0]		interrupts;
+input						v_blank_int_req;
+input						lcd_stat_int_req;
+input						timer_int_req;
+input						serial_int_req;
+input						joypad_int_req;
+input						DMA_start;
+input						GDMA_finished;
 output reg	[7:0]		data_bus_out;
 output reg	[15:0]	address_bus;
 output reg				IME;
 output					mem_we;
 output					address_bus_we;
-output					clear_interrupt;
+output					cpu_v_blank_int_clear;
+output					cpu_lcd_stat_int_clear;
+output					cpu_timer_int_clear;
+output					cpu_serial_int_clear;
+output					cpu_joypad_int_clear;
 
 reg			[7:0]		IR;
 reg			[7:0]		CB_IR;
@@ -55,26 +75,36 @@ wire	[CTRL_MSB:0]	control_word;
 
 
 cpu_control cpu_control_inst(
-	.core_clk			(core_clk),
-	.reset_n				(reset_n),
-	.IR					(IR),
-	.CB_IR				(CB_IR),
-	.F						(F),
-	.control_word		(control_word),
-	.interrupts			(interrupts),
-	.clear_interrupt	(clear_interrupt)
+	.clk4_2							(clk4_2),
+	.reset_n							(reset_n),
+	.IR								(IR),
+	.CB_IR							(CB_IR),
+	.F									(F),
+	.control_word					(control_word),
+	.v_blank_int_req				(v_blank_int_req),
+	.lcd_stat_int_req				(lcd_stat_int_req),
+	.timer_int_req					(timer_int_req),
+	.serial_int_req				(serial_int_req),
+	.joypad_int_req				(joypad_int_req),
+	.cpu_v_blank_int_clear		(cpu_v_blank_int_clear),
+	.cpu_lcd_stat_int_clear		(cpu_lcd_stat_int_clear),
+	.cpu_timer_int_clear			(cpu_timer_int_clear),
+	.cpu_serial_int_clear		(cpu_serial_int_clear),
+	.cpu_joypad_int_clear		(cpu_joypad_int_clear),
+	.DMA_start						(DMA_start),
+	.GDMA_finished					(GDMA_finished)
 	);
 
 ALU ALU_inst(
-	.core_clk			(core_clk),
-	.reset_n				(reset_n),
-	.ALU_out				(ALU_out),
-	.control_word		(control_word),
-	.ALU_input0			(ALU_input0),
-	.ALU_input1			(ALU_input1),
-	.data_bus			(data_bus),
-	.A						(A),
-	.F						(F)
+	.clk4_2							(clk4_2),
+	.reset_n							(reset_n),
+	.ALU_out							(ALU_out),
+	.control_word					(control_word),
+	.ALU_input0						(ALU_input0),
+	.ALU_input1						(ALU_input1),
+	.data_bus						(data_bus),
+	.A									(A),
+	.F									(F)
 	);
 
 // ALU Input0 Mux
@@ -205,7 +235,7 @@ assign mem_we = control_word[MEM_WR];
 assign address_bus_we = control_word[ADDR_BUS_WR];
 
 // IME (Interrupt Master Enable) Flag. Controlled Directly by CPU through op codes
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		IME <= 1'b0;
 	end
@@ -220,7 +250,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // IR Register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		IR <= 8'h00;
 	end
@@ -235,7 +265,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // Prefix CB - IR Register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		CB_IR <= 8'h00;
 	end
@@ -250,7 +280,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // B register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		B <= 8'hFc;
 	end
@@ -271,7 +301,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // C register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		C <= 8'h0f;
 	end
@@ -292,7 +322,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // D register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		D <= 8'h0a;
 	end
@@ -313,7 +343,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // E register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		E <= 8'h41;
 	end
@@ -331,7 +361,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // H register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		H <= 8'h00;
 	end
@@ -355,7 +385,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // L register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		L <= 8'h03;
 	end
@@ -379,7 +409,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // W register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		W <= 8'h00;
 	end
@@ -394,7 +424,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // Z register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		Z <= 8'h00;
 	end
@@ -409,7 +439,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // TMP register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		TMP <= 8'h00;
 	end
@@ -424,7 +454,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // SP register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		SP <= 16'h0000;
 	end
@@ -448,7 +478,7 @@ always @(posedge core_clk or negedge reset_n) begin
 end
 
 // PC register
-always @(posedge core_clk or negedge reset_n) begin
+always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		PC <= 16'h0000;
 	end
@@ -468,19 +498,19 @@ always @(posedge core_clk or negedge reset_n) begin
 		else if (control_word[PC_WR_WZ]) begin
 			PC <= {W, Z};
 		end
-		else if (control_word[PC_WR_INT0]) begin
+		else if (control_word[PC_WR_V_BLANK_INT]) begin
 			PC <= 16'h0040;
 		end
-		else if (control_word[PC_WR_INT1]) begin
+		else if (control_word[PC_WR_LCD_STAT_INT]) begin
 			PC <= 16'h0048;
 		end
-		else if (control_word[PC_WR_INT2]) begin
+		else if (control_word[PC_WR_TIMER_INT]) begin
 			PC <= 16'h0050;
 		end
-		else if (control_word[PC_WR_INT3]) begin
+		else if (control_word[PC_WR_SERIAL_INT]) begin
 			PC <= 16'h0058;
 		end
-		else if (control_word[PC_WR_INT4]) begin
+		else if (control_word[PC_WR_JOYPAD_INT]) begin
 			PC <= 16'h0060;
 		end
 		else begin

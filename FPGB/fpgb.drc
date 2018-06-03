@@ -1,0 +1,49 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Sat May 26 18:36:38 2018
+
+drc -z FPGB.ncd FPGB.pcf
+
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/cpu_control_inst/decode_control_word_13_mux0000 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/cpu_control_inst/next_T_state_decoder_or0002 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/cpu_control_inst/next_T_state_decoder_or0003 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/cpu_control_inst/next_T_state_decoder_not0001 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/cpu_control_inst/decode_control_word_56_mux0000 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_not0001 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   memory_inst/data_out_not0001 is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/data_bus_not0001 is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   cpu_top_inst/cpu_control_inst/next_T_state_decoder_or0001 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:2236 - The DIVCLK_DIVIDE value 25 of PLL_ADV instance
+   systemPLL_inst/PLL_ADV_INST is above the Fin / Fpfd value 10.526316, where
+   Fin is the input frequency, 200.000000 MHz, and Fpfd min - max values of
+   19.000000 - 450.000000 MHz.
+DRC detected 0 errors and 10 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

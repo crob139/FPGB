@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Thu May 24 18:44:29 2018
+# Process ID: 17220
+# Log file: C:/Users/craig robertson/Desktop/i2c/i2c/planAhead_run_3/planAhead.log
+# Journal file: C:/Users/craig robertson/Desktop/i2c/i2c/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {C:/Users/craig robertson/Desktop/i2c/i2c/pa.fromHdl.tcl}
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin AD26 [get_ports LED_test]
+endgroup
+set_property iostandard LVCMOS18 [get_ports [list LED_test]]
+save_constraints
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1

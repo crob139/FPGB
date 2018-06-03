@@ -1,0 +1,6 @@
+verilog work "systemPLL.v"
+verilog work "i2c_mini.v"
+verilog work "chrontel_serial_bus_driver.v"
+verilog work "chrontel_CH7301C_driver.v"
+verilog work "tb.v"
+verilog work "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

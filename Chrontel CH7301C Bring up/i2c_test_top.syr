@@ -1,0 +1,691 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: i2c_test_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "i2c_test_top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "i2c_test_top"
+Output Format                      : NGC
+Target Device                      : xc5vlx50t-1-ff1136
+
+---- Source Options
+Top Module Name                    : i2c_test_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "systemPLL.v" in library work
+Compiling verilog file "chrontel_serial_bus_driver.v" in library work
+Module <systemPLL> compiled
+Compiling verilog file "chrontel_CH7301C_driver.v" in library work
+Module <chrontel_serial_bus_driver> compiled
+Compiling verilog file "i2c_test_top.v" in library work
+Module <chrontel_CH7301C_driver> compiled
+Module <i2c_test_top> compiled
+No errors in compilation
+Analysis of file <"i2c_test_top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <i2c_test_top> in library <work>.
+
+Analyzing hierarchy for module <systemPLL> in library <work>.
+
+Analyzing hierarchy for module <chrontel_serial_bus_driver> in library <work> with parameters.
+	BUS_FREE_COUNT = "00000000000000000000000000100011"
+	BUS_FREE_COUNT_WIDTH = "00000000000000000000000000000110"
+	SDA_CHANGE_COUNT = "00000000000000000000000000000111"
+	SH_COUNT = "00000000000000000000000000010000"
+	SH_COUNT_WIDTH = "00000000000000000000000000000101"
+	SS_COUNT = "00000000000000000000000000010000"
+	SS_COUNT_WIDTH = "00000000000000000000000000000101"
+	T_HI_COUNT = "00000000000000000000000000011000"
+	T_HI_COUNT_WIDTH = "00000000000000000000000000000101"
+	T_LOW_COUNT = "00000000000000000000000000100101"
+	T_LOW_COUNT_WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <chrontel_CH7301C_driver> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <i2c_test_top>.
+Module <i2c_test_top> is correct for synthesis.
+ 
+Analyzing module <systemPLL> in library <work>.
+Module <systemPLL> is correct for synthesis.
+ 
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <CLKIN1_IBUFGDS_INST> in unit <systemPLL>.
+    Set user-defined property "DIFF_TERM =  FALSE" for instance <CLKIN1_IBUFGDS_INST> in unit <systemPLL>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <CLKIN1_IBUFGDS_INST> in unit <systemPLL>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <CLKIN1_IBUFGDS_INST> in unit <systemPLL>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <CLKIN1_IBUFGDS_INST> in unit <systemPLL>.
+    Set user-defined property "BANDWIDTH =  OPTIMIZED" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKFBOUT_DESKEW_ADJUST =  NONE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKFBOUT_MULT =  63" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKFBOUT_PHASE =  0.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKIN1_PERIOD =  5.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKIN2_PERIOD =  10.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT0_DESKEW_ADJUST =  NONE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT0_DIVIDE =  120" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT0_DUTY_CYCLE =  0.500000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT0_PHASE =  0.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT1_DESKEW_ADJUST =  NONE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT1_DIVIDE =  20" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT1_DUTY_CYCLE =  0.500000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT1_PHASE =  0.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT2_DESKEW_ADJUST =  NONE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT2_DIVIDE =  20" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT2_DUTY_CYCLE =  0.500000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT2_PHASE =  270.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT3_DESKEW_ADJUST =  NONE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT3_DIVIDE =  1" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT3_DUTY_CYCLE =  0.500000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT3_PHASE =  0.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT4_DESKEW_ADJUST =  NONE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT4_DIVIDE =  1" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT4_DUTY_CYCLE =  0.500000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT4_PHASE =  0.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT5_DESKEW_ADJUST =  NONE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT5_DIVIDE =  1" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT5_DUTY_CYCLE =  0.500000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLKOUT5_PHASE =  0.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "CLK_FEEDBACK =  CLKFBOUT" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "COMPENSATION =  SYSTEM_SYNCHRONOUS" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "DIVCLK_DIVIDE =  25" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "EN_REL =  FALSE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "PLL_PMCD_MODE =  FALSE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "REF_JITTER =  0.000000" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "RESET_ON_LOSS_OF_LOCK =  FALSE" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "RST_DEASSERT_CLK =  CLKIN1" for instance <PLL_ADV_INST> in unit <systemPLL>.
+    Set user-defined property "SIM_DEVICE =  VIRTEX5" for instance <PLL_ADV_INST> in unit <systemPLL>.
+Analyzing module <chrontel_serial_bus_driver> in library <work>.
+	BUS_FREE_COUNT = 32'sb00000000000000000000000000100011
+	BUS_FREE_COUNT_WIDTH = 32'sb00000000000000000000000000000110
+	SDA_CHANGE_COUNT = 32'sb00000000000000000000000000000111
+	SH_COUNT = 32'sb00000000000000000000000000010000
+	SH_COUNT_WIDTH = 32'sb00000000000000000000000000000101
+	SS_COUNT = 32'sb00000000000000000000000000010000
+	SS_COUNT_WIDTH = 32'sb00000000000000000000000000000101
+	T_HI_COUNT = 32'sb00000000000000000000000000011000
+	T_HI_COUNT_WIDTH = 32'sb00000000000000000000000000000101
+	T_LOW_COUNT = 32'sb00000000000000000000000000100101
+	T_LOW_COUNT_WIDTH = 32'sb00000000000000000000000000000110
+Module <chrontel_serial_bus_driver> is correct for synthesis.
+ 
+Analyzing module <chrontel_CH7301C_driver> in library <work>.
+Module <chrontel_CH7301C_driver> is correct for synthesis.
+ 
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst4> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst4> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst4> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst5> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst5> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst5> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst6> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst6> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst6> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst7> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst7> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst7> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst8> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst8> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst8> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst9> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst9> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst9> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst10> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst10> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst10> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_inst11> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_inst11> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_inst11> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "DDR_CLK_EDGE =  SAME_EDGE" for instance <ODDR_XCLK> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "INIT =  0" for instance <ODDR_XCLK> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SRTYPE =  SYNC" for instance <ODDR_XCLK> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <OBUFDS_XCLK_inst> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <OBUFDS_XCLK_inst> in unit <chrontel_CH7301C_driver>.
+    Set user-defined property "SLEW =  SLOW" for instance <OBUFDS_XCLK_inst> in unit <chrontel_CH7301C_driver>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <chrontel_serial_bus_driver>.
+    Related source file is "chrontel_serial_bus_driver.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state> of Case statement line 244 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 16                                             |
+    | Transitions        | 38                                             |
+    | Inputs             | 11                                             |
+    | Outputs            | 15                                             |
+    | Clock              | clk25_2                   (rising_edge)        |
+    | Reset              | rst_n                     (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit tristate buffer for signal <I2C_SCL_video>.
+    Found 1-bit register for signal <complete>.
+    Found 1-bit tristate buffer for signal <I2C_SDA_video>.
+    Found 4-bit register for signal <bit_count>.
+    Found 4-bit adder for signal <bit_count$addsub0000>.
+    Found 1-bit register for signal <bus_free_count_en>.
+    Found 6-bit up counter for signal <bus_free_counter>.
+    Found 8-bit register for signal <data_to_send_store>.
+    Found 8-bit register for signal <dev_address_store>.
+    Found 3-bit register for signal <numb_of_registers>.
+    Found 3-bit subtractor for signal <numb_of_registers$addsub0000> created at line 440.
+    Found 8-bit register for signal <register_address_store>.
+    Found 1-bit register for signal <scl_out>.
+    Found 1-bit register for signal <sda_filt>.
+    Found 1-bit register for signal <sda_out>.
+    Found 1-bit register for signal <sh_count_en>.
+    Found 5-bit up counter for signal <sh_counter>.
+    Found 1-bit register for signal <ss_count_en>.
+    Found 5-bit up counter for signal <ss_counter>.
+    Found 1-bit register for signal <t_hi_count_en>.
+    Found 5-bit up counter for signal <t_hi_counter>.
+    Found 1-bit register for signal <t_low_count_en>.
+    Found 6-bit up counter for signal <t_low_counter>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   5 Counter(s).
+	inferred  40 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Tristate(s).
+Unit <chrontel_serial_bus_driver> synthesized.
+
+
+Synthesizing Unit <systemPLL>.
+    Related source file is "systemPLL.v".
+Unit <systemPLL> synthesized.
+
+
+Synthesizing Unit <chrontel_CH7301C_driver>.
+    Related source file is "chrontel_CH7301C_driver.v".
+    Found 1-bit register for signal <DVI_DE>.
+    Found 10-bit up counter for signal <counterX>.
+    Found 10-bit up counter for signal <counterY>.
+    Found 10-bit comparator less for signal <DVI_DE$cmp_lt0000> created at line 39.
+    Found 10-bit comparator less for signal <DVI_DE$cmp_lt0001> created at line 39.
+    Found 10-bit comparator greatequal for signal <DVI_H$cmp_ge0000> created at line 32.
+    Found 10-bit comparator less for signal <DVI_H$cmp_lt0000> created at line 32.
+    Found 10-bit comparator greatequal for signal <DVI_V$cmp_ge0000> created at line 35.
+    Found 10-bit comparator less for signal <DVI_V$cmp_lt0000> created at line 35.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <chrontel_CH7301C_driver> synthesized.
+
+
+Synthesizing Unit <i2c_test_top>.
+    Related source file is "i2c_test_top.v".
+    Found 1-bit register for signal <LED_test>.
+    Found 25-bit up counter for signal <LED_counter>.
+    Found 15-bit register for signal <pix_data>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  16 D-type flip-flop(s).
+Unit <i2c_test_top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 3-bit subtractor                                      : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 8
+ 10-bit up counter                                     : 2
+ 25-bit up counter                                     : 1
+ 5-bit up counter                                      : 3
+ 6-bit up counter                                      : 2
+# Registers                                            : 17
+ 1-bit register                                        : 11
+ 15-bit register                                       : 1
+ 3-bit register                                        : 1
+ 4-bit register                                        : 1
+ 8-bit register                                        : 3
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator less                                : 4
+# Tristates                                            : 2
+ 1-bit tristate buffer                                 : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <chrontel_serial_bus_driver_inst/state/FSM> on signal <state[1:16]> with one-hot encoding.
+---------------------------
+ State | Encoding
+---------------------------
+ 0000  | 0000000000000001
+ 0001  | 0000000000001000
+ 0010  | 0000000000000100
+ 0011  | 0000000000100000
+ 0100  | 0000000000010000
+ 0101  | 0000001000000000
+ 0110  | 0000000010000000
+ 0111  | 0000000100000000
+ 1000  | 0000010000000000
+ 1001  | 0000100000000000
+ 1010  | 0001000000000000
+ 1011  | 0000000001000000
+ 1100  | 0010000000000000
+ 1101  | 0100000000000000
+ 1110  | 1000000000000000
+ 1111  | 0000000000000010
+---------------------------
+WARNING:Xst:1710 - FF/Latch <dev_address_store_0> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dev_address_store_1> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver_inst>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 2
+ 3-bit subtractor                                      : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 8
+ 10-bit up counter                                     : 2
+ 25-bit up counter                                     : 1
+ 5-bit up counter                                      : 3
+ 6-bit up counter                                      : 2
+# Registers                                            : 57
+ Flip-Flops                                            : 57
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator less                                : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <dev_address_store_0> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dev_address_store_1> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <i2c_test_top> ...
+
+Optimizing unit <chrontel_CH7301C_driver> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block i2c_test_top, actual ratio is 1.
+FlipFlop chrontel_CH7301C_driver_inst/DVI_DE has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 144
+ Flip-Flops                                            : 144
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : i2c_test_top.ngr
+Top Level Output File Name         : i2c_test_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 23
+
+Cell Usage :
+# BELS                             : 326
+#      GND                         : 1
+#      INV                         : 13
+#      LUT1                        : 34
+#      LUT2                        : 37
+#      LUT3                        : 25
+#      LUT4                        : 25
+#      LUT5                        : 26
+#      LUT6                        : 75
+#      MUXCY                       : 42
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 45
+# FlipFlops/Latches                : 153
+#      FDC                         : 107
+#      FDCE                        : 10
+#      FDE                         : 22
+#      FDP                         : 3
+#      FDR                         : 2
+#      ODDR                        : 9
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 21
+#      IBUFGDS                     : 1
+#      IOBUF                       : 1
+#      OBUF                        : 17
+#      OBUFDS                      : 1
+#      OBUFT                       : 1
+# Others                           : 1
+#      PLL_ADV                     : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx50tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             152  out of  28800     0%  
+ Number of Slice LUTs:                  235  out of  28800     0%  
+    Number used as Logic:               235  out of  28800     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    245
+   Number with an unused Flip Flop:      93  out of    245    37%  
+   Number with an unused LUT:            10  out of    245     4%  
+   Number of fully used LUT-FF pairs:   142  out of    245    57%  
+   Number of unique control sets:        10
+
+IO Utilization: 
+ Number of IOs:                          23
+ Number of bonded IOBs:                  23  out of    480     4%  
+    IOB Flip Flops/Latches:               1
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                3  out of     32     9%  
+ Number of PLL_ADVs:                      1  out of      6    16%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+systemPLL_inst/CLKOUT1_BUF         | BUFG                   | 143   |
+systemPLL_inst/CLKOUT2_BUF         | BUFG                   | 10    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+---------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+-------+
+Control Signal                                                                                                       | Buffer(FF name)                                         | Load  |
+---------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+-------+
+DVI_RESET_B_inv(DVI_RESET_B_inv1_INV_0:O)                                                                            | NONE(LED_counter_0)                                     | 73    |
+chrontel_CH7301C_driver_inst/reset_n_inv(chrontel_CH7301C_driver_inst/reset_n_inv1_INV_0:O)                          | NONE(chrontel_CH7301C_driver_inst/counterX_0)           | 20    |
+chrontel_serial_bus_driver_inst/bus_free_count_en_inv(chrontel_serial_bus_driver_inst/bus_free_count_en_inv1_INV_0:O)| NONE(chrontel_serial_bus_driver_inst/bus_free_counter_0)| 6     |
+chrontel_serial_bus_driver_inst/t_low_count_en_inv(chrontel_serial_bus_driver_inst/t_low_count_en_inv1_INV_0:O)      | NONE(chrontel_serial_bus_driver_inst/t_low_counter_0)   | 6     |
+chrontel_serial_bus_driver_inst/sh_count_en_inv(chrontel_serial_bus_driver_inst/sh_count_en_inv1_INV_0:O)            | NONE(chrontel_serial_bus_driver_inst/sh_counter_0)      | 5     |
+chrontel_serial_bus_driver_inst/ss_count_en_inv(chrontel_serial_bus_driver_inst/ss_count_en_inv1_INV_0:O)            | NONE(chrontel_serial_bus_driver_inst/ss_counter_0)      | 5     |
+chrontel_serial_bus_driver_inst/t_hi_count_en_inv(chrontel_serial_bus_driver_inst/t_hi_count_en_inv1_INV_0:O)        | NONE(chrontel_serial_bus_driver_inst/t_hi_counter_0)    | 5     |
+---------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 3.168ns (Maximum Frequency: 315.657MHz)
+   Minimum input arrival time before clock: 1.154ns
+   Maximum output required time after clock: 4.814ns
+   Maximum combinational path delay: 2.910ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'systemPLL_inst/CLKOUT1_BUF'
+  Clock period: 3.168ns (frequency: 315.657MHz)
+  Total number of paths / destination ports: 3503 / 152
+-------------------------------------------------------------------------
+Delay:               3.168ns (Levels of Logic = 3)
+  Source:            chrontel_serial_bus_driver_inst/t_low_counter_5 (FF)
+  Destination:       chrontel_serial_bus_driver_inst/register_address_store_7 (FF)
+  Source Clock:      systemPLL_inst/CLKOUT1_BUF rising
+  Destination Clock: systemPLL_inst/CLKOUT1_BUF rising
+
+  Data Path: chrontel_serial_bus_driver_inst/t_low_counter_5 to chrontel_serial_bus_driver_inst/register_address_store_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.471   1.080  chrontel_serial_bus_driver_inst/t_low_counter_5 (chrontel_serial_bus_driver_inst/t_low_counter_5)
+     LUT6:I0->O           11   0.094   0.535  chrontel_serial_bus_driver_inst/sda_change_en1 (chrontel_serial_bus_driver_inst/sda_change_en)
+     LUT6:I5->O            3   0.094   0.800  chrontel_serial_bus_driver_inst/register_address_store_mux0000<5>11 (N17)
+     LUT6:I2->O            1   0.094   0.000  chrontel_serial_bus_driver_inst/register_address_store_mux0000<7>1 (chrontel_serial_bus_driver_inst/register_address_store_mux0000<7>)
+     FDE:D                    -0.018          chrontel_serial_bus_driver_inst/register_address_store_7
+    ----------------------------------------
+    Total                      3.168ns (0.753ns logic, 2.415ns route)
+                                       (23.8% logic, 76.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'systemPLL_inst/CLKOUT1_BUF'
+  Total number of paths / destination ports: 23 / 23
+-------------------------------------------------------------------------
+Offset:              1.154ns (Levels of Logic = 1)
+  Source:            I2C_SDA_video (PAD)
+  Destination:       chrontel_serial_bus_driver_inst/sda_filt (FF)
+  Destination Clock: systemPLL_inst/CLKOUT1_BUF rising
+
+  Data Path: I2C_SDA_video to chrontel_serial_bus_driver_inst/sda_filt
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IOBUF:IO->O           1   0.818   0.336  I2C_SDA_video_IOBUF (N96)
+     FDC:D                    -0.018          chrontel_serial_bus_driver_inst/sda_filt
+    ----------------------------------------
+    Total                      1.154ns (0.818ns logic, 0.336ns route)
+                                       (70.9% logic, 29.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'systemPLL_inst/CLKOUT1_BUF'
+  Total number of paths / destination ports: 20 / 7
+-------------------------------------------------------------------------
+Offset:              4.814ns (Levels of Logic = 3)
+  Source:            chrontel_CH7301C_driver_inst/counterY_7 (FF)
+  Destination:       DVI_V (PAD)
+  Source Clock:      systemPLL_inst/CLKOUT1_BUF rising
+
+  Data Path: chrontel_CH7301C_driver_inst/counterY_7 to DVI_V
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             4   0.471   0.805  chrontel_CH7301C_driver_inst/counterY_7 (chrontel_CH7301C_driver_inst/counterY_7)
+     LUT4:I0->O            1   0.094   0.480  chrontel_CH7301C_driver_inst/DVI_V_SW0 (N84)
+     LUT6:I5->O           16   0.094   0.418  chrontel_CH7301C_driver_inst/DVI_V (DVI_V_OBUF)
+     OBUF:I->O                 2.452          DVI_V_OBUF (DVI_V)
+    ----------------------------------------
+    Total                      4.814ns (3.111ns logic, 1.703ns route)
+                                       (64.6% logic, 35.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'systemPLL_inst/CLKOUT2_BUF'
+  Total number of paths / destination ports: 9 / 9
+-------------------------------------------------------------------------
+Offset:              3.395ns (Levels of Logic = 1)
+  Source:            chrontel_CH7301C_driver_inst/ODDR_inst11 (FF)
+  Destination:       DVI_D<11> (PAD)
+  Source Clock:      systemPLL_inst/CLKOUT2_BUF rising
+
+  Data Path: chrontel_CH7301C_driver_inst/ODDR_inst11 to DVI_D<11>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     ODDR:C->Q             1   0.607   0.336  chrontel_CH7301C_driver_inst/ODDR_inst11 (DVI_D_11_OBUF)
+     OBUF:I->O                 2.452          DVI_D_11_OBUF (DVI_D<11>)
+    ----------------------------------------
+    Total                      3.395ns (3.059ns logic, 0.336ns route)
+                                       (90.1% logic, 9.9% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 4 / 3
+-------------------------------------------------------------------------
+Delay:               2.910ns (Levels of Logic = 1)
+  Source:            systemPLL_inst/PLL_ADV_INST:LOCKED (PAD)
+  Destination:       DVI_RESET_B (PAD)
+
+  Data Path: systemPLL_inst/PLL_ADV_INST:LOCKED to DVI_RESET_B
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    PLL_ADV:LOCKED        24   0.000   0.458  systemPLL_inst/PLL_ADV_INST (DVI_RESET_B_OBUF)
+     OBUF:I->O                 2.452          DVI_RESET_B_OBUF (DVI_RESET_B)
+    ----------------------------------------
+    Total                      2.910ns (2.452ns logic, 0.458ns route)
+                                       (84.3% logic, 15.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.57 secs
+ 
+--> 
+
+Total memory usage is 362024 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

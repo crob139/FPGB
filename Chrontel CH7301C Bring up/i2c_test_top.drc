@@ -1,0 +1,13 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Sat May 26 14:21:25 2018
+
+drc -z i2c_test_top.ncd i2c_test_top.pcf
+
+WARNING:PhysDesignRules:2236 - The DIVCLK_DIVIDE value 25 of PLL_ADV instance
+   systemPLL_inst/PLL_ADV_INST is above the Fin / Fpfd value 10.526316, where
+   Fin is the input frequency, 200.000000 MHz, and Fpfd min - max values of
+   19.000000 - 450.000000 MHz.
+DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
