@@ -46,10 +46,29 @@ NET "DVI_D[9]" LOC = AB10;
 NET "DVI_D[10]" LOC = AP14;
 NET "DVI_D[11]" LOC = AN14;
 
+NET "ext_reset_n" LOC = AJ6;
+
+NET "ext_reset_n" IOSTANDARD = LVCMOS33;
+#Created by Constraints Editor (xc5vlx50t-ff1136-1) - 2018/06/10
+NET "ext_clk_p" TNM_NET = "ext_clk_p";
+TIMESPEC TS_ext_clk_p = PERIOD "ext_clk_p" 5 ns HIGH 50 %;
+
+
+NET "led_out" LOC = AD24;
+
+
+NET "led_out" IOSTANDARD = LVCMOS18;
+
+
+NET "cpu_led" LOC = AD25;
+
+
+NET "cpu_led" IOSTANDARD = LVCMOS18;
+
 # PlanAhead Generated physical constraints 
 
-NET "ext_reset_n" LOC = AJ6;
+NET "debug_led" LOC = AE24;
 
 # PlanAhead Generated IO constraints 
 
-NET "ext_reset_n" IOSTANDARD = LVCMOS33;
+NET "debug_led" IOSTANDARD = LVCMOS18;

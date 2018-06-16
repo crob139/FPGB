@@ -64,6 +64,9 @@ always @(posedge clk4_2 or negedge reset_n) begin
 		if (control_word[A_WR]) begin
 			A <= data_bus;
 		end
+		else if (control_word[A_ADD]) begin
+			A <= ADD[7:0];
+		end
 		else if (control_word[A_INC]) begin
 			A <= A + 8'h01;
 		end
@@ -162,7 +165,7 @@ always @(*) begin
 	SWAP = {ALU_input0[3:0], ALU_input0[7:4]};
 end
 
-// Assign correct operaion to ALU outpu register
+// Assign correct operaion to ALU output register
 always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		ALU_out <= 16'h0000;
@@ -179,9 +182,9 @@ always @(posedge clk4_2 or negedge reset_n) begin
 				F[3:0] <= F[3:0]; // Not used
 			end
 			
-			5'b00001 : begin // 8b ADD (For example. Haven't actually implemented yet)
+			5'b00001 : begin // 8b ADD
 				ALU_out <= {8'h00, ADD[7:0]};
-				F[7] <= F[7]; // No change
+				F[7] <= !(|ADD[7:0]); // Zero flag (see if any bits are set then invert)
 				F[6] <= 1'b0;
 				F[5] <= ADD_HALF_CARRY_8b;
 				F[4] <= ADD_CARRY_8b;
@@ -273,7 +276,7 @@ always @(posedge clk4_2 or negedge reset_n) begin
 						F[3:0] <= F[3:0]; // Not Used
 					end
 					3'b101 : begin
-						F[7] <= ALU_input0[5]; // THIS NEEDS TO BE CHANGED BACK AFTER SIMULATION. ADD THE "!"
+						F[7] <= !ALU_input0[5]; // THIS NEEDS TO BE CHANGED BACK AFTER SIMULATION. ADD THE "!"
 						F[6] <= 1'b0;
 						F[5] <= 1'b1;
 						F[4] <= F[4]; // No Change

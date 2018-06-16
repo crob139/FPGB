@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-EDBCWL0961::  Sat May 26 18:34:33 2018
+EDBCWL0961::  Sat Jun 16 13:02:57 2018
 
 par -w -intstyle ise -ol high -mt off FPGB_map.ncd FPGB.ncd FPGB.pcf 
 
@@ -13,11 +13,6 @@ Loading device for application Rf_Device from file '5vlx50t.nph' in environment 
 Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
 Initializing voltage to 0.950 Volts. (default - Range: 0.950 to 1.050 Volts)
 
-INFO:Par:282 - No user timing constraints were detected or you have set the option to ignore timing constraints ("par
-   -x"). Place and Route will run in "Performance Evaluation Mode" to automatically improve the performance of all
-   internal clocks in this design. Because there are not defined timing requirements, a timing score will not be
-   reported in the PAR report in this mode. The PAR timing summary will list the performance achieved for each clock.
-   Note: For the fastest runtime, set the effort level to "std".  For best performance, set the effort level to "high".
 
 Device speed data version:  "PRODUCTION 1.73 2013-10-13".
 
@@ -25,9 +20,10 @@ Device speed data version:  "PRODUCTION 1.73 2013-10-13".
 
 Device Utilization Summary:
 
-   Number of BUFGs                           4 out of 32     12%
-   Number of External IOBs                  47 out of 480     9%
-      Number of LOCed IOBs                  21 out of 47     44%
+   Number of BSCANs                          1 out of 4      25%
+   Number of BUFGs                           5 out of 32     15%
+   Number of External IOBs                  50 out of 480    10%
+      Number of LOCed IOBs                  24 out of 50     48%
 
    Number of External IOBMs                  1 out of 240     1%
       Number of LOCed IOBMs                  1 out of 1     100%
@@ -35,52 +31,52 @@ Device Utilization Summary:
    Number of External IOBSs                  1 out of 240     1%
       Number of LOCed IOBSs                  0 out of 1       0%
 
-   Number of OLOGICs                        10 out of 560     1%
+   Number of OLOGICs                        11 out of 560     1%
    Number of PLL_ADVs                        1 out of 6      16%
-   Number of RAMB18X2s                       3 out of 60      5%
-   Number of RAMB36_EXPs                    12 out of 60     20%
-   Number of Slices                        622 out of 7200    8%
-   Number of Slice Registers               455 out of 28800   1%
-      Number used as Flip Flops            344
-      Number used as Latches               110
+   Number of RAMB18X2s                       6 out of 60     10%
+   Number of RAMB36_EXPs                    23 out of 60     38%
+   Number of Slices                       1092 out of 7200   15%
+   Number of Slice Registers              1063 out of 28800   3%
+      Number used as Flip Flops            938
+      Number used as Latches               124
       Number used as LatchThrus              1
 
-   Number of Slice LUTS                   1586 out of 28800   5%
-   Number of Slice LUT-Flip Flop pairs    1635 out of 28800   5%
+   Number of Slice LUTS                   2834 out of 28800   9%
+   Number of Slice LUT-Flip Flop pairs    3116 out of 28800  10%
 
 
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 16 secs 
-Finished initial Timing Analysis.  REAL time: 16 secs 
+Starting initial Timing Analysis.  REAL time: 19 secs 
+Finished initial Timing Analysis.  REAL time: 19 secs 
 
 Starting Router
 
 
-Phase  1  : 9792 unrouted;      REAL time: 17 secs 
+Phase  1  : 18314 unrouted;      REAL time: 19 secs 
 
-Phase  2  : 8766 unrouted;      REAL time: 17 secs 
+Phase  2  : 16053 unrouted;      REAL time: 20 secs 
 
-Phase  3  : 4168 unrouted;      REAL time: 20 secs 
+Phase  3  : 7283 unrouted;      REAL time: 25 secs 
 
-Phase  4  : 4356 unrouted; (Par is working to improve performance)     REAL time: 25 secs 
+Phase  4  : 7283 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 27 secs 
 
 Updating file: FPGB.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 28 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 31 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 28 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 31 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 28 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 31 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 28 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 31 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 28 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 31 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 28 secs 
-Total REAL time to Router completion: 28 secs 
-Total CPU time to Router completion: 18 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 31 secs 
+Total REAL time to Router completion: 31 secs 
+Total CPU time to Router completion: 20 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -90,8 +86,102 @@ Partition Implementation Status
 -------------------------------
 
 Generating "PAR" statistics.
-INFO:Par:459 - The Clock Report is not displayed in the non timing-driven mode.
-Timing Score: 0 (Setup: 0, Hold: 0)
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/T_state<1> |              |      |      |            |             |
+|                     | BUFGCTRL_X0Y0| No   |   31 |  0.115     |  1.687      |
++---------------------+--------------+------+------+------------+-------------+
+|         clk4_2_OBUF |BUFGCTRL_X0Y31| No   |  258 |  0.415     |  1.923      |
++---------------------+--------------+------+------+------------+-------------+
+|    icon_control0<0> | BUFGCTRL_X0Y1| No   |   63 |  0.171     |  1.674      |
++---------------------+--------------+------+------+------------+-------------+
+|             clk25_2 |BUFGCTRL_X0Y29| No   |  160 |  0.321     |  1.916      |
++---------------------+--------------+------+------+------------+-------------+
+|      clk25_2_270deg |BUFGCTRL_X0Y30| No   |    9 |  0.018     |  1.782      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/T_state<4> |              |      |      |            |             |
+|                     |         Local|      |   63 |  0.000     |  1.349      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/next_T_sta |              |      |      |            |             |
+|  te_decoder_not0001 |         Local|      |    3 |  0.251     |  0.870      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/T_state<2> |              |      |      |            |             |
+|                     |         Local|      |   84 |  0.000     |  1.319      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/data_bu |              |      |      |            |             |
+|           s_not0001 |         Local|      |    4 |  0.220     |  0.695      |
++---------------------+--------------+------+------+------------+-------------+
+|memory_router_inst/d |              |      |      |            |             |
+|     ata_dma_not0001 |         Local|      |    8 |  0.376     |  1.019      |
++---------------------+--------------+------+------+------------+-------------+
+|   icon_control0<13> |         Local|      |    5 |  0.000     |  0.650      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/decode_con |              |      |      |            |             |
+|trol_word_56_mux0000 |              |      |      |            |             |
+|                     |         Local|      |    7 |  0.000     |  1.046      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/decode_con |              |      |      |            |             |
+|trol_word_13_mux0000 |              |      |      |            |             |
+|                     |         Local|      |    2 |  0.000     |  0.779      |
++---------------------+--------------+------+------+------------+-------------+
+|memory_router_inst/d |              |      |      |            |             |
+|     ata_out_not0001 |         Local|      |    8 |  0.497     |  1.127      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/next_T_sta |              |      |      |            |             |
+|   te_decoder_or0002 |         Local|      |    2 |  0.000     |  0.452      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/next_T_sta |              |      |      |            |             |
+| te_prefixCB_not0001 |         Local|      |    2 |  0.045     |  0.509      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/service_is |              |      |      |            |             |
+|           r_not0001 |         Local|      |    1 |  0.000     |  0.583      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/next_T_sta |              |      |      |            |             |
+|   te_decoder_or0001 |         Local|      |    2 |  0.102     |  0.707      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/next_T_sta |              |      |      |            |             |
+|   te_decoder_or0003 |         Local|      |    1 |  0.000     |  0.513      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/cpu_halt_n |              |      |      |            |             |
+|              ot0001 |         Local|      |    1 |  0.000     |  0.875      |
++---------------------+--------------+------+------+------------+-------------+
+|cpu_top_inst/cpu_con |              |      |      |            |             |
+|trol_inst/cpu_led_or |              |      |      |            |             |
+|                0000 |         Local|      |    1 |  0.000     |  3.058      |
++---------------------+--------------+------+------+------------+-------------+
+|U_icon_pro/U0/iUPDAT |              |      |      |            |             |
+|               E_OUT |         Local|      |    1 |  0.000     |  0.696      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
+
+Number of Timing Constraints that were not applied: 3
 
 Asterisk (*) preceding a constraint indicates it was not met.
    This may be due to a setup or hold violation.
@@ -100,14 +190,42 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|    10.028ns|     N/A|           0
-  4_2_OBUF                                  | HOLD        |     0.396ns|            |       0|           0
+  TS_ext_clk_p = PERIOD TIMEGRP "ext_clk_p" | MINLOWPULSE |     2.200ns|     2.800ns|       0|           0
+   5 ns HIGH 50%                            |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     3.600ns|     N/A|           0
-  25_2                                      | HOLD        |     0.451ns|            |       0|           0
+  TS_U_TO_J = MAXDELAY FROM TIMEGRP "U_CLK" | SETUP       |    11.728ns|     3.272ns|       0|           0
+   TO TIMEGRP "J_CLK" 15 ns                 | HOLD        |     1.616ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net cpu | SETUP       |         N/A|     3.638ns|     N/A|           0
-  _top_inst/cpu_control_inst/T_state<1>     | HOLD        |     0.879ns|            |       0|           0
+  TS_U_TO_U = MAXDELAY FROM TIMEGRP "U_CLK" | SETUP       |    14.110ns|     0.890ns|       0|           0
+   TO TIMEGRP "U_CLK" 15 ns                 | HOLD        |     0.566ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_systemPLL_inst_CLKOUT2_BUF = PERIOD TI | SETUP       |    21.369ns|    11.189ns|       0|           0
+  MEGRP "systemPLL_inst_CLKOUT2_BUF"        | HOLD        |    11.366ns|            |       0|           0
+    TS_ext_clk_p / 0.126 PHASE 29.7619048 n |             |            |            |        |            
+  s HIGH 50%                                |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_systemPLL_inst_CLKOUT1_BUF = PERIOD TI | SETUP       |    22.571ns|    17.111ns|       0|           0
+  MEGRP "systemPLL_inst_CLKOUT1_BUF"        | HOLD        |     0.155ns|            |       0|           0
+    TS_ext_clk_p / 0.126 HIGH 50%           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_J_CLK = PERIOD TIMEGRP "J_CLK" 30 ns H | SETUP       |    23.822ns|     6.178ns|       0|           0
+  IGH 50%                                   | HOLD        |     0.474ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_systemPLL_inst_CLKOUT0_BUF = PERIOD TI | SETUP       |    32.198ns|    44.909ns|       0|           0
+  MEGRP "systemPLL_inst_CLKOUT0_BUF"        | HOLD        |     0.324ns|            |       0|           0
+    TS_ext_clk_p / 0.021 HIGH 50%           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_D2_TO_T2_ila_pro_0_path" TIG     | SETUP       |         N/A|     2.963ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_J2_TO_D2_ila_pro_0_path" TIG     | N/A         |         N/A|         N/A|     N/A|         N/A
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_J3_TO_D2_ila_pro_0_path" TIG     | N/A         |         N/A|         N/A|     N/A|         N/A
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_J4_TO_D2_ila_pro_0_path" TIG     | MAXDELAY    |         N/A|     4.117ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_J_TO_D_path" TIG                 | SETUP       |         N/A|     3.643ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_D_TO_J_path" TIG                 | SETUP       |         N/A|     3.615ns|     N/A|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -115,16 +233,16 @@ Derived Constraint Report
 Review Timing Report for more details on the following derived constraints.
 To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
 or "Run Timing Analysis" from Timing Analyzer (timingan).
-Derived Constraints for systemPLL_inst/CLKIN1_IBUFGDS
+Derived Constraints for TS_ext_clk_p
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 |                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|systemPLL_inst/CLKIN1_IBUFGDS  |     10.000ns|      4.000ns|      0.210ns|            0|            0|            0|            0|
-| systemPLL_inst/CLKOUT1_BUF    |     79.365ns|      1.666ns|          N/A|            0|            0|            0|            0|
-| systemPLL_inst/CLKOUT2_BUF    |     79.365ns|      1.666ns|          N/A|            0|            0|            0|            0|
-| systemPLL_inst/CLKOUT0_BUF    |    476.190ns|      2.222ns|          N/A|            0|            0|            0|            0|
+|TS_ext_clk_p                   |      5.000ns|      2.800ns|      2.156ns|            0|            0|            0|      8535608|
+| TS_systemPLL_inst_CLKOUT0_BUF |    238.095ns|     44.909ns|          N/A|            0|            0|      7707772|            0|
+| TS_systemPLL_inst_CLKOUT1_BUF |     39.683ns|     17.111ns|          N/A|            0|            0|       827510|            0|
+| TS_systemPLL_inst_CLKOUT2_BUF |     39.683ns|     11.189ns|          N/A|            0|            0|          326|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -139,17 +257,18 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 32 secs 
-Total CPU time to PAR completion: 22 secs 
+Total REAL time to PAR completion: 36 secs 
+Total CPU time to PAR completion: 25 secs 
 
-Peak Memory Usage:  450 MB
+Peak Memory Usage:  503 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
+Timing: Completed - No errors found.
 
 Number of error messages: 0
 Number of warning messages: 0
-Number of info messages: 2
+Number of info messages: 0
 
 Writing design to file FPGB.ncd
 

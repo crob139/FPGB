@@ -18,7 +18,8 @@ module cpu_top(
 	cpu_serial_int_clear,
 	cpu_joypad_int_clear,
 	DMA_start,
-	GDMA_finished
+	GDMA_finished,
+	cpu_led
 	);
 
 `include "control_word.vh"
@@ -43,6 +44,7 @@ output					cpu_lcd_stat_int_clear;
 output					cpu_timer_int_clear;
 output					cpu_serial_int_clear;
 output					cpu_joypad_int_clear;
+output					cpu_led;
 
 reg			[7:0]		IR;
 reg			[7:0]		CB_IR;
@@ -73,6 +75,7 @@ wire			[7:0]		A;
 
 wire	[CTRL_MSB:0]	control_word;
 
+wire						cpu_led;
 
 cpu_control cpu_control_inst(
 	.clk4_2							(clk4_2),
@@ -92,7 +95,8 @@ cpu_control cpu_control_inst(
 	.cpu_serial_int_clear		(cpu_serial_int_clear),
 	.cpu_joypad_int_clear		(cpu_joypad_int_clear),
 	.DMA_start						(DMA_start),
-	.GDMA_finished					(GDMA_finished)
+	.GDMA_finished					(GDMA_finished),
+	.cpu_led							(cpu_led)
 	);
 
 ALU ALU_inst(

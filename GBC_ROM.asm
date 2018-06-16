@@ -350,7 +350,7 @@ Addr_02D7:
 	LD	DE,$FFA1		; $02EC Prepare for next frame by returning pointer to first row, but one coloumn to the rigth of the original position.
 	ADD	HL,DE			; $02EF
 	POP	BC			; $02F0
-Addr_02F3:
+Addr_02F1:
 	INC	B			; $02F1
 	LD	A,B			; $02F2
 	LD	E,$83			; $02F3
@@ -777,7 +777,7 @@ Addr_0528:
 	RLCA				; $052F
 	LD	B,$00			; $0530
 	LD	C,A			; $0532
-	ADD	HL,$BC			; $0533 Get offset into table of temporary palettes
+	ADD	HL,BC			; $0533 Get offset into table of temporary palettes
 	LD	DE,$D840		; $0534
 	LD	B,$08			; $0537
 Addr_0539:

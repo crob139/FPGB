@@ -1,7 +1,7 @@
 
 # PlanAhead Launch Script for Pre-Synthesis Floorplanning, created by Project Navigator
 
-create_project -name FPGB -dir "C:/Users/craig robertson/Desktop/FPGB/FPGB/planAhead_run_4" -part xc5vlx50tff1136-1
+create_project -name FPGB -dir "C:/Users/craig robertson/Desktop/FPGB/FPGB/planAhead_run_3" -part xc5vlx50tff1136-1
 set_param project.pinAheadLayout yes
 set srcset [get_property srcset [current_run -impl]]
 set_property target_constrs_file "FPGB.ucf" [current_fileset -constrset]
@@ -17,7 +17,29 @@ set_property library work $hdlfile
 set hdlfile [add_files [list {rtl/ALU.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
+set hdlfile [add_files [list {ipcore_dir/RAM_dual_port_15b.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+add_files [list {ipcore_dir/RAM_dual_port_15b.ngc}]
+set hdlfile [add_files [list {rtl/special_registers.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {rtl/ppu.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {rtl/memory_router.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
 set hdlfile [add_files [list {rtl/memory.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {rtl/mbc.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {rtl/frame_buffer.v}]]
+set_property file_type Verilog $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {rtl/dma_engine.v}]]
 set_property file_type Verilog $hdlfile
 set_property library work $hdlfile
 set hdlfile [add_files [list {rtl/cpu_top.v}]]

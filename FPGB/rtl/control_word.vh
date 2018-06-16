@@ -1,3 +1,4 @@
+localparam A_ADD						= 77;
 localparam A_WR_SUB					= 76;
 localparam PC_WR_JOYPAD_INT		= 75;
 localparam PC_WR_SERIAL_INT		= 74;
@@ -64,4 +65,4 @@ localparam DATA_BUS_LSB 			= 4;
 localparam ADDR_BUS_MSB 			= 3;
 localparam ADDR_BUS_LSB 			= 0;
 
-localparam CTRL_MSB					= 76;
+localparam CTRL_MSB					= 77;

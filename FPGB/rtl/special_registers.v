@@ -22,7 +22,11 @@ module special_registers(
 	STAT,
 	SCY,
 	SCX,
+	LY,
+	LYC,
 	VBK,
+	WY,
+	WX,
 	BRLO,
 	HDMA1,
 	HDMA2,
@@ -51,7 +55,8 @@ module special_registers(
 	joypad_int_sig,
 	cpu_joypad_int_clear,
 	joypad_int_req,
-	counterY
+	counterY,
+	led_out
 	);
 
 input						clk4_2;
@@ -85,7 +90,10 @@ output		[7:0]		STAT;
 output reg	[7:0]		SCY;
 output reg	[7:0]		SCX;
 output reg	[7:0]		LY;
+output reg	[7:0]		LYC;
 output reg 	[7:0]		VBK;
+output reg 	[7:0]		WY;
+output reg 	[7:0]		WX;
 output reg 	[7:0]		BRLO;
 output reg 	[7:0]		HDMA1;
 output reg 	[7:0]		HDMA2;
@@ -97,6 +105,8 @@ output reg 	[7:0]		BCPS_BGPI;
 output reg 	[7:0]		OCPS_OBPI;
 output reg 	[7:0]		SVBK;
 output reg 	[7:0]		IE;
+
+output reg				led_out;
 
 // Interrupts
 output					v_blank_int_req;
@@ -149,6 +159,7 @@ always @(posedge clk4_2 or negedge reset_n) begin
 		serial_int_clear <= 1'b0;
 		joypad_int_set <= 1'b0;
 		joypad_int_clear <= 1'b0;
+		led_out <= 1'b0;
 	end
 	else begin
 		if ((address_bus_offset == 16'hFF0F) && (write)) begin
@@ -157,6 +168,8 @@ always @(posedge clk4_2 or negedge reset_n) begin
 			end
 			else begin
 				v_blank_int_clear <= 1'b1;
+				led_out <= 1'b1;
+				//$stop;
 			end
 			
 			if (data_in[1]) begin
@@ -267,11 +280,11 @@ end
 // 0xFF43 - SCX - (R/W) - Scroll X
 always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
-		SCY <= 8'h00;
+		SCX <= 8'h00;
 	end
 	else begin
 		if ((address_bus_offset == 16'hFF43) && (write)) begin
-			SCY <= data_in;
+			SCX <= data_in;
 		end
 	end
 end
@@ -312,14 +325,38 @@ always @(posedge clk4_2 or negedge reset_n) begin
 	end
 end
 
-// 0xFF47 - VBK - (R/W) - VRAM Bank Control
+// 0xFF4F - VBK - (R/W) - VRAM Bank Control
 always @(posedge clk4_2 or negedge reset_n) begin
 	if (!reset_n) begin
 		VBK <= 8'h00;
 	end
 	else begin
-		if ((address_bus_offset == 16'hFF47) && (write)) begin
+		if ((address_bus_offset == 16'hFF4F) && (write)) begin
 			VBK <= data_in;
+		end
+	end
+end
+
+// 0xFF4A - WY - (R/W) - Window Y Position
+always @(posedge clk4_2 or negedge reset_n) begin
+	if (!reset_n) begin
+		WY <= 8'h00;
+	end
+	else begin
+		if ((address_bus_offset == 16'hFF4A) && (write)) begin
+			WY <= data_in;
+		end
+	end
+end
+
+// 0xFF4B - WX - (R/W) - Window X Position minus 7
+always @(posedge clk4_2 or negedge reset_n) begin
+	if (!reset_n) begin
+		WX <= 8'h00;
+	end
+	else begin
+		if ((address_bus_offset == 16'hFF4B) && (write)) begin
+			WX <= data_in;
 		end
 	end
 end
@@ -394,7 +431,6 @@ always @(posedge clk4_2 or negedge reset_n) begin
 		if ((address_bus_offset == 16'hFF55) && (write)) begin
 			HDMA5 <= data_in;
 			DMA_start <= 1'b1;
-			$stop;
 		end
 		else if (GDMA_finished) begin
 			HDMA5 <= 8'hFF;

@@ -16,7 +16,8 @@ module cpu_control(
 	cpu_serial_int_clear,
 	cpu_joypad_int_clear,
 	DMA_start,
-	GDMA_finished
+	GDMA_finished,
+	cpu_led
 	);
 
 `include "control_word.vh"
@@ -39,6 +40,9 @@ output reg						cpu_lcd_stat_int_clear;
 output reg						cpu_timer_int_clear;
 output reg						cpu_serial_int_clear;
 output reg						cpu_joypad_int_clear;
+output reg						cpu_led;
+
+reg						decode_cpu_led;
 
 reg	[3:0]				T_state, next_T_state, next_T_state_decoder, next_T_state_prefixCB;
 reg	[CTRL_MSB:0]	decode_control_word, control_word_prefixCB;
@@ -98,6 +102,7 @@ always @(*) begin
 			control_word[IR_WR] = 1'b0;
 			next_T_state = next_T_state_decoder;
 			control_word = decode_control_word;
+			cpu_led <= decode_cpu_led;
 		end
 		
 		default : begin
@@ -110,6 +115,7 @@ always @(*) begin
 			control_word = 0;
 			service_isr = 1'b0;
 			cpu_halt = 1'b0;
+			cpu_led <= 1'b0;
 		end
 	endcase
 end
@@ -930,6 +936,7 @@ always @(*) begin
 				if (T_state == 4'b0010) begin
 					next_T_state_decoder = 4'b0011;
 					decode_control_word[ADDR_BUS_WR] = 1'b1;
+					decode_cpu_led <= 1'b1;
 				end
 				else if (T_state == 4'b0011) begin
 					next_T_state_decoder = 4'b0100;
@@ -1154,12 +1161,59 @@ always @(*) begin
 				end
 			end
 			
+			// LD C, A							- 0x4F
+			8'h4F : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b0001; // Put A on data_bus
+					decode_control_word[C_WR] = 1'b1;
+				end
+			end
+			
+			// LD D, A							- 0x57
+			8'h57 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b0001; // Put A on data_bus
+					decode_control_word[D_WR] = 1'b1;
+				end
+			end
+			
 			// LD E, B							- 0x58
 			8'h58 : begin
 				if (T_state == 4'b0010) begin
 					next_T_state_decoder = 4'b0000;
 					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b0010; // Put B on data_bus
 					decode_control_word[E_WR] = 1'b1;
+				end
+			end
+			
+			// LD E, A							- 0x5F
+			8'h5F : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b0001; // Put A on data_bus
+					decode_control_word[E_WR] = 1'b1;
+				end
+			end
+			
+			// LD (HL), A						- 0x77
+			8'h77 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ADDR_BUS_MSB:ADDR_BUS_LSB] = 4'b0101; // Put HL onto address bus
+					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b0001; // Put A on data_bus
+					decode_control_word[ADDR_BUS_WR] = 1'b1;
+					decode_control_word[MEM_WR] = 1'b1;
+				end
+			end
+			
+			// LD A, B							- 0x78
+			8'h78 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b0010; // Put B on data_bus
+					decode_control_word[A_WR] = 1'b1;
 				end
 			end
 			
@@ -1181,6 +1235,15 @@ always @(*) begin
 				end
 			end
 			
+			// LD A, L							- 0x7D
+			8'h7D : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[DATA_BUS_MSB:DATA_BUS_LSB] = 4'b1000; // Put L on data_bus
+					decode_control_word[A_WR] = 1'b1;
+				end
+			end
+			
 			// LD A, (HL)						- 0x7E
 			8'h7E : begin
 				if (T_state == 4'b0010) begin
@@ -1192,6 +1255,72 @@ always @(*) begin
 					next_T_state_decoder = 4'b0000;
 					decode_control_word[A_WR] = 1'b1;
 					decode_control_word[ADDR_BUS_WR] = 1'b0;
+				end
+			end
+			
+			// ADD A, B							- 0x80
+			8'h80 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b1000; // B to ALU input1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b00001; // 8b ADD operation selected in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1; // Do this to write the flags
+					decode_control_word[A_ADD] = 1'b1; // Write result of add to A register
+				end
+			end
+			
+			// ADD A, E							- 0x83
+			8'h83 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0101; // E to ALU input1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b00001; // 8b ADD operation selected in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1; // Do this to write the flags
+					decode_control_word[A_ADD] = 1'b1; // Write result of add to A register
+				end
+			end
+			
+			// ADD A, (HL)						- 0x86
+			8'h86 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0011;
+					decode_control_word[ADDR_BUS_MSB:ADDR_BUS_LSB] = 4'b0101; // Put HL on the address bus
+					decode_control_word[ADDR_BUS_WR] = 1'b1;
+				end
+				else if (T_state == 4'b0011) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b1100; // data_bus to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b00001; // 8b ADD operation selected in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1; // Do this to write the flags
+					decode_control_word[A_ADD] = 1'b1; // Write result of add to A register
+				end
+			end
+			
+			// AND C								- 0xA1
+			8'hA1 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[PC_INC] = 1'b0;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0011; // C to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01100; // Select AND operation in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1; // Write Flags from operation
+					decode_control_word[A_WR_AND] = 1'b1; // Store result in A
+				end
+			end
+			
+			// XOR C								- 0xA9
+			8'hA9 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0011; // C to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b00101;  // Set ALU operation to XOR
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+					decode_control_word[A_WR_XOR] = 1'b1; // Write ALU operation result into A
 				end
 			end
 			
@@ -1216,6 +1345,86 @@ always @(*) begin
 					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01110;  // Set ALU operation to OR
 					decode_control_word[ALU_OUT_WR] = 1'b1;
 					decode_control_word[A_WR_OR] = 1'b1; // Write ALU operation result into A
+				end
+			end
+			
+			// OR C								- 0xB1
+			8'hB1 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0011; // C to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01110;  // Set ALU operation to OR
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+					decode_control_word[A_WR_OR] = 1'b1; // Write ALU operation result into A
+				end
+			end
+			
+			// OR D								- 0xB2
+			8'hB2 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0100; // D to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01110;  // Set ALU operation to OR
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+					decode_control_word[A_WR_OR] = 1'b1; // Write ALU operation result into A
+				end
+			end
+			
+			// OR E								- 0xB3
+			8'hB3 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0101; // E to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01110;  // Set ALU operation to OR
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+					decode_control_word[A_WR_OR] = 1'b1; // Write ALU operation result into A
+				end
+			end
+			
+			// CP B								- 0xB8
+			8'hB8 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0010; // B to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01011; // Select compare operation in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+				end
+			end
+			
+			// CP C								- 0xB9
+			8'hB9 : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0011; // C to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01011; // Select compare operation in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+				end
+			end
+			
+			// CP D								- 0xBA
+			8'hBA : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0100; // D to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01011; // Select compare operation in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
+				end
+			end
+			
+			// CP E								- 0xBB
+			8'hBB : begin
+				if (T_state == 4'b0010) begin
+					next_T_state_decoder = 4'b0000;
+					decode_control_word[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // A to ALU input 0
+					decode_control_word[ALU_MUX1_MSB:ALU_MUX1_LSB] = 4'b0101; // E to ALU input 1
+					decode_control_word[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01011; // Select compare operation in ALU
+					decode_control_word[ALU_OUT_WR] = 1'b1;
 				end
 			end
 			
@@ -1987,7 +2196,7 @@ always @(*) begin
 			if (T_state == 4'b0100) begin
 				next_T_state_prefixCB = 4'b0101;
 				control_word_prefixCB[CB_IR_WR] = 1'b0; // Must be in all Prefix CB first states to prevent re-write
-				control_word_prefixCB[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01101; // Rotate left operation
+				control_word_prefixCB[ALU_CNTL_MSB:ALU_CNTL_LSB] = 5'b01101; // Swap operation
 				control_word_prefixCB[ALU_MUX0_MSB:ALU_MUX0_LSB] = 4'b0001; // Select A into ALU input 0
 				control_word_prefixCB[ALU_OUT_WR] = 1'b1; // Write the lower byte of ALU out with swapped nibbles of input
 			end

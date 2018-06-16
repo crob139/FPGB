@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sat May 26 18:34:29 2018
+// Written by: Map P.20131013 on Sat Jun 16 13:02:53 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -7,10 +7,13 @@ COMP "ext_reset_n" LOCATE = SITE "AJ6" LEVEL 1;
 COMP "DVI_H" LOCATE = SITE "AM12" LEVEL 1;
 COMP "DVI_V" LOCATE = SITE "AM11" LEVEL 1;
 COMP "LED_test" LOCATE = SITE "AD26" LEVEL 1;
+COMP "cpu_led" LOCATE = SITE "AD25" LEVEL 1;
+COMP "led_out" LOCATE = SITE "AD24" LEVEL 1;
 COMP "DVI_RESET_B" LOCATE = SITE "AK6" LEVEL 1;
 COMP "DVI_DE" LOCATE = SITE "AE8" LEVEL 1;
 COMP "ext_clk_p" LOCATE = SITE "L19" LEVEL 1;
 COMP "XCLK_P" LOCATE = SITE "AL11" LEVEL 1;
+COMP "debug_led" LOCATE = SITE "AE24" LEVEL 1;
 COMP "DVI_D<10>" LOCATE = SITE "AP14" LEVEL 1;
 COMP "DVI_D<11>" LOCATE = SITE "AN14" LEVEL 1;
 COMP "I2C_SDA_video" LOCATE = SITE "T29" LEVEL 1;
@@ -25,5 +28,2470 @@ COMP "DVI_D<7>" LOCATE = SITE "AN13" LEVEL 1;
 COMP "DVI_D<8>" LOCATE = SITE "AA10" LEVEL 1;
 COMP "DVI_D<9>" LOCATE = SITE "AB10" LEVEL 1;
 COMP "I2C_SCL_video" LOCATE = SITE "U27" LEVEL 1;
+PIN
+        U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<31>
+        = BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16"
+        PINNAME CLKBU;
+PIN
+        U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<109>
+        = BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16"
+        PINNAME REGCLKBU;
+PIN memory_inst/boot_ROM/Mrom_data_out1_pins<14> = BEL
+        "memory_inst/boot_ROM/Mrom_data_out1" PINNAME CLKAL;
+PIN memory_inst/boot_ROM/Mrom_data_out1_pins<27> = BEL
+        "memory_inst/boot_ROM/Mrom_data_out1" PINNAME REGCLKAL;
+PIN memory_inst/boot_ROM/Mrom_data_out2_pins<32> = BEL
+        "memory_inst/boot_ROM/Mrom_data_out2" PINNAME CLKAL;
+PIN memory_inst/boot_ROM/Mrom_data_out2_pins<110> = BEL
+        "memory_inst/boot_ROM/Mrom_data_out2" PINNAME REGCLKAL;
+PIN memory_inst/high_ram/Mram_ram_pins<32> = BEL
+        "memory_inst/high_ram/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/high_ram/Mram_ram_pins<110> = BEL
+        "memory_inst/high_ram/Mram_ram" PINNAME REGCLKAL;
+PIN memory_inst/ext_ram_bank0/Mram_ram1_pins<28> = BEL
+        "memory_inst/ext_ram_bank0/Mram_ram1" PINNAME CLKAL;
+PIN memory_inst/ext_ram_bank0/Mram_ram1_pins<29> = BEL
+        "memory_inst/ext_ram_bank0/Mram_ram1" PINNAME CLKAU;
+PIN memory_inst/ext_ram_bank0/Mram_ram2_pins<28> = BEL
+        "memory_inst/ext_ram_bank0/Mram_ram2" PINNAME CLKAL;
+PIN memory_inst/ext_ram_bank0/Mram_ram2_pins<29> = BEL
+        "memory_inst/ext_ram_bank0/Mram_ram2" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank0/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank0/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank0/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank0/Mram_ram" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank1/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank1/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank1/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank1/Mram_ram" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank2/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank2/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank2/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank2/Mram_ram" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank3/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank3/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank3/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank3/Mram_ram" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank4/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank4/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank4/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank4/Mram_ram" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank5/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank5/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank5/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank5/Mram_ram" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank6/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank6/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank6/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank6/Mram_ram" PINNAME CLKAU;
+PIN memory_inst/work_ram_bank7/Mram_ram_pins<26> = BEL
+        "memory_inst/work_ram_bank7/Mram_ram" PINNAME CLKAL;
+PIN memory_inst/work_ram_bank7/Mram_ram_pins<27> = BEL
+        "memory_inst/work_ram_bank7/Mram_ram" PINNAME CLKAU;
+TIMEGRP D_CLK = BEL "debug_led" BEL "dma_engine_inst/GDMA_state_FSM_FFd2" BEL
+        "dma_engine_inst/GDMA_state_FSM_FFd1" BEL
+        "dma_engine_inst/GDMA_count_11" BEL "dma_engine_inst/GDMA_count_10"
+        BEL "dma_engine_inst/GDMA_count_9" BEL "dma_engine_inst/GDMA_count_8"
+        BEL "dma_engine_inst/GDMA_count_7" BEL "dma_engine_inst/GDMA_count_6"
+        BEL "dma_engine_inst/GDMA_count_5" BEL "dma_engine_inst/GDMA_count_4"
+        BEL "dma_engine_inst/GDMA_address_bus_rd_count_11" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_10" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_9" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_8" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_7" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_6" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_5" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_4" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_3" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_2" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_1" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_0" BEL
+        "dma_engine_inst/GDMA_finished" BEL
+        "dma_engine_inst/GDMA_wr_en_dma_wr" BEL
+        "dma_engine_inst/GDMA_transfer_count_11" BEL
+        "dma_engine_inst/GDMA_transfer_count_10" BEL
+        "dma_engine_inst/GDMA_transfer_count_9" BEL
+        "dma_engine_inst/GDMA_transfer_count_8" BEL
+        "dma_engine_inst/GDMA_transfer_count_7" BEL
+        "dma_engine_inst/GDMA_transfer_count_6" BEL
+        "dma_engine_inst/GDMA_transfer_count_5" BEL
+        "dma_engine_inst/GDMA_transfer_count_4" BEL
+        "dma_engine_inst/GDMA_transfer_count_3" BEL
+        "dma_engine_inst/GDMA_transfer_count_2" BEL
+        "dma_engine_inst/GDMA_transfer_count_1" BEL
+        "dma_engine_inst/GDMA_transfer_count_0" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_15" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_14" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_13" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_12" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_11" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_10" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_9" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_8" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_7" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_6" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_5" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_4" BEL
+        "special_registers_inst/IF_reg_4" BEL
+        "special_registers_inst/IF_reg_3" BEL
+        "special_registers_inst/IF_reg_2" BEL
+        "special_registers_inst/IF_reg_1" BEL
+        "special_registers_inst/IF_reg_0" BEL "special_registers_inst/IE_7"
+        BEL "special_registers_inst/IE_6" BEL "special_registers_inst/IE_5"
+        BEL "special_registers_inst/IE_4" BEL "special_registers_inst/IE_3"
+        BEL "special_registers_inst/IE_2" BEL "special_registers_inst/IE_1"
+        BEL "special_registers_inst/IE_0" BEL "special_registers_inst/SVBK_7"
+        BEL "special_registers_inst/SVBK_6" BEL
+        "special_registers_inst/SVBK_5" BEL "special_registers_inst/SVBK_4"
+        BEL "special_registers_inst/SVBK_3" BEL
+        "special_registers_inst/SVBK_2" BEL "special_registers_inst/SVBK_1"
+        BEL "special_registers_inst/SVBK_0" BEL
+        "special_registers_inst/OCPS_OBPI_1" BEL
+        "special_registers_inst/OCPS_OBPI_2" BEL
+        "special_registers_inst/OCPS_OBPI_0" BEL
+        "special_registers_inst/OCPS_OBPI_4" BEL
+        "special_registers_inst/OCPS_OBPI_5" BEL
+        "special_registers_inst/OCPS_OBPI_3" BEL
+        "special_registers_inst/OCPS_OBPI_7" BEL
+        "special_registers_inst/BCPS_BGPI_0" BEL
+        "special_registers_inst/OCPS_OBPI_6" BEL
+        "special_registers_inst/BCPS_BGPI_2" BEL
+        "special_registers_inst/BCPS_BGPI_3" BEL
+        "special_registers_inst/BCPS_BGPI_1" BEL
+        "special_registers_inst/BCPS_BGPI_5" BEL
+        "special_registers_inst/BCPS_BGPI_6" BEL
+        "special_registers_inst/BCPS_BGPI_4" BEL
+        "special_registers_inst/BCPS_BGPI_7" BEL
+        "special_registers_inst/DMA_start" BEL
+        "special_registers_inst/HDMA4_7" BEL "special_registers_inst/HDMA4_6"
+        BEL "special_registers_inst/HDMA4_5" BEL
+        "special_registers_inst/HDMA4_4" BEL "special_registers_inst/HDMA4_3"
+        BEL "special_registers_inst/HDMA4_2" BEL
+        "special_registers_inst/HDMA4_1" BEL "special_registers_inst/HDMA4_0"
+        BEL "special_registers_inst/HDMA2_7" BEL
+        "special_registers_inst/HDMA2_6" BEL "special_registers_inst/HDMA2_5"
+        BEL "special_registers_inst/HDMA2_4" BEL
+        "special_registers_inst/HDMA2_3" BEL "special_registers_inst/HDMA2_2"
+        BEL "special_registers_inst/HDMA2_1" BEL
+        "special_registers_inst/HDMA2_0" BEL "special_registers_inst/HDMA1_7"
+        BEL "special_registers_inst/HDMA1_6" BEL
+        "special_registers_inst/HDMA1_5" BEL "special_registers_inst/HDMA1_4"
+        BEL "special_registers_inst/HDMA1_3" BEL
+        "special_registers_inst/HDMA1_2" BEL "special_registers_inst/HDMA1_1"
+        BEL "special_registers_inst/HDMA1_0" BEL
+        "special_registers_inst/HDMA3_7" BEL "special_registers_inst/HDMA3_6"
+        BEL "special_registers_inst/HDMA3_5" BEL
+        "special_registers_inst/HDMA3_4" BEL "special_registers_inst/HDMA3_3"
+        BEL "special_registers_inst/HDMA3_2" BEL
+        "special_registers_inst/HDMA3_1" BEL "special_registers_inst/HDMA3_0"
+        BEL "special_registers_inst/WX_7" BEL "special_registers_inst/WX_6"
+        BEL "special_registers_inst/WX_5" BEL "special_registers_inst/WX_4"
+        BEL "special_registers_inst/WX_3" BEL "special_registers_inst/WX_2"
+        BEL "special_registers_inst/WX_1" BEL "special_registers_inst/WX_0"
+        BEL "special_registers_inst/WY_7" BEL "special_registers_inst/WY_6"
+        BEL "special_registers_inst/WY_5" BEL "special_registers_inst/WY_4"
+        BEL "special_registers_inst/WY_3" BEL "special_registers_inst/WY_2"
+        BEL "special_registers_inst/WY_1" BEL "special_registers_inst/WY_0"
+        BEL "special_registers_inst/BRLO_7" BEL
+        "special_registers_inst/BRLO_6" BEL "special_registers_inst/BRLO_5"
+        BEL "special_registers_inst/BRLO_4" BEL
+        "special_registers_inst/BRLO_3" BEL "special_registers_inst/BRLO_2"
+        BEL "special_registers_inst/BRLO_1" BEL
+        "special_registers_inst/BRLO_0" BEL "special_registers_inst/LYC_7" BEL
+        "special_registers_inst/LYC_6" BEL "special_registers_inst/LYC_5" BEL
+        "special_registers_inst/LYC_4" BEL "special_registers_inst/LYC_3" BEL
+        "special_registers_inst/LYC_2" BEL "special_registers_inst/LYC_1" BEL
+        "special_registers_inst/LYC_0" BEL
+        "special_registers_inst/LY_count_reset" BEL
+        "special_registers_inst/VBK_7" BEL "special_registers_inst/VBK_6" BEL
+        "special_registers_inst/VBK_5" BEL "special_registers_inst/VBK_4" BEL
+        "special_registers_inst/VBK_3" BEL "special_registers_inst/VBK_2" BEL
+        "special_registers_inst/VBK_1" BEL "special_registers_inst/VBK_0" BEL
+        "special_registers_inst/SCY_7" BEL "special_registers_inst/SCY_6" BEL
+        "special_registers_inst/SCY_5" BEL "special_registers_inst/SCY_4" BEL
+        "special_registers_inst/SCY_3" BEL "special_registers_inst/SCY_2" BEL
+        "special_registers_inst/SCY_1" BEL "special_registers_inst/SCY_0" BEL
+        "special_registers_inst/STAT_reg_4" BEL
+        "special_registers_inst/STAT_reg_3" BEL
+        "special_registers_inst/STAT_reg_2" BEL
+        "special_registers_inst/STAT_reg_1" BEL
+        "special_registers_inst/STAT_reg_0" BEL "special_registers_inst/SCX_7"
+        BEL "special_registers_inst/SCX_6" BEL "special_registers_inst/SCX_5"
+        BEL "special_registers_inst/SCX_4" BEL "special_registers_inst/SCX_3"
+        BEL "special_registers_inst/SCX_2" BEL "special_registers_inst/SCX_1"
+        BEL "special_registers_inst/SCX_0" BEL
+        "special_registers_inst/led_out" BEL
+        "special_registers_inst/joypad_int_clear" BEL
+        "special_registers_inst/LCDC_7" BEL "special_registers_inst/LCDC_6"
+        BEL "special_registers_inst/LCDC_5" BEL
+        "special_registers_inst/LCDC_4" BEL "special_registers_inst/LCDC_3"
+        BEL "special_registers_inst/LCDC_2" BEL
+        "special_registers_inst/LCDC_1" BEL "special_registers_inst/LCDC_0"
+        BEL "special_registers_inst/serial_int_clear" BEL
+        "special_registers_inst/serial_int_set" BEL
+        "special_registers_inst/joypad_int_set" BEL
+        "special_registers_inst/timer_int_set" BEL
+        "special_registers_inst/lcd_stat_int_clear" BEL
+        "special_registers_inst/timer_int_clear" BEL
+        "special_registers_inst/lcd_stat_int_set" BEL
+        "special_registers_inst/v_blank_int_clear" BEL
+        "special_registers_inst/v_blank_int_set" BEL
+        "special_registers_inst/P1_JOYP_reg_1" BEL
+        "special_registers_inst/P1_JOYP_reg_0" BEL "ppu_inst/counterY_7" BEL
+        "ppu_inst/counterY_6" BEL "ppu_inst/counterX_8" BEL
+        "ppu_inst/counterX_7" BEL "ppu_inst/counterX_6" BEL
+        "ppu_inst/counterX_5" BEL "ppu_inst/counterX_4" BEL
+        "ppu_inst/counterX_3" BEL "ppu_inst/counterX_2" BEL
+        "ppu_inst/counterX_1" BEL "ppu_inst/counterX_0" BEL
+        "ppu_inst/counterY_4" BEL "ppu_inst/counterY_3" BEL
+        "ppu_inst/counterY_5" BEL "ppu_inst/counterY_1" BEL
+        "ppu_inst/counterY_0" BEL "ppu_inst/counterY_2" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_9" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_8" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_6" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_5" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_7" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_4" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_3" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_1" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_0" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_2" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_14" BEL "cpu_top_inst/ALU_inst/A_0" BEL
+        "cpu_top_inst/ALU_inst/A_1" BEL "cpu_top_inst/ALU_inst/A_2" BEL
+        "cpu_top_inst/ALU_inst/A_3" BEL "cpu_top_inst/ALU_inst/A_4" BEL
+        "cpu_top_inst/ALU_inst/A_5" BEL "cpu_top_inst/ALU_inst/A_6" BEL
+        "cpu_top_inst/ALU_inst/A_7" BEL "cpu_top_inst/ALU_inst/ALU_out_15" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_13" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_12" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_9" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_11" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_10" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_8" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_7" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_4" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_6" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_5" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_3" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_2" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_1" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_0" BEL "cpu_top_inst/ALU_inst/F_7" BEL
+        "cpu_top_inst/ALU_inst/F_6" BEL "cpu_top_inst/ALU_inst/F_5" BEL
+        "cpu_top_inst/ALU_inst/F_4" BEL "cpu_top_inst/L_0" BEL
+        "cpu_top_inst/L_1" BEL "cpu_top_inst/L_2" BEL "cpu_top_inst/L_3" BEL
+        "cpu_top_inst/L_4" BEL "cpu_top_inst/L_5" BEL "cpu_top_inst/L_6" BEL
+        "cpu_top_inst/L_7" BEL "cpu_top_inst/E_7" BEL "cpu_top_inst/E_6" BEL
+        "cpu_top_inst/E_4" BEL "cpu_top_inst/E_3" BEL "cpu_top_inst/E_5" BEL
+        "cpu_top_inst/E_1" BEL "cpu_top_inst/E_0" BEL "cpu_top_inst/E_2" BEL
+        "cpu_top_inst/D_6" BEL "cpu_top_inst/D_5" BEL "cpu_top_inst/D_7" BEL
+        "cpu_top_inst/D_3" BEL "cpu_top_inst/D_2" BEL "cpu_top_inst/D_4" BEL
+        "cpu_top_inst/D_0" BEL "cpu_top_inst/C_7" BEL "cpu_top_inst/D_1" BEL
+        "cpu_top_inst/C_5" BEL "cpu_top_inst/C_4" BEL "cpu_top_inst/C_6" BEL
+        "cpu_top_inst/C_2" BEL "cpu_top_inst/C_1" BEL "cpu_top_inst/C_3" BEL
+        "cpu_top_inst/B_7" BEL "cpu_top_inst/B_6" BEL "cpu_top_inst/C_0" BEL
+        "cpu_top_inst/B_4" BEL "cpu_top_inst/B_3" BEL "cpu_top_inst/B_5" BEL
+        "cpu_top_inst/B_1" BEL "cpu_top_inst/B_0" BEL "cpu_top_inst/B_2" BEL
+        "cpu_top_inst/Z_7" BEL "cpu_top_inst/Z_6" BEL "cpu_top_inst/Z_5" BEL
+        "cpu_top_inst/Z_4" BEL "cpu_top_inst/Z_3" BEL "cpu_top_inst/Z_2" BEL
+        "cpu_top_inst/Z_1" BEL "cpu_top_inst/Z_0" BEL "cpu_top_inst/W_7" BEL
+        "cpu_top_inst/W_6" BEL "cpu_top_inst/W_5" BEL "cpu_top_inst/W_4" BEL
+        "cpu_top_inst/W_3" BEL "cpu_top_inst/W_2" BEL "cpu_top_inst/W_1" BEL
+        "cpu_top_inst/W_0" BEL "cpu_top_inst/IME" BEL "cpu_top_inst/CB_IR_7"
+        BEL "cpu_top_inst/CB_IR_6" BEL "cpu_top_inst/CB_IR_5" BEL
+        "cpu_top_inst/CB_IR_4" BEL "cpu_top_inst/CB_IR_3" BEL
+        "cpu_top_inst/CB_IR_2" BEL "cpu_top_inst/CB_IR_1" BEL
+        "cpu_top_inst/CB_IR_0" BEL "cpu_top_inst/IR_7" BEL "cpu_top_inst/IR_6"
+        BEL "cpu_top_inst/IR_5" BEL "cpu_top_inst/IR_4" BEL
+        "cpu_top_inst/IR_3" BEL "cpu_top_inst/IR_2" BEL "cpu_top_inst/IR_1"
+        BEL "cpu_top_inst/IR_0" BEL "cpu_top_inst/SP_1" BEL
+        "cpu_top_inst/SP_2" BEL "cpu_top_inst/SP_0" BEL "cpu_top_inst/SP_3"
+        BEL "cpu_top_inst/SP_4" BEL "cpu_top_inst/SP_5" BEL
+        "cpu_top_inst/SP_6" BEL "cpu_top_inst/SP_8" BEL "cpu_top_inst/SP_9"
+        BEL "cpu_top_inst/SP_7" BEL "cpu_top_inst/SP_10" BEL
+        "cpu_top_inst/SP_11" BEL "cpu_top_inst/SP_12" BEL "cpu_top_inst/SP_13"
+        BEL "cpu_top_inst/SP_15" BEL "cpu_top_inst/SP_14" BEL
+        "cpu_top_inst/H_7" BEL "cpu_top_inst/H_6" BEL "cpu_top_inst/H_5" BEL
+        "cpu_top_inst/H_4" BEL "cpu_top_inst/H_3" BEL "cpu_top_inst/H_2" BEL
+        "cpu_top_inst/H_1" BEL "cpu_top_inst/H_0" BEL "cpu_top_inst/PC_6" BEL
+        "cpu_top_inst/PC_0" BEL "cpu_top_inst/PC_1" BEL "cpu_top_inst/PC_3"
+        BEL "cpu_top_inst/PC_2" BEL "cpu_top_inst/PC_7" BEL
+        "cpu_top_inst/PC_8" BEL "cpu_top_inst/PC_10" BEL "cpu_top_inst/PC_11"
+        BEL "cpu_top_inst/PC_9" BEL "cpu_top_inst/PC_12" BEL
+        "cpu_top_inst/PC_13" BEL "cpu_top_inst/PC_14" BEL "cpu_top_inst/PC_15"
+        BEL "special_registers_inst/HDMA5_7" BEL
+        "special_registers_inst/HDMA5_6" BEL "special_registers_inst/HDMA5_5"
+        BEL "special_registers_inst/HDMA5_4" BEL
+        "special_registers_inst/HDMA5_3" BEL "special_registers_inst/HDMA5_2"
+        BEL "special_registers_inst/HDMA5_1" BEL
+        "special_registers_inst/HDMA5_0" BEL
+        "memory_router_inst/address_bus_reg_7" BEL
+        "memory_router_inst/address_bus_reg_6" BEL
+        "memory_router_inst/address_bus_reg_5" BEL
+        "memory_router_inst/address_bus_reg_4" BEL
+        "memory_router_inst/address_bus_reg_3" BEL
+        "memory_router_inst/address_bus_reg_2" BEL
+        "memory_router_inst/address_bus_reg_1" BEL
+        "memory_router_inst/address_bus_reg_0" BEL "cpu_top_inst/PC_4" BEL
+        "memory_router_inst/address_bus_reg_15" BEL
+        "memory_router_inst/address_bus_reg_14" BEL
+        "memory_router_inst/address_bus_reg_13" BEL
+        "memory_router_inst/address_bus_reg_12" BEL
+        "memory_router_inst/address_bus_reg_11" BEL
+        "memory_router_inst/address_bus_reg_10" BEL
+        "memory_router_inst/address_bus_reg_9" BEL
+        "memory_router_inst/address_bus_reg_8" BEL "cpu_top_inst/PC_5" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_WCNT_HCMP_Q" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_WCNT_LCMP_Q" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_SCNT_CMP_Q" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_INTCAP_F.U_CAPWE0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_INTCAP_F.U_CAPWE1"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_TRIG0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_TRIG1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS0/I_YESLUT6.I_YES_RPM.I_YES_OREG.OUT_REG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS1/I_YESLUT6.I_YES_RPM.I_YES_OREG.OUT_REG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_CDONE/I_YESLUT6.I_YES_RPM.I_YES_OREG.OUT_REG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[9].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[8].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[7].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[6].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[5].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[4].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[9].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[8].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[7].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[6].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[5].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[4].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[9].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[9].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[8].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[8].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[7].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[7].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[6].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[6].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[5].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[5].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[4].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[4].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[3].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[3].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[2].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[2].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[1].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[1].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[0].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[0].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[15].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[14].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[13].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[12].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[11].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[10].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[9].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[8].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[7].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[6].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[5].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[4].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[3].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[2].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[1].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[0].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[15].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[14].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[13].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[12].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[11].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[10].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[9].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[8].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[7].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[6].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[5].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[4].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[3].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[2].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[1].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[0].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[1].U_GAND_SRL_SLICE/I_IS_TERMINATION_SLICE_NE0.I_USE_OUTPUT_REG_NE0.U_OREG"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL2" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL3" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_CR" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[9].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[8].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[7].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[6].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[5].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[4].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[3].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[2].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[1].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[0].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STATE1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STATE0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_ARM" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_TRIGGER" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_FULL" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_ECR" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_RISING" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_GEN_DELAY[1].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_RFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[1].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[2].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[3].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[4].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[5].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[6].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[7].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[8].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[9].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[10].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[11].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[12].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[13].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[14].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[15].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/FINAL_FDR"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_POR" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[0].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[1].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[2].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[3].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[4].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[5].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[6].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[7].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_GEN_DELAY[2].U_FD"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_GEN_DELAY[1].U_FD"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_RFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[4].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[3].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[2].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[1].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_RFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[0].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[1].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[2].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[3].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[4].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[5].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[6].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[7].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[8].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[9].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[10].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[11].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[12].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[13].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[14].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[15].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[0].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[1].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[2].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[3].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[4].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[5].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[6].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[7].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[8].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[9].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[10].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[11].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[12].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[13].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[14].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[15].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_OREG.I_YES_OREG.U_OREG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/I_MC_NO.U_NO_MC_REG"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_CAP_DLY"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_STORAGE_QUAL/I_SRLT_NE_1.I_NMU_1_TO_4.U_TCL/I_OUTREG.U_DOUT"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_STORAGE_QUAL/I_SRLT_NE_1.I_NMU_1_TO_4.U_TRIGQ"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_NEQ2.U_TC_EQUATION/I_SRLT_NE_1.I_NMU_1_TO_4.U_TCL/I_OUTREG.U_DOUT"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_NEQ2.U_TC_EQUATION/I_SRLT_NE_1.I_NMU_1_TO_4.U_TRIGQ"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/F_NO_TCMC.U_FDR" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[15].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[14].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[13].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[12].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[11].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[10].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[9].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[8].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[7].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[6].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[5].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[4].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[3].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[2].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[1].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[0].U_TQ" BEL "clk4_2" PIN
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<31>"
+        PIN
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<109>"
+        PIN "memory_inst/boot_ROM/Mrom_data_out1_pins<14>" PIN
+        "memory_inst/boot_ROM/Mrom_data_out1_pins<27>" PIN
+        "memory_inst/boot_ROM/Mrom_data_out2_pins<32>" PIN
+        "memory_inst/boot_ROM/Mrom_data_out2_pins<110>" PIN
+        "memory_inst/high_ram/Mram_ram_pins<32>" PIN
+        "memory_inst/high_ram/Mram_ram_pins<110>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<29>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<29>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<29>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<29>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<27>";
+TIMEGRP systemPLL_inst_CLKOUT0_BUF = BEL "debug_led" BEL
+        "systemPLL_inst/CLKOUT0_BUFG_INST" BEL
+        "dma_engine_inst/GDMA_state_FSM_FFd2" BEL
+        "dma_engine_inst/GDMA_state_FSM_FFd1" BEL
+        "dma_engine_inst/GDMA_count_11" BEL "dma_engine_inst/GDMA_count_10"
+        BEL "dma_engine_inst/GDMA_count_9" BEL "dma_engine_inst/GDMA_count_8"
+        BEL "dma_engine_inst/GDMA_count_7" BEL "dma_engine_inst/GDMA_count_6"
+        BEL "dma_engine_inst/GDMA_count_5" BEL "dma_engine_inst/GDMA_count_4"
+        BEL "dma_engine_inst/GDMA_address_bus_rd_count_11" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_10" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_9" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_8" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_7" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_6" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_5" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_4" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_3" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_2" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_1" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_count_0" BEL
+        "dma_engine_inst/GDMA_finished" BEL
+        "dma_engine_inst/GDMA_wr_en_dma_wr" BEL
+        "dma_engine_inst/GDMA_transfer_count_11" BEL
+        "dma_engine_inst/GDMA_transfer_count_10" BEL
+        "dma_engine_inst/GDMA_transfer_count_9" BEL
+        "dma_engine_inst/GDMA_transfer_count_8" BEL
+        "dma_engine_inst/GDMA_transfer_count_7" BEL
+        "dma_engine_inst/GDMA_transfer_count_6" BEL
+        "dma_engine_inst/GDMA_transfer_count_5" BEL
+        "dma_engine_inst/GDMA_transfer_count_4" BEL
+        "dma_engine_inst/GDMA_transfer_count_3" BEL
+        "dma_engine_inst/GDMA_transfer_count_2" BEL
+        "dma_engine_inst/GDMA_transfer_count_1" BEL
+        "dma_engine_inst/GDMA_transfer_count_0" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_15" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_14" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_13" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_12" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_11" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_10" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_9" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_8" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_7" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_6" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_5" BEL
+        "dma_engine_inst/GDMA_address_bus_rd_4" BEL
+        "special_registers_inst/IF_reg_4" BEL
+        "special_registers_inst/IF_reg_3" BEL
+        "special_registers_inst/IF_reg_2" BEL
+        "special_registers_inst/IF_reg_1" BEL
+        "special_registers_inst/IF_reg_0" BEL "special_registers_inst/IE_7"
+        BEL "special_registers_inst/IE_6" BEL "special_registers_inst/IE_5"
+        BEL "special_registers_inst/IE_4" BEL "special_registers_inst/IE_3"
+        BEL "special_registers_inst/IE_2" BEL "special_registers_inst/IE_1"
+        BEL "special_registers_inst/IE_0" BEL "special_registers_inst/SVBK_7"
+        BEL "special_registers_inst/SVBK_6" BEL
+        "special_registers_inst/SVBK_5" BEL "special_registers_inst/SVBK_4"
+        BEL "special_registers_inst/SVBK_3" BEL
+        "special_registers_inst/SVBK_2" BEL "special_registers_inst/SVBK_1"
+        BEL "special_registers_inst/SVBK_0" BEL
+        "special_registers_inst/OCPS_OBPI_1" BEL
+        "special_registers_inst/OCPS_OBPI_2" BEL
+        "special_registers_inst/OCPS_OBPI_0" BEL
+        "special_registers_inst/OCPS_OBPI_4" BEL
+        "special_registers_inst/OCPS_OBPI_5" BEL
+        "special_registers_inst/OCPS_OBPI_3" BEL
+        "special_registers_inst/OCPS_OBPI_7" BEL
+        "special_registers_inst/BCPS_BGPI_0" BEL
+        "special_registers_inst/OCPS_OBPI_6" BEL
+        "special_registers_inst/BCPS_BGPI_2" BEL
+        "special_registers_inst/BCPS_BGPI_3" BEL
+        "special_registers_inst/BCPS_BGPI_1" BEL
+        "special_registers_inst/BCPS_BGPI_5" BEL
+        "special_registers_inst/BCPS_BGPI_6" BEL
+        "special_registers_inst/BCPS_BGPI_4" BEL
+        "special_registers_inst/BCPS_BGPI_7" BEL
+        "special_registers_inst/DMA_start" BEL
+        "special_registers_inst/HDMA4_7" BEL "special_registers_inst/HDMA4_6"
+        BEL "special_registers_inst/HDMA4_5" BEL
+        "special_registers_inst/HDMA4_4" BEL "special_registers_inst/HDMA4_3"
+        BEL "special_registers_inst/HDMA4_2" BEL
+        "special_registers_inst/HDMA4_1" BEL "special_registers_inst/HDMA4_0"
+        BEL "special_registers_inst/HDMA2_7" BEL
+        "special_registers_inst/HDMA2_6" BEL "special_registers_inst/HDMA2_5"
+        BEL "special_registers_inst/HDMA2_4" BEL
+        "special_registers_inst/HDMA2_3" BEL "special_registers_inst/HDMA2_2"
+        BEL "special_registers_inst/HDMA2_1" BEL
+        "special_registers_inst/HDMA2_0" BEL "special_registers_inst/HDMA1_7"
+        BEL "special_registers_inst/HDMA1_6" BEL
+        "special_registers_inst/HDMA1_5" BEL "special_registers_inst/HDMA1_4"
+        BEL "special_registers_inst/HDMA1_3" BEL
+        "special_registers_inst/HDMA1_2" BEL "special_registers_inst/HDMA1_1"
+        BEL "special_registers_inst/HDMA1_0" BEL
+        "special_registers_inst/HDMA3_7" BEL "special_registers_inst/HDMA3_6"
+        BEL "special_registers_inst/HDMA3_5" BEL
+        "special_registers_inst/HDMA3_4" BEL "special_registers_inst/HDMA3_3"
+        BEL "special_registers_inst/HDMA3_2" BEL
+        "special_registers_inst/HDMA3_1" BEL "special_registers_inst/HDMA3_0"
+        BEL "special_registers_inst/WX_7" BEL "special_registers_inst/WX_6"
+        BEL "special_registers_inst/WX_5" BEL "special_registers_inst/WX_4"
+        BEL "special_registers_inst/WX_3" BEL "special_registers_inst/WX_2"
+        BEL "special_registers_inst/WX_1" BEL "special_registers_inst/WX_0"
+        BEL "special_registers_inst/WY_7" BEL "special_registers_inst/WY_6"
+        BEL "special_registers_inst/WY_5" BEL "special_registers_inst/WY_4"
+        BEL "special_registers_inst/WY_3" BEL "special_registers_inst/WY_2"
+        BEL "special_registers_inst/WY_1" BEL "special_registers_inst/WY_0"
+        BEL "special_registers_inst/BRLO_7" BEL
+        "special_registers_inst/BRLO_6" BEL "special_registers_inst/BRLO_5"
+        BEL "special_registers_inst/BRLO_4" BEL
+        "special_registers_inst/BRLO_3" BEL "special_registers_inst/BRLO_2"
+        BEL "special_registers_inst/BRLO_1" BEL
+        "special_registers_inst/BRLO_0" BEL "special_registers_inst/LYC_7" BEL
+        "special_registers_inst/LYC_6" BEL "special_registers_inst/LYC_5" BEL
+        "special_registers_inst/LYC_4" BEL "special_registers_inst/LYC_3" BEL
+        "special_registers_inst/LYC_2" BEL "special_registers_inst/LYC_1" BEL
+        "special_registers_inst/LYC_0" BEL
+        "special_registers_inst/LY_count_reset" BEL
+        "special_registers_inst/VBK_7" BEL "special_registers_inst/VBK_6" BEL
+        "special_registers_inst/VBK_5" BEL "special_registers_inst/VBK_4" BEL
+        "special_registers_inst/VBK_3" BEL "special_registers_inst/VBK_2" BEL
+        "special_registers_inst/VBK_1" BEL "special_registers_inst/VBK_0" BEL
+        "special_registers_inst/SCY_7" BEL "special_registers_inst/SCY_6" BEL
+        "special_registers_inst/SCY_5" BEL "special_registers_inst/SCY_4" BEL
+        "special_registers_inst/SCY_3" BEL "special_registers_inst/SCY_2" BEL
+        "special_registers_inst/SCY_1" BEL "special_registers_inst/SCY_0" BEL
+        "special_registers_inst/STAT_reg_4" BEL
+        "special_registers_inst/STAT_reg_3" BEL
+        "special_registers_inst/STAT_reg_2" BEL
+        "special_registers_inst/STAT_reg_1" BEL
+        "special_registers_inst/STAT_reg_0" BEL "special_registers_inst/SCX_7"
+        BEL "special_registers_inst/SCX_6" BEL "special_registers_inst/SCX_5"
+        BEL "special_registers_inst/SCX_4" BEL "special_registers_inst/SCX_3"
+        BEL "special_registers_inst/SCX_2" BEL "special_registers_inst/SCX_1"
+        BEL "special_registers_inst/SCX_0" BEL
+        "special_registers_inst/led_out" BEL
+        "special_registers_inst/joypad_int_clear" BEL
+        "special_registers_inst/LCDC_7" BEL "special_registers_inst/LCDC_6"
+        BEL "special_registers_inst/LCDC_5" BEL
+        "special_registers_inst/LCDC_4" BEL "special_registers_inst/LCDC_3"
+        BEL "special_registers_inst/LCDC_2" BEL
+        "special_registers_inst/LCDC_1" BEL "special_registers_inst/LCDC_0"
+        BEL "special_registers_inst/serial_int_clear" BEL
+        "special_registers_inst/serial_int_set" BEL
+        "special_registers_inst/joypad_int_set" BEL
+        "special_registers_inst/timer_int_set" BEL
+        "special_registers_inst/lcd_stat_int_clear" BEL
+        "special_registers_inst/timer_int_clear" BEL
+        "special_registers_inst/lcd_stat_int_set" BEL
+        "special_registers_inst/v_blank_int_clear" BEL
+        "special_registers_inst/v_blank_int_set" BEL
+        "special_registers_inst/P1_JOYP_reg_1" BEL
+        "special_registers_inst/P1_JOYP_reg_0" BEL "ppu_inst/counterY_7" BEL
+        "ppu_inst/counterY_6" BEL "ppu_inst/counterX_8" BEL
+        "ppu_inst/counterX_7" BEL "ppu_inst/counterX_6" BEL
+        "ppu_inst/counterX_5" BEL "ppu_inst/counterX_4" BEL
+        "ppu_inst/counterX_3" BEL "ppu_inst/counterX_2" BEL
+        "ppu_inst/counterX_1" BEL "ppu_inst/counterX_0" BEL
+        "ppu_inst/counterY_4" BEL "ppu_inst/counterY_3" BEL
+        "ppu_inst/counterY_5" BEL "ppu_inst/counterY_1" BEL
+        "ppu_inst/counterY_0" BEL "ppu_inst/counterY_2" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_9" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_8" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_6" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_5" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_7" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_4" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_3" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_1" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_0" BEL
+        "cpu_top_inst/cpu_control_inst/T_state_2" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_14" BEL "cpu_top_inst/ALU_inst/A_0" BEL
+        "cpu_top_inst/ALU_inst/A_1" BEL "cpu_top_inst/ALU_inst/A_2" BEL
+        "cpu_top_inst/ALU_inst/A_3" BEL "cpu_top_inst/ALU_inst/A_4" BEL
+        "cpu_top_inst/ALU_inst/A_5" BEL "cpu_top_inst/ALU_inst/A_6" BEL
+        "cpu_top_inst/ALU_inst/A_7" BEL "cpu_top_inst/ALU_inst/ALU_out_15" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_13" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_12" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_9" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_11" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_10" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_8" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_7" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_4" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_6" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_5" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_3" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_2" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_1" BEL
+        "cpu_top_inst/ALU_inst/ALU_out_0" BEL "cpu_top_inst/ALU_inst/F_7" BEL
+        "cpu_top_inst/ALU_inst/F_6" BEL "cpu_top_inst/ALU_inst/F_5" BEL
+        "cpu_top_inst/ALU_inst/F_4" BEL "cpu_top_inst/L_0" BEL
+        "cpu_top_inst/L_1" BEL "cpu_top_inst/L_2" BEL "cpu_top_inst/L_3" BEL
+        "cpu_top_inst/L_4" BEL "cpu_top_inst/L_5" BEL "cpu_top_inst/L_6" BEL
+        "cpu_top_inst/L_7" BEL "cpu_top_inst/E_7" BEL "cpu_top_inst/E_6" BEL
+        "cpu_top_inst/E_4" BEL "cpu_top_inst/E_3" BEL "cpu_top_inst/E_5" BEL
+        "cpu_top_inst/E_1" BEL "cpu_top_inst/E_0" BEL "cpu_top_inst/E_2" BEL
+        "cpu_top_inst/D_6" BEL "cpu_top_inst/D_5" BEL "cpu_top_inst/D_7" BEL
+        "cpu_top_inst/D_3" BEL "cpu_top_inst/D_2" BEL "cpu_top_inst/D_4" BEL
+        "cpu_top_inst/D_0" BEL "cpu_top_inst/C_7" BEL "cpu_top_inst/D_1" BEL
+        "cpu_top_inst/C_5" BEL "cpu_top_inst/C_4" BEL "cpu_top_inst/C_6" BEL
+        "cpu_top_inst/C_2" BEL "cpu_top_inst/C_1" BEL "cpu_top_inst/C_3" BEL
+        "cpu_top_inst/B_7" BEL "cpu_top_inst/B_6" BEL "cpu_top_inst/C_0" BEL
+        "cpu_top_inst/B_4" BEL "cpu_top_inst/B_3" BEL "cpu_top_inst/B_5" BEL
+        "cpu_top_inst/B_1" BEL "cpu_top_inst/B_0" BEL "cpu_top_inst/B_2" BEL
+        "cpu_top_inst/Z_7" BEL "cpu_top_inst/Z_6" BEL "cpu_top_inst/Z_5" BEL
+        "cpu_top_inst/Z_4" BEL "cpu_top_inst/Z_3" BEL "cpu_top_inst/Z_2" BEL
+        "cpu_top_inst/Z_1" BEL "cpu_top_inst/Z_0" BEL "cpu_top_inst/W_7" BEL
+        "cpu_top_inst/W_6" BEL "cpu_top_inst/W_5" BEL "cpu_top_inst/W_4" BEL
+        "cpu_top_inst/W_3" BEL "cpu_top_inst/W_2" BEL "cpu_top_inst/W_1" BEL
+        "cpu_top_inst/W_0" BEL "cpu_top_inst/IME" BEL "cpu_top_inst/CB_IR_7"
+        BEL "cpu_top_inst/CB_IR_6" BEL "cpu_top_inst/CB_IR_5" BEL
+        "cpu_top_inst/CB_IR_4" BEL "cpu_top_inst/CB_IR_3" BEL
+        "cpu_top_inst/CB_IR_2" BEL "cpu_top_inst/CB_IR_1" BEL
+        "cpu_top_inst/CB_IR_0" BEL "cpu_top_inst/IR_7" BEL "cpu_top_inst/IR_6"
+        BEL "cpu_top_inst/IR_5" BEL "cpu_top_inst/IR_4" BEL
+        "cpu_top_inst/IR_3" BEL "cpu_top_inst/IR_2" BEL "cpu_top_inst/IR_1"
+        BEL "cpu_top_inst/IR_0" BEL "cpu_top_inst/SP_1" BEL
+        "cpu_top_inst/SP_2" BEL "cpu_top_inst/SP_0" BEL "cpu_top_inst/SP_3"
+        BEL "cpu_top_inst/SP_4" BEL "cpu_top_inst/SP_5" BEL
+        "cpu_top_inst/SP_6" BEL "cpu_top_inst/SP_8" BEL "cpu_top_inst/SP_9"
+        BEL "cpu_top_inst/SP_7" BEL "cpu_top_inst/SP_10" BEL
+        "cpu_top_inst/SP_11" BEL "cpu_top_inst/SP_12" BEL "cpu_top_inst/SP_13"
+        BEL "cpu_top_inst/SP_15" BEL "cpu_top_inst/SP_14" BEL
+        "cpu_top_inst/H_7" BEL "cpu_top_inst/H_6" BEL "cpu_top_inst/H_5" BEL
+        "cpu_top_inst/H_4" BEL "cpu_top_inst/H_3" BEL "cpu_top_inst/H_2" BEL
+        "cpu_top_inst/H_1" BEL "cpu_top_inst/H_0" BEL "cpu_top_inst/PC_6" BEL
+        "cpu_top_inst/PC_0" BEL "cpu_top_inst/PC_1" BEL "cpu_top_inst/PC_3"
+        BEL "cpu_top_inst/PC_2" BEL "cpu_top_inst/PC_7" BEL
+        "cpu_top_inst/PC_8" BEL "cpu_top_inst/PC_10" BEL "cpu_top_inst/PC_11"
+        BEL "cpu_top_inst/PC_9" BEL "cpu_top_inst/PC_12" BEL
+        "cpu_top_inst/PC_13" BEL "cpu_top_inst/PC_14" BEL "cpu_top_inst/PC_15"
+        BEL "special_registers_inst/HDMA5_7" BEL
+        "special_registers_inst/HDMA5_6" BEL "special_registers_inst/HDMA5_5"
+        BEL "special_registers_inst/HDMA5_4" BEL
+        "special_registers_inst/HDMA5_3" BEL "special_registers_inst/HDMA5_2"
+        BEL "special_registers_inst/HDMA5_1" BEL
+        "special_registers_inst/HDMA5_0" BEL
+        "memory_router_inst/address_bus_reg_7" BEL
+        "memory_router_inst/address_bus_reg_6" BEL
+        "memory_router_inst/address_bus_reg_5" BEL
+        "memory_router_inst/address_bus_reg_4" BEL
+        "memory_router_inst/address_bus_reg_3" BEL
+        "memory_router_inst/address_bus_reg_2" BEL
+        "memory_router_inst/address_bus_reg_1" BEL
+        "memory_router_inst/address_bus_reg_0" BEL "cpu_top_inst/PC_4" BEL
+        "memory_router_inst/address_bus_reg_15" BEL
+        "memory_router_inst/address_bus_reg_14" BEL
+        "memory_router_inst/address_bus_reg_13" BEL
+        "memory_router_inst/address_bus_reg_12" BEL
+        "memory_router_inst/address_bus_reg_11" BEL
+        "memory_router_inst/address_bus_reg_10" BEL
+        "memory_router_inst/address_bus_reg_9" BEL
+        "memory_router_inst/address_bus_reg_8" BEL "cpu_top_inst/PC_5" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_WCNT_HCMP_Q" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_WCNT_LCMP_Q" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_SCNT_CMP_Q" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_INTCAP_F.U_CAPWE0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_INTCAP_F.U_CAPWE1"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_TRIG0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_TRIG1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS0/I_YESLUT6.I_YES_RPM.I_YES_OREG.OUT_REG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS1/I_YESLUT6.I_YES_RPM.I_YES_OREG.OUT_REG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_CDONE/I_YESLUT6.I_YES_RPM.I_YES_OREG.OUT_REG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[9].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[8].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[7].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[6].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[5].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[4].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_NO_TSEQ.I_SRLT_NE_1.U_SCNT/G[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[9].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[8].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[7].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[6].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[5].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[4].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_SRLT_NE_1.U_WCNT/G[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[9].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[9].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[8].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[8].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[7].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[7].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[6].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[6].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[5].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[5].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[4].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[4].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[3].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[3].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[2].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[2].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[1].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[1].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[0].U_CAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_INTCAP.F_CAP_ADDR[0].U_iCAP_ADDR"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[15].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[14].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[13].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[12].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[11].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[10].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[9].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[8].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[7].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[6].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[5].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[4].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[3].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[2].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[1].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY1[0].I_IN_RANGE.I_USE_INPUT_REG_NE0.U_GAND_DLY1"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[15].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[14].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[13].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[12].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[11].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[10].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[9].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[8].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[7].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[6].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[5].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[4].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[3].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[2].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[1].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/G_GAND_DLY2[0].I_IN_RANGE.U_GAND_DLY2"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[1].U_GAND_SRL_SLICE/I_IS_TERMINATION_SLICE_NE0.I_USE_OUTPUT_REG_NE0.U_OREG"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL2" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL3" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_CR" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[9].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[8].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[7].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[6].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[5].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[4].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[3].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[2].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[1].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/G_NS[0].U_NSQ" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STATE1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STATE0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_ARM" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_TRIGGER" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_FULL" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_ECR" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_RISING" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_GEN_DELAY[1].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_RFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[1].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[2].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[3].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[4].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[5].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[6].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[7].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[8].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[9].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[10].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[11].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[12].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[13].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[14].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[15].U_SRL.U_FDR0"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/FINAL_FDR"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_POR" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[0].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[1].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[2].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[3].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[4].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[5].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[6].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/G_RST[7].U_RST" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_GEN_DELAY[2].U_FD"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_GEN_DELAY[1].U_FD"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_RFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[4].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[3].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[2].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[1].U_FD" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_RFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[0].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[1].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[2].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[3].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[4].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[5].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[6].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[7].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[8].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[9].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[10].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[11].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[12].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[13].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[14].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[15].I_SRLT_NE_0.FF"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[0].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[1].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[2].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[3].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[4].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[5].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[6].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[7].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[8].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[9].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[10].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[11].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[12].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[13].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[14].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/I_DQ.U_DQQ/DLY_9.DLY_9_GEN[15].I_SRLT_NE_0.DLY9/SRL16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_OREG.I_YES_OREG.U_OREG"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/I_MC_NO.U_NO_MC_REG"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_CAP_DLY"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_STORAGE_QUAL/I_SRLT_NE_1.I_NMU_1_TO_4.U_TCL/I_OUTREG.U_DOUT"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_STORAGE_QUAL/I_SRLT_NE_1.I_NMU_1_TO_4.U_TRIGQ"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_NEQ2.U_TC_EQUATION/I_SRLT_NE_1.I_NMU_1_TO_4.U_TCL/I_OUTREG.U_DOUT"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_NEQ2.U_TC_EQUATION/I_SRLT_NE_1.I_NMU_1_TO_4.U_TRIGQ"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/F_NO_TCMC.U_FDR" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[15].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[14].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[13].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[12].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[11].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[10].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[9].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[8].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[7].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[6].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[5].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[4].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[3].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[2].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[1].U_TQ" BEL
+        "U_ila_pro_0/U0/I_TQ0.G_TW[0].U_TQ" BEL "clk4_2" PIN
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<31>"
+        PIN
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<109>"
+        PIN "memory_inst/boot_ROM/Mrom_data_out1_pins<14>" PIN
+        "memory_inst/boot_ROM/Mrom_data_out1_pins<27>" PIN
+        "memory_inst/boot_ROM/Mrom_data_out2_pins<32>" PIN
+        "memory_inst/boot_ROM/Mrom_data_out2_pins<110>" PIN
+        "memory_inst/high_ram/Mram_ram_pins<32>" PIN
+        "memory_inst/high_ram/Mram_ram_pins<110>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<29>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram1_pins<29>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<29>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<28>" PIN
+        "memory_inst/ext_ram_bank0/Mram_ram2_pins<29>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank0/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank1/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank2/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank3/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank4/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank5/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank6/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<27>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<26>" PIN
+        "memory_inst/work_ram_bank7/Mram_ram_pins<27>";
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<30>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<31>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<108>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME REGCLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<109>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME REGCLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<28>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<29>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<38>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME REGCLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<39>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME REGCLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<32>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<33>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<110>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME REGCLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<111>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP"
+        PINNAME REGCLKBL;
+PIN ppu_inst/OAM/Mram_ram_pins<32> = BEL "ppu_inst/OAM/Mram_ram" PINNAME
+        CLKAL;
+PIN ppu_inst/OAM/Mram_ram_pins<110> = BEL "ppu_inst/OAM/Mram_ram" PINNAME
+        REGCLKAL;
+PIN ppu_inst/background_palette_mem/Mram_ram_pins<30> = BEL
+        "ppu_inst/background_palette_mem/Mram_ram" PINNAME CLKAU;
+PIN ppu_inst/background_palette_mem/Mram_ram_pins<108> = BEL
+        "ppu_inst/background_palette_mem/Mram_ram" PINNAME REGCLKAU;
+PIN ppu_inst/sprite_palette_mem/Mram_ram_pins<30> = BEL
+        "ppu_inst/sprite_palette_mem/Mram_ram" PINNAME CLKAU;
+PIN ppu_inst/sprite_palette_mem/Mram_ram_pins<108> = BEL
+        "ppu_inst/sprite_palette_mem/Mram_ram" PINNAME REGCLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN ppu_inst/VRAM_bank0/Mram_ram1_pins<28> = BEL
+        "ppu_inst/VRAM_bank0/Mram_ram1" PINNAME CLKAL;
+PIN ppu_inst/VRAM_bank0/Mram_ram1_pins<29> = BEL
+        "ppu_inst/VRAM_bank0/Mram_ram1" PINNAME CLKAU;
+PIN ppu_inst/VRAM_bank0/Mram_ram2_pins<28> = BEL
+        "ppu_inst/VRAM_bank0/Mram_ram2" PINNAME CLKAL;
+PIN ppu_inst/VRAM_bank0/Mram_ram2_pins<29> = BEL
+        "ppu_inst/VRAM_bank0/Mram_ram2" PINNAME CLKAU;
+PIN ppu_inst/VRAM_bank1/Mram_ram1_pins<28> = BEL
+        "ppu_inst/VRAM_bank1/Mram_ram1" PINNAME CLKAL;
+PIN ppu_inst/VRAM_bank1/Mram_ram1_pins<29> = BEL
+        "ppu_inst/VRAM_bank1/Mram_ram1" PINNAME CLKAU;
+PIN ppu_inst/VRAM_bank1/Mram_ram2_pins<28> = BEL
+        "ppu_inst/VRAM_bank1/Mram_ram2" PINNAME CLKAL;
+PIN ppu_inst/VRAM_bank1/Mram_ram2_pins<29> = BEL
+        "ppu_inst/VRAM_bank1/Mram_ram2" PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKAU;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBL;
+PIN
+        frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>
+        = BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP"
+        PINNAME CLKBU;
+TIMEGRP systemPLL_inst_CLKOUT1_BUF = BEL "LED_test" BEL "LED_counter_0" BEL
+        "LED_counter_1" BEL "LED_counter_2" BEL "LED_counter_3" BEL
+        "LED_counter_4" BEL "LED_counter_5" BEL "LED_counter_6" BEL
+        "LED_counter_7" BEL "LED_counter_8" BEL "LED_counter_9" BEL
+        "LED_counter_10" BEL "LED_counter_11" BEL "LED_counter_12" BEL
+        "LED_counter_13" BEL "LED_counter_14" BEL "LED_counter_15" BEL
+        "LED_counter_16" BEL "LED_counter_17" BEL "LED_counter_18" BEL
+        "LED_counter_19" BEL "LED_counter_20" BEL "LED_counter_21" BEL
+        "LED_counter_22" BEL "LED_counter_23" BEL "LED_counter_24" BEL
+        "systemPLL_inst/CLKOUT1_BUFG_INST" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd16" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd15" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd14" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd13" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd12" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd11" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd10" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd9" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd8" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd7" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd6" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd5" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd4" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd3" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd2" BEL
+        "chrontel_serial_bus_driver_inst/state_FSM_FFd1" BEL
+        "chrontel_serial_bus_driver_inst/t_hi_counter_4" BEL
+        "chrontel_serial_bus_driver_inst/t_hi_counter_3" BEL
+        "chrontel_serial_bus_driver_inst/t_hi_counter_2" BEL
+        "chrontel_serial_bus_driver_inst/t_hi_counter_1" BEL
+        "chrontel_serial_bus_driver_inst/t_hi_counter_0" BEL
+        "chrontel_serial_bus_driver_inst/t_low_counter_5" BEL
+        "chrontel_serial_bus_driver_inst/t_low_counter_4" BEL
+        "chrontel_serial_bus_driver_inst/t_low_counter_3" BEL
+        "chrontel_serial_bus_driver_inst/t_low_counter_2" BEL
+        "chrontel_serial_bus_driver_inst/t_low_counter_1" BEL
+        "chrontel_serial_bus_driver_inst/t_low_counter_0" BEL
+        "chrontel_serial_bus_driver_inst/bus_free_counter_5" BEL
+        "chrontel_serial_bus_driver_inst/bus_free_counter_4" BEL
+        "chrontel_serial_bus_driver_inst/bus_free_counter_3" BEL
+        "chrontel_serial_bus_driver_inst/bus_free_counter_2" BEL
+        "chrontel_serial_bus_driver_inst/bus_free_counter_1" BEL
+        "chrontel_serial_bus_driver_inst/bus_free_counter_0" BEL
+        "chrontel_serial_bus_driver_inst/sh_counter_4" BEL
+        "chrontel_serial_bus_driver_inst/sh_counter_3" BEL
+        "chrontel_serial_bus_driver_inst/sh_counter_2" BEL
+        "chrontel_serial_bus_driver_inst/sh_counter_1" BEL
+        "chrontel_serial_bus_driver_inst/sh_counter_0" BEL
+        "chrontel_serial_bus_driver_inst/ss_counter_4" BEL
+        "chrontel_serial_bus_driver_inst/ss_counter_3" BEL
+        "chrontel_serial_bus_driver_inst/ss_counter_2" BEL
+        "chrontel_serial_bus_driver_inst/ss_counter_1" BEL
+        "chrontel_serial_bus_driver_inst/ss_counter_0" BEL
+        "chrontel_serial_bus_driver_inst/sda_filt" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_7" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_6" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_5" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_4" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_3" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_2" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_1" BEL
+        "chrontel_serial_bus_driver_inst/data_to_send_store_0" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_7" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_6" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_5" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_4" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_3" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_2" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_1" BEL
+        "chrontel_serial_bus_driver_inst/register_address_store_0" BEL
+        "chrontel_serial_bus_driver_inst/complete" BEL
+        "chrontel_serial_bus_driver_inst/numb_of_registers_2" BEL
+        "chrontel_serial_bus_driver_inst/numb_of_registers_1" BEL
+        "chrontel_serial_bus_driver_inst/numb_of_registers_0" BEL
+        "chrontel_serial_bus_driver_inst/dev_address_store_7" BEL
+        "chrontel_serial_bus_driver_inst/dev_address_store_6" BEL
+        "chrontel_serial_bus_driver_inst/dev_address_store_5" BEL
+        "chrontel_serial_bus_driver_inst/dev_address_store_4" BEL
+        "chrontel_serial_bus_driver_inst/dev_address_store_3" BEL
+        "chrontel_serial_bus_driver_inst/dev_address_store_2" BEL
+        "chrontel_serial_bus_driver_inst/t_hi_count_en" BEL
+        "chrontel_serial_bus_driver_inst/t_low_count_en" BEL
+        "chrontel_serial_bus_driver_inst/bit_count_3" BEL
+        "chrontel_serial_bus_driver_inst/bit_count_2" BEL
+        "chrontel_serial_bus_driver_inst/bit_count_1" BEL
+        "chrontel_serial_bus_driver_inst/bit_count_0" BEL
+        "chrontel_serial_bus_driver_inst/ss_count_en" BEL
+        "chrontel_serial_bus_driver_inst/sh_count_en" BEL
+        "chrontel_serial_bus_driver_inst/bus_free_count_en" BEL
+        "chrontel_serial_bus_driver_inst/scl_out" BEL
+        "chrontel_serial_bus_driver_inst/sda_out" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_XCLK" BEL
+        "chrontel_CH7301C_driver_inst/counterY_9" BEL
+        "chrontel_CH7301C_driver_inst/counterY_8" BEL
+        "chrontel_CH7301C_driver_inst/counterY_7" BEL
+        "chrontel_CH7301C_driver_inst/counterY_6" BEL
+        "chrontel_CH7301C_driver_inst/counterY_5" BEL
+        "chrontel_CH7301C_driver_inst/counterY_4" BEL
+        "chrontel_CH7301C_driver_inst/counterY_3" BEL
+        "chrontel_CH7301C_driver_inst/counterY_2" BEL
+        "chrontel_CH7301C_driver_inst/counterY_1" BEL
+        "chrontel_CH7301C_driver_inst/counterY_0" BEL
+        "chrontel_CH7301C_driver_inst/counterX_9" BEL
+        "chrontel_CH7301C_driver_inst/counterX_8" BEL
+        "chrontel_CH7301C_driver_inst/counterX_7" BEL
+        "chrontel_CH7301C_driver_inst/counterX_6" BEL
+        "chrontel_CH7301C_driver_inst/counterX_5" BEL
+        "chrontel_CH7301C_driver_inst/counterX_4" BEL
+        "chrontel_CH7301C_driver_inst/counterX_3" BEL
+        "chrontel_CH7301C_driver_inst/counterX_2" BEL
+        "chrontel_CH7301C_driver_inst/counterX_1" BEL
+        "chrontel_CH7301C_driver_inst/counterX_0" BEL
+        "frame_buffer_inst/data_out_addr_14" BEL
+        "frame_buffer_inst/data_out_addr_13" BEL
+        "frame_buffer_inst/data_out_addr_12" BEL
+        "frame_buffer_inst/data_out_addr_11" BEL
+        "frame_buffer_inst/data_out_addr_10" BEL
+        "frame_buffer_inst/data_out_addr_9" BEL
+        "frame_buffer_inst/data_out_addr_8" BEL
+        "frame_buffer_inst/data_out_addr_7" BEL
+        "frame_buffer_inst/data_out_addr_6" BEL
+        "frame_buffer_inst/data_out_addr_5" BEL
+        "frame_buffer_inst/data_out_addr_4" BEL
+        "frame_buffer_inst/data_out_addr_3" BEL
+        "frame_buffer_inst/data_out_addr_2" BEL
+        "frame_buffer_inst/data_out_addr_1" BEL
+        "frame_buffer_inst/data_out_addr_0" BEL
+        "frame_buffer_inst/color_pixel_15b_0" BEL
+        "frame_buffer_inst/color_pixel_15b_1" BEL
+        "frame_buffer_inst/color_pixel_wr_en" BEL
+        "frame_buffer_inst/color_pixel_15b_3" BEL
+        "frame_buffer_inst/color_pixel_15b_4" BEL
+        "frame_buffer_inst/color_pixel_15b_2" BEL
+        "frame_buffer_inst/color_pixel_15b_6" BEL
+        "frame_buffer_inst/color_pixel_15b_7" BEL
+        "frame_buffer_inst/color_pixel_15b_5" BEL
+        "frame_buffer_inst/color_pixel_15b_8" BEL
+        "frame_buffer_inst/color_pixel_15b_9" BEL
+        "frame_buffer_inst/color_pixel_15b_11" BEL
+        "frame_buffer_inst/color_pixel_15b_12" BEL
+        "frame_buffer_inst/color_pixel_15b_10" BEL
+        "frame_buffer_inst/color_pixel_15b_14" BEL
+        "frame_buffer_inst/data_concat_state" BEL
+        "frame_buffer_inst/color_pixel_15b_13" BEL
+        "frame_buffer_inst/screen_out_vblank_pulse_1" BEL
+        "frame_buffer_inst/screen_out_vblank_pulse_0" BEL
+        "frame_buffer_inst/ppu_vblank_pulse_1" BEL
+        "frame_buffer_inst/ppu_vblank_pulse_0" BEL
+        "frame_buffer_inst/data_in_addr_14" BEL
+        "frame_buffer_inst/data_in_addr_13" BEL
+        "frame_buffer_inst/data_in_addr_12" BEL
+        "frame_buffer_inst/data_in_addr_11" BEL
+        "frame_buffer_inst/data_in_addr_10" BEL
+        "frame_buffer_inst/data_in_addr_9" BEL
+        "frame_buffer_inst/data_in_addr_8" BEL
+        "frame_buffer_inst/data_in_addr_7" BEL
+        "frame_buffer_inst/data_in_addr_6" BEL
+        "frame_buffer_inst/data_in_addr_5" BEL
+        "frame_buffer_inst/data_in_addr_4" BEL
+        "frame_buffer_inst/data_in_addr_3" BEL
+        "frame_buffer_inst/data_in_addr_2" BEL
+        "frame_buffer_inst/data_in_addr_1" BEL
+        "frame_buffer_inst/data_in_addr_0" BEL "ppu_inst/ppu_state_FSM_FFd5"
+        BEL "ppu_inst/ppu_state_FSM_FFd6" BEL "ppu_inst/ppu_state_FSM_FFd7"
+        BEL "ppu_inst/ppu_state_FSM_FFd8" BEL "ppu_inst/ppu_state_FSM_FFd2"
+        BEL "ppu_inst/ppu_state_FSM_FFd9" BEL "ppu_inst/ppu_state_FSM_FFd3"
+        BEL "ppu_inst/ppu_state_FSM_FFd11" BEL "ppu_inst/ppu_state_FSM_FFd10"
+        BEL "ppu_inst/ppu_state_FSM_FFd4" BEL "ppu_inst/ppu_state_FSM_FFd1"
+        BEL "ppu_inst/tile_parameters_3" BEL "ppu_inst/tile_parameters_2" BEL
+        "ppu_inst/tile_parameters_1" BEL "ppu_inst/tile_parameters_0" BEL
+        "ppu_inst/ppu_mem_en" BEL "ppu_inst/color_pixel_7" BEL
+        "ppu_inst/color_pixel_6" BEL "ppu_inst/color_pixel_5" BEL
+        "ppu_inst/color_pixel_4" BEL "ppu_inst/color_pixel_3" BEL
+        "ppu_inst/color_pixel_2" BEL "ppu_inst/color_pixel_1" BEL
+        "ppu_inst/color_pixel_0" BEL "ppu_inst/color_pixel_good" BEL
+        "ppu_inst/pixels_sent_7" BEL "ppu_inst/pixels_sent_6" BEL
+        "ppu_inst/pixels_sent_5" BEL "ppu_inst/pixels_sent_4" BEL
+        "ppu_inst/pixels_sent_3" BEL "ppu_inst/pixels_sent_2" BEL
+        "ppu_inst/pixels_sent_1" BEL "ppu_inst/pixels_sent_0" BEL
+        "ppu_inst/ppu_bgd_pal_addr_5" BEL "ppu_inst/ppu_bgd_pal_addr_4" BEL
+        "ppu_inst/ppu_bgd_pal_addr_3" BEL "ppu_inst/ppu_bgd_pal_addr_2" BEL
+        "ppu_inst/ppu_bgd_pal_addr_1" BEL "ppu_inst/ppu_bgd_pal_addr_0" BEL
+        "ppu_inst/count_3" BEL "ppu_inst/count_2" BEL "ppu_inst/count_1" BEL
+        "ppu_inst/count_0" BEL "ppu_inst/pixel1_7" BEL "ppu_inst/pixel1_6" BEL
+        "ppu_inst/pixel1_5" BEL "ppu_inst/pixel1_4" BEL "ppu_inst/pixel1_3"
+        BEL "ppu_inst/pixel1_2" BEL "ppu_inst/pixel1_1" BEL
+        "ppu_inst/pixel1_0" BEL "ppu_inst/pixel0_7" BEL "ppu_inst/pixel0_6"
+        BEL "ppu_inst/pixel0_5" BEL "ppu_inst/pixel0_4" BEL
+        "ppu_inst/pixel0_3" BEL "ppu_inst/pixel0_2" BEL "ppu_inst/pixel0_1"
+        BEL "ppu_inst/pixel0_0" BEL "ppu_inst/yPixelCount_7" BEL
+        "ppu_inst/yPixelCount_6" BEL "ppu_inst/yPixelCount_5" BEL
+        "ppu_inst/yPixelCount_4" BEL "ppu_inst/yPixelCount_3" BEL
+        "ppu_inst/yPixelCount_2" BEL "ppu_inst/yPixelCount_1" BEL
+        "ppu_inst/yPixelCount_0" BEL "ppu_inst/xPixelCount_7" BEL
+        "ppu_inst/xPixelCount_6" BEL "ppu_inst/xPixelCount_5" BEL
+        "ppu_inst/xPixelCount_4" BEL "ppu_inst/xPixelCount_3" BEL
+        "ppu_inst/xPixelCount_2" BEL "ppu_inst/xPixelCount_1" BEL
+        "ppu_inst/xPixelCount_0" BEL "ppu_inst/ppu_address_12" BEL
+        "ppu_inst/ppu_address_11" BEL "ppu_inst/ppu_address_10" BEL
+        "ppu_inst/ppu_address_9" BEL "ppu_inst/ppu_address_8" BEL
+        "ppu_inst/ppu_address_7" BEL "ppu_inst/ppu_address_6" BEL
+        "ppu_inst/ppu_address_5" BEL "ppu_inst/ppu_address_4" BEL
+        "ppu_inst/ppu_address_3" BEL "ppu_inst/ppu_address_2" BEL
+        "ppu_inst/ppu_address_1" BEL "ppu_inst/ppu_address_0" BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_0"
+        BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_1"
+        BEL
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_2"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<30>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<31>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<108>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<109>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<30>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<31>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<108>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<109>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<28>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<29>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<38>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<39>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<28>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<29>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<38>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<39>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<32>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<33>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<110>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<111>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<32>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<33>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<110>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM18.TDP_pins<111>"
+        PIN "ppu_inst/OAM/Mram_ram_pins<32>" PIN
+        "ppu_inst/OAM/Mram_ram_pins<110>" PIN
+        "ppu_inst/background_palette_mem/Mram_ram_pins<30>" PIN
+        "ppu_inst/background_palette_mem/Mram_ram_pins<108>" PIN
+        "ppu_inst/sprite_palette_mem/Mram_ram_pins<30>" PIN
+        "ppu_inst/sprite_palette_mem/Mram_ram_pins<108>" PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN "ppu_inst/VRAM_bank0/Mram_ram1_pins<28>" PIN
+        "ppu_inst/VRAM_bank0/Mram_ram1_pins<29>" PIN
+        "ppu_inst/VRAM_bank0/Mram_ram1_pins<28>" PIN
+        "ppu_inst/VRAM_bank0/Mram_ram1_pins<29>" PIN
+        "ppu_inst/VRAM_bank0/Mram_ram2_pins<28>" PIN
+        "ppu_inst/VRAM_bank0/Mram_ram2_pins<29>" PIN
+        "ppu_inst/VRAM_bank0/Mram_ram2_pins<28>" PIN
+        "ppu_inst/VRAM_bank0/Mram_ram2_pins<29>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram1_pins<28>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram1_pins<29>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram1_pins<28>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram1_pins<29>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram2_pins<28>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram2_pins<29>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram2_pins<28>" PIN
+        "ppu_inst/VRAM_bank1/Mram_ram2_pins<29>" PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[8].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<63>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<64>"
+        PIN
+        "frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[9].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<65>";
+TIMEGRP systemPLL_inst_CLKOUT2_BUF = BEL "systemPLL_inst/CLKOUT2_BUFG_INST"
+        BEL "chrontel_CH7301C_driver_inst/ODDR_inst11" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_inst10" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_inst9" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_inst8" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_inst7" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_inst6" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_inst5" BEL
+        "chrontel_CH7301C_driver_inst/ODDR_inst4" BEL
+        "chrontel_CH7301C_driver_inst/DVI_DE";
+PIN
+        U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<30>
+        = BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16"
+        PINNAME CLKAU;
+PIN
+        U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<108>
+        = BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16"
+        PINNAME REGCLKAU;
+TIMEGRP J_CLK = BEL "U_icon_pro/U0/U_ICON/U_TDI_reg" BEL
+        "U_icon_pro/U0/U_ICON/U_TDO_reg" BEL
+        "U_icon_pro/U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG"
+        BEL "U_icon_pro/U0/U_ICON/U_SYNC/U_SYNC" BEL
+        "U_icon_pro/U0/U_ICON/U_SYNC/G_SYNC_WORD[0].I_NE0.U_FDR" BEL
+        "U_icon_pro/U0/U_ICON/U_SYNC/G_SYNC_WORD[1].I_NE0.U_FDR" BEL
+        "U_icon_pro/U0/U_ICON/U_SYNC/G_SYNC_WORD[2].I_NE0.U_FDR" BEL
+        "U_icon_pro/U0/U_ICON/U_SYNC/G_SYNC_WORD[3].I_NE0.U_FDR" BEL
+        "U_icon_pro/U0/U_ICON/U_SYNC/G_SYNC_WORD[4].I_NE0.U_FDR" BEL
+        "U_icon_pro/U0/U_ICON/U_SYNC/G_SYNC_WORD[5].I_NE0.U_FDR" BEL
+        "U_icon_pro/U0/U_ICON/U_SYNC/G_SYNC_WORD[6].I_EQ0.U_FDR" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[6].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[7].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[8].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[9].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[10].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[11].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[13].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[14].I_NE0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_CMD/G_TARGET[15].I_EQ0.U_TARGET" BEL
+        "U_icon_pro/U0/U_ICON/U_STAT/U_STAT_CNT/G[5].U_FDRE" BEL
+        "U_icon_pro/U0/U_ICON/U_STAT/U_STAT_CNT/G[4].U_FDRE" BEL
+        "U_icon_pro/U0/U_ICON/U_STAT/U_STAT_CNT/G[3].U_FDRE" BEL
+        "U_icon_pro/U0/U_ICON/U_STAT/U_STAT_CNT/G[2].U_FDRE" BEL
+        "U_icon_pro/U0/U_ICON/U_STAT/U_STAT_CNT/G[1].U_FDRE" BEL
+        "U_icon_pro/U0/U_ICON/U_STAT/U_STAT_CNT/G[0].U_FDRE" BEL
+        "U_icon_pro/U0/U_ICON/U_STAT/U_TDO" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_SCE/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_WCE/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS0/I_YESLUT6.I_YES_RPM.U_SRL32_A"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS0/I_YESLUT6.I_YES_RPM.U_SRL32_B"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS0/I_YESLUT6.I_YES_RPM.U_SRL32_C"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS0/I_YESLUT6.I_YES_RPM.U_SRL32_D"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS1/I_YESLUT6.I_YES_RPM.U_SRL32_A"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS1/I_YESLUT6.I_YES_RPM.U_SRL32_B"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS1/I_YESLUT6.I_YES_RPM.U_SRL32_C"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_NS1/I_YESLUT6.I_YES_RPM.U_SRL32_D"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_CMPRESET/I_YESLUT6.I_YES_RPM.U_SRL32_A"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_CMPRESET/I_YESLUT6.I_YES_RPM.U_SRL32_B"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_SCRST/I_YESLUT6.I_YES_RPM.U_SRL32_A"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_SCRST/I_YESLUT6.I_YES_RPM.U_SRL32_B"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_CDONE/I_YESLUT6.I_YES_RPM.U_SRL32_A"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_CDONE/I_YESLUT6.I_YES_RPM.U_SRL32_B"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_WHCMPCE/I_YESLUT6.U_SRL32"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_WLCMPCE/I_YESLUT6.U_SRL32"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/I_SRLT_NE_1.U_SCMPCE/I_YESLUT6.U_SRL32"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLD"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLC"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLB"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLA"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLD"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLC"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLB"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLA"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLD"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLC"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLB"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLICE.U_GAND_SRL_SLICE/U_SRLA"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.I_SRL.U_SELX"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[15].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[14].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[13].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[12].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[11].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[10].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[9].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[8].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[7].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[6].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[5].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[4].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[3].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[2].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[1].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_G2_SQ.U_CAPCTRL/U_CAP_ADDRGEN/I_0_TO_64K.F_SEL[0].U_SEL"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_DLY/G_REG_BIT[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_DLY/G_REG_BIT[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_DLY/G_REG_BIT[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_DLY/G_REG_BIT[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[4].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[5].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[6].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[7].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[8].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[9].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RD_ROW_ADDR/G[10].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_A/u_cnt/G[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_A/u_cnt/G[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_A/u_cnt/G[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_A/u_cnt/G[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_A/u_cnt/G[4].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_B/u_cnt/G[0].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_B/u_cnt/G[1].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_B/u_cnt/G[2].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/I_MULT_ROW.U_RD_COL_ADDR_B/u_cnt/G[3].U_FDRE"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/U_SRLD"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/U_SRLC"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/U_SRLB"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/U_SRLA"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[1].U_GAND_SRL_SLICE/U_SRLD"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[1].U_GAND_SRL_SLICE/U_SRLC"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[1].U_GAND_SRL_SLICE/U_SRLB"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[1].U_GAND_SRL_SLICE/U_SRLA"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDCE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDPE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_TDO" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_TFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_RESET_EDGE/I_H2L.U_DOUT" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_RESET_EDGE/U_DOUT1" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_RESET_EDGE/U_DOUT0" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[0].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[1].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[2].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[3].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[4].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[5].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[6].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[7].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[8].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_STAT_CNT/G[9].U_FDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[15].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[14].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[13].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[12].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[11].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[10].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[9].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[8].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[7].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[6].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[5].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[4].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[3].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[2].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/U_STATES[1].SI_CFG/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_EQ1.I_TSEQ_SIMPLE/S0_CFG/I_YESLUT6.U_SRLC16E"
+        BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_TFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_TFDRE" BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_STORAGE_QUAL/I_SRLT_NE_1.I_NMU_1_TO_4.U_TCL/I_NMU_EQ1.U_iDOUT/I_YESLUT6.U_SRLC16E"
+        BEL
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_TRIG/U_TC/I_TSEQ_NEQ2.U_TC_EQUATION/I_SRLT_NE_1.I_NMU_1_TO_4.U_TCL/I_NMU_EQ1.U_iDOUT/I_YESLUT6.U_SRLC16E"
+        PIN
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<30>"
+        PIN
+        "U_ila_pro_0/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM/I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B18KGT0.u_ramb16/U_RAMB16_pins<108>";
+TIMEGRP U_CLK = BEL "U_icon_pro/U0/U_ICON/U_iDATA_CMD";
+TIMEGRP D2_CLK = BEL "U_ila_pro_0/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC";
+PIN systemPLL_inst/PLL_ADV_INST_pins<2> = BEL "systemPLL_inst/PLL_ADV_INST"
+        PINNAME CLKIN1;
+TIMEGRP ext_clk_p = PIN "systemPLL_inst/PLL_ADV_INST_pins<2>";
+TIMEGRP "FFS" = FFS(*);
+PATH TS_D2_TO_T2_ila_pro_0_path = FROM TIMEGRP "D2_CLK" TO TIMEGRP "FFS";
+PATH "TS_D2_TO_T2_ila_pro_0_path" TIG;
+PATH TS_J2_TO_D2_ila_pro_0_path = FROM TIMEGRP "FFS" TO TIMEGRP "D2_CLK";
+PATH "TS_J2_TO_D2_ila_pro_0_path" TIG;
+PATH TS_J3_TO_D2_ila_pro_0_path = FROM TIMEGRP "FFS" TO TIMEGRP "D2_CLK";
+PATH "TS_J3_TO_D2_ila_pro_0_path" TIG;
+PATH TS_J4_TO_D2_ila_pro_0_path = FROM TIMEGRP "FFS" TO TIMEGRP "D2_CLK";
+PATH "TS_J4_TO_D2_ila_pro_0_path" TIG;
+TS_J_CLK = PERIOD TIMEGRP "J_CLK" 30 ns HIGH 50%;
+TS_U_TO_J = MAXDELAY FROM TIMEGRP "U_CLK" TO TIMEGRP "J_CLK" 15 ns;
+TS_U_TO_U = MAXDELAY FROM TIMEGRP "U_CLK" TO TIMEGRP "U_CLK" 15 ns;
+PATH TS_J_TO_D_path = FROM TIMEGRP "J_CLK" TO TIMEGRP "D_CLK";
+PATH "TS_J_TO_D_path" TIG;
+PATH TS_D_TO_J_path = FROM TIMEGRP "D_CLK" TO TIMEGRP "J_CLK";
+PATH "TS_D_TO_J_path" TIG;
+TS_ext_clk_p = PERIOD TIMEGRP "ext_clk_p" 5 ns HIGH 50%;
+TS_systemPLL_inst_CLKOUT0_BUF = PERIOD TIMEGRP "systemPLL_inst_CLKOUT0_BUF"
+        TS_ext_clk_p / 0.021 HIGH 50%;
+TS_systemPLL_inst_CLKOUT1_BUF = PERIOD TIMEGRP "systemPLL_inst_CLKOUT1_BUF"
+        TS_ext_clk_p / 0.126 HIGH 50%;
+TS_systemPLL_inst_CLKOUT2_BUF = PERIOD TIMEGRP "systemPLL_inst_CLKOUT2_BUF"
+        TS_ext_clk_p / 0.126 PHASE 29.7619048 ns HIGH 50%;
+PIN
+        U_icon_pro/U0/U_ICON/I_YES_BSCAN.U_BS/I_V5.ISYN.I_USE_SOFTBSCAN_EQ0.U_BS_pins<2>
+        = BEL
+        "U_icon_pro/U0/U_ICON/I_YES_BSCAN.U_BS/I_V5.ISYN.I_USE_SOFTBSCAN_EQ0.U_BS"
+        PINNAME SHIFT;
+PIN
+        "U_icon_pro/U0/U_ICON/I_YES_BSCAN.U_BS/I_V5.ISYN.I_USE_SOFTBSCAN_EQ0.U_BS_pins<2>"
+        TIG;
 SCHEMATIC END;
 

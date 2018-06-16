@@ -49,6 +49,11 @@ module memory_router(
 	P1_JOYP,
 	IF,
 	STAT,
+	LY,
+	LYC,
+	LCDC,
+	WY,
+	WX,
 	VBK,
 	BRLO,
 	HDMA1,
@@ -115,6 +120,10 @@ input			[7:0]		data_in_background_palette_mem, data_in_sprite_palette_mem;
 // PPU Registers
 input			[7:0]		SCX;
 input			[7:0]		SCY;
+input			[7:0]		LY;
+input			[7:0]		LYC;
+input			[7:0]		WY;
+input			[7:0]		WX;
 
 // Special Registers
 input			[7:0]		P1_JOYP;
@@ -131,6 +140,7 @@ input			[7:0]		BCPS_BGPI;
 input			[7:0]		OCPS_OBPI;
 input			[7:0]		SVBK;
 input			[7:0]		IE;
+input			[7:0]		LCDC;
 
 
 reg			[15:0]	address_bus_reg;
@@ -461,9 +471,6 @@ always @(*) begin
 								4'h0 : begin // 0xFF00
 									data_out = P1_JOYP;
 								end
-								4'h1 : begin // 0xFF01
-									data_out = P1_JOYP;
-								end
 								4'hF : begin // 0xFF0F
 									data_out = IF;
 								end
@@ -487,6 +494,9 @@ always @(*) begin
 						
 						4'h4 : begin // 0xFF4_
 							case (address_bus_reg[3:0])
+								4'h0 : begin // 0xFF40
+									data_out = LCDC;
+								end
 								4'h1 : begin // 0xFF41
 									data_out = STAT;
 								end
@@ -495,6 +505,18 @@ always @(*) begin
 								end
 								4'h3 : begin // 0xFF43
 									data_out = SCX;
+								end
+								4'h4 : begin // 0xFF44
+									data_out = LY;
+								end
+								4'h5 : begin // 0xFF45
+									data_out = LYC;
+								end
+								4'hA : begin // 0xFF4A
+									data_out = WY;
+								end
+								4'hB : begin // 0xFF4B
+									data_out = WX;
 								end
 								4'hF : begin // 0xFF4F
 									data_out = VBK;
@@ -530,8 +552,14 @@ always @(*) begin
 						
 						4'h6 : begin // 0xFF6_
 							case (address_bus_reg[3:0])
+								4'h8 : begin // 0xFF68
+									data_out = BCPS_BGPI;
+								end
 								4'h9 : begin // 0xFF69
 									data_out = data_in_background_palette_mem;
+								end
+								4'hA : begin // 0xFF6A
+									data_out = OCPS_OBPI;
 								end
 								4'hB : begin // 0xFF6B
 									data_out = data_in_sprite_palette_mem;
@@ -650,18 +678,6 @@ always @(*) begin
 end
 
 /*********** Read DMA Data mux ***********/
-/*
-always @(posedge clk4_2 or negedge reset_n) begin
-	if (!reset_n) begin
-		address_bus_dma_rd_reg <= 8'h00;
-	end
-	else begin
-		if (address_bus_dma_rd_we) begin
-			address_bus_dma_rd_reg <= ;
-		end
-	end
-end
-*/
 always @(*) begin
 	case (dma_data_mux_sel_address[15:12])
 		4'h0 : begin // 0x0___
@@ -808,6 +824,9 @@ always @(*) begin
 				2'b11 : begin
 					data_dma = data_in_ext_ram_bank3;
 				end
+				default : begin
+					data_dma = 8'h00;
+				end
 			endcase
 		end
 		
@@ -824,6 +843,9 @@ always @(*) begin
 				end
 				2'b11 : begin
 					data_dma = data_in_ext_ram_bank3;
+				end
+				default : begin
+					data_dma = 8'h00;
 				end
 			endcase
 		end
@@ -857,6 +879,9 @@ always @(*) begin
 				end
 				3'b111 : begin
 					data_dma = data_in_work_ram_bank7;
+				end
+				default : begin
+					data_dma = 8'h00;
 				end
 			endcase
 		end
@@ -892,6 +917,9 @@ always @(*) begin
 						end
 						3'b111 : begin
 							data_dma = data_in_work_ram_bank7;
+						end
+						default : begin
+							data_dma = 8'h00;
 						end
 					endcase
 				end
@@ -961,6 +989,10 @@ always @(*) begin
 						4'hF : begin // 0xFEF_
 							data_dma = data_dma; // Unusable Range
 						end
+						
+						default : begin
+							data_dma = 8'h00;
+						end
 					endcase
 				end
 				
@@ -978,7 +1010,7 @@ always @(*) begin
 									data_dma = IF;
 								end
 								default : begin
-									data_dma = data_dma;
+									data_dma = 8'h00;
 								end
 							endcase
 						end
@@ -1020,6 +1052,9 @@ always @(*) begin
 								4'h0 : begin // 0xFF50
 									data_dma = BRLO;
 								end
+								default : begin
+									data_dma = 8'h00;
+								end
 							endcase
 						end
 						
@@ -1031,6 +1066,9 @@ always @(*) begin
 								4'hB : begin // 0xFF6B
 									data_dma = data_in_sprite_palette_mem;
 								end
+								default : begin
+									data_dma = 8'h00;
+								end
 							endcase
 						end
 						
@@ -1038,6 +1076,9 @@ always @(*) begin
 							case (address_bus_reg[3:0])
 								4'h0 : begin // 0xFF70
 									data_dma = SVBK;
+								end
+								default : begin
+									data_dma = 8'h00;
 								end
 							endcase
 						end
@@ -1135,11 +1176,22 @@ always @(*) begin
 								4'hF : begin // 0xFFFF
 									data_dma = IE;
 								end
+								
+								default : begin
+									data_dma = 8'h00;
+								end
 							endcase
+						end
+						
+						default : begin
+							data_dma = 8'h00;
 						end
 					endcase
 				end
 			endcase
+		end
+		default : begin
+			data_dma = 8'h00;
 		end
 	endcase
 end
@@ -1155,7 +1207,7 @@ always @(*) begin
 	wr_en_ext_ram_bank0 = 1'b0;
 	wr_en_ext_ram_bank1 = 1'b0;
 	wr_en_ext_ram_bank2 = 1'b0;
-	wr_en_ext_ram_bank3 = 1'b0;;
+	wr_en_ext_ram_bank3 = 1'b0;
 	
 	wr_en_work_ram_bank0 = 1'b0;
 	wr_en_work_ram_bank1 = 1'b0;

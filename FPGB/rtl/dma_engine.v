@@ -330,19 +330,19 @@ always @(*) begin
 		end
 		4'h8 : begin // VRAM range. Should only happen on OAM DMAs.
 			if (VBK[0]) begin
-				dma_sel_VRAM_bank1 = DMA_source_sel;
+				dma_sel_VRAM_bank1[0] = DMA_source_sel;
 			end
 			else begin
-				dma_sel_VRAM_bank0 = DMA_source_sel;
+				dma_sel_VRAM_bank0[0] = DMA_source_sel;
 			end
 			DMA_source_address = {HDMA1, HDMA2[7:4], 4'b0000} - 16'h8000;
 		end
 		4'h9 : begin // VRAM range. Should only happen on OAM DMAs.
 			if (VBK[0]) begin
-				dma_sel_VRAM_bank1 = DMA_source_sel;
+				dma_sel_VRAM_bank1[0] = DMA_source_sel;
 			end
 			else begin
-				dma_sel_VRAM_bank0 = DMA_source_sel;
+				dma_sel_VRAM_bank0[0] = DMA_source_sel;
 			end
 			DMA_source_address = {HDMA1, HDMA2[7:4], 4'b0000} - 16'h8000;
 		end

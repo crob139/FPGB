@@ -7,22 +7,6 @@ Identify -inferir
 identifyMPM 
 assignFile -p 5 -file "C:/Users/craig robertson/Desktop/FPGB/FPGB/fpgb.bit"
 Program -p 5 
-setCable -port auto
-Program -p 5 
-setCable -port auto
-Program -p 5 
-Program -p 5 
-setCable -port auto
-Program -p 5 
-setCable -port auto
-Program -p 5 
-setCable -port auto
-Program -p 5 
-Program -p 5 
-Program -p 5 
-Program -p 5 
-Program -p 5 
-Program -p 5 
 setMode -bs
 setMode -bs
 setMode -ss

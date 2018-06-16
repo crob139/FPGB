@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.47 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.47 secs
  
 --> Reading design: FPGB.prj
 
@@ -102,6 +102,9 @@ Verilog 2001                       : YES
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
 =========================================================================
 
 
@@ -117,10 +120,26 @@ Compiling verilog include file "rtl/control_word.vh"
 Compiling verilog file "rtl/ALU.v" in library work
 Module <cpu_control> compiled
 Compiling verilog include file "rtl/control_word.vh"
-Compiling verilog file "rtl/memory.v" in library work
+Compiling verilog file "ipcore_dir/RAM_dual_port_15b.v" in library work
 Module <ALU> compiled
-Compiling verilog file "rtl/cpu_top.v" in library work
+Compiling verilog file "rtl/special_registers.v" in library work
+Module <RAM_dual_port_15b> compiled
+Compiling verilog file "rtl/ppu.v" in library work
+Module <special_registers> compiled
+WARNING:HDLCompilers:301 - "rtl/ppu.v" line 217 Too many digits specified in hex constant
+WARNING:HDLCompilers:301 - "rtl/ppu.v" line 217 Too many digits specified in hex constant
+Compiling verilog file "rtl/memory_router.v" in library work
+Module <ppu> compiled
+Compiling verilog file "rtl/memory.v" in library work
+Module <memory_router> compiled
+Compiling verilog file "rtl/mbc.v" in library work
 Module <memory> compiled
+Compiling verilog file "rtl/frame_buffer.v" in library work
+Module <mbc> compiled
+Compiling verilog file "rtl/dma_engine.v" in library work
+Module <frame_buffer> compiled
+Compiling verilog file "rtl/cpu_top.v" in library work
+Module <dma_engine> compiled
 Compiling verilog include file "rtl/control_word.vh"
 Compiling verilog file "rtl/chrontel_serial_bus_driver.v" in library work
 Module <cpu_top> compiled
@@ -157,6 +176,8 @@ Analyzing hierarchy for module <chrontel_serial_bus_driver> in library <work> wi
 
 Analyzing hierarchy for module <chrontel_CH7301C_driver> in library <work>.
 
+Analyzing hierarchy for module <frame_buffer> in library <work>.
+
 Analyzing hierarchy for module <cpu_top> in library <work> with parameters.
 	ADDR_BUS_DEC_WR = "00000000000000000000000000101001"
 	ADDR_BUS_INC_WR = "00000000000000000000000000101000"
@@ -170,28 +191,31 @@ Analyzing hierarchy for module <cpu_top> in library <work> with parameters.
 	ALU_MUX1_LSB = "00000000000000000000000000100100"
 	ALU_MUX1_MSB = "00000000000000000000000000100111"
 	ALU_OUT_WR = "00000000000000000000000000011111"
+	A_ADD = "00000000000000000000000001001101"
 	A_INC = "00000000000000000000000000110000"
 	A_WR = "00000000000000000000000000010101"
-	A_WR_AND = "00000000000000000000000001000000"
+	A_WR_AND = "00000000000000000000000001000011"
 	A_WR_CPL = "00000000000000000000000000110110"
-	A_WR_OR = "00000000000000000000000001000001"
+	A_WR_OR = "00000000000000000000000001000100"
 	A_WR_RLA = "00000000000000000000000000111101"
-	A_WR_SUB = "00000000000000000000000001001010"
+	A_WR_RLCA = "00000000000000000000000000111111"
+	A_WR_RRA = "00000000000000000000000000111110"
+	A_WR_RRCA = "00000000000000000000000001000000"
+	A_WR_SUB = "00000000000000000000000001001100"
 	A_WR_XOR = "00000000000000000000000000110101"
 	BIT_OP_LSB = "00000000000000000000000000111010"
 	BIT_OP_MSB = "00000000000000000000000000111100"
-	B_DEC = "00000000000000000000000000111111"
+	B_DEC = "00000000000000000000000001000010"
 	B_INC = "00000000000000000000000000101010"
 	B_WR = "00000000000000000000000000010100"
 	CB_IR_WR = "00000000000000000000000000111001"
-	CLEAR_INT = "00000000000000000000000001001001"
-	CTRL_MSB = "00000000000000000000000001001010"
+	CTRL_MSB = "00000000000000000000000001001101"
 	C_DEC = "00000000000000000000000000110111"
 	C_INC = "00000000000000000000000000101011"
 	C_WR = "00000000000000000000000000010011"
 	DATA_BUS_LSB = "00000000000000000000000000000100"
 	DATA_BUS_MSB = "00000000000000000000000000000111"
-	D_DEC = "00000000000000000000000000111110"
+	D_DEC = "00000000000000000000000001000001"
 	D_INC = "00000000000000000000000000101100"
 	D_WR = "00000000000000000000000000010010"
 	E_INC = "00000000000000000000000000101101"
@@ -199,21 +223,21 @@ Analyzing hierarchy for module <cpu_top> in library <work> with parameters.
 	F_WR = "00000000000000000000000000010000"
 	H_INC = "00000000000000000000000000101110"
 	H_WR = "00000000000000000000000000001111"
-	IME_RESET = "00000000000000000000000001000010"
-	IME_SET = "00000000000000000000000001000011"
+	IME_RESET = "00000000000000000000000001000101"
+	IME_SET = "00000000000000000000000001000110"
 	IR_WR = "00000000000000000000000000001010"
 	L_INC = "00000000000000000000000000101111"
 	L_WR = "00000000000000000000000000001110"
 	MEM_WR = "00000000000000000000000000010110"
 	PC_INC = "00000000000000000000000000001000"
 	PC_WR = "00000000000000000000000000011001"
-	PC_WR_INT0 = "00000000000000000000000001000100"
-	PC_WR_INT1 = "00000000000000000000000001000101"
-	PC_WR_INT2 = "00000000000000000000000001000110"
-	PC_WR_INT3 = "00000000000000000000000001000111"
-	PC_WR_INT4 = "00000000000000000000000001001000"
+	PC_WR_JOYPAD_INT = "00000000000000000000000001001011"
+	PC_WR_LCD_STAT_INT = "00000000000000000000000001001000"
 	PC_WR_LSB = "00000000000000000000000000110001"
 	PC_WR_MSB = "00000000000000000000000000110010"
+	PC_WR_SERIAL_INT = "00000000000000000000000001001010"
+	PC_WR_TIMER_INT = "00000000000000000000000001001001"
+	PC_WR_V_BLANK_INT = "00000000000000000000000001000111"
 	PC_WR_WZ = "00000000000000000000000000110100"
 	SP_DEC = "00000000000000000000000000110011"
 	SP_INC = "00000000000000000000000000111000"
@@ -223,7 +247,17 @@ Analyzing hierarchy for module <cpu_top> in library <work> with parameters.
 	W_WR = "00000000000000000000000000001101"
 	Z_WR = "00000000000000000000000000001100"
 
+Analyzing hierarchy for module <memory_router> in library <work>.
+
+Analyzing hierarchy for module <mbc> in library <work>.
+
+Analyzing hierarchy for module <dma_engine> in library <work>.
+
+Analyzing hierarchy for module <ppu> in library <work>.
+
 Analyzing hierarchy for module <memory> in library <work>.
+
+Analyzing hierarchy for module <special_registers> in library <work>.
 
 Analyzing hierarchy for module <cpu_control> in library <work> with parameters.
 	ADDR_BUS_DEC_WR = "00000000000000000000000000101001"
@@ -238,28 +272,31 @@ Analyzing hierarchy for module <cpu_control> in library <work> with parameters.
 	ALU_MUX1_LSB = "00000000000000000000000000100100"
 	ALU_MUX1_MSB = "00000000000000000000000000100111"
 	ALU_OUT_WR = "00000000000000000000000000011111"
+	A_ADD = "00000000000000000000000001001101"
 	A_INC = "00000000000000000000000000110000"
 	A_WR = "00000000000000000000000000010101"
-	A_WR_AND = "00000000000000000000000001000000"
+	A_WR_AND = "00000000000000000000000001000011"
 	A_WR_CPL = "00000000000000000000000000110110"
-	A_WR_OR = "00000000000000000000000001000001"
+	A_WR_OR = "00000000000000000000000001000100"
 	A_WR_RLA = "00000000000000000000000000111101"
-	A_WR_SUB = "00000000000000000000000001001010"
+	A_WR_RLCA = "00000000000000000000000000111111"
+	A_WR_RRA = "00000000000000000000000000111110"
+	A_WR_RRCA = "00000000000000000000000001000000"
+	A_WR_SUB = "00000000000000000000000001001100"
 	A_WR_XOR = "00000000000000000000000000110101"
 	BIT_OP_LSB = "00000000000000000000000000111010"
 	BIT_OP_MSB = "00000000000000000000000000111100"
-	B_DEC = "00000000000000000000000000111111"
+	B_DEC = "00000000000000000000000001000010"
 	B_INC = "00000000000000000000000000101010"
 	B_WR = "00000000000000000000000000010100"
 	CB_IR_WR = "00000000000000000000000000111001"
-	CLEAR_INT = "00000000000000000000000001001001"
-	CTRL_MSB = "00000000000000000000000001001010"
+	CTRL_MSB = "00000000000000000000000001001101"
 	C_DEC = "00000000000000000000000000110111"
 	C_INC = "00000000000000000000000000101011"
 	C_WR = "00000000000000000000000000010011"
 	DATA_BUS_LSB = "00000000000000000000000000000100"
 	DATA_BUS_MSB = "00000000000000000000000000000111"
-	D_DEC = "00000000000000000000000000111110"
+	D_DEC = "00000000000000000000000001000001"
 	D_INC = "00000000000000000000000000101100"
 	D_WR = "00000000000000000000000000010010"
 	E_INC = "00000000000000000000000000101101"
@@ -267,21 +304,21 @@ Analyzing hierarchy for module <cpu_control> in library <work> with parameters.
 	F_WR = "00000000000000000000000000010000"
 	H_INC = "00000000000000000000000000101110"
 	H_WR = "00000000000000000000000000001111"
-	IME_RESET = "00000000000000000000000001000010"
-	IME_SET = "00000000000000000000000001000011"
+	IME_RESET = "00000000000000000000000001000101"
+	IME_SET = "00000000000000000000000001000110"
 	IR_WR = "00000000000000000000000000001010"
 	L_INC = "00000000000000000000000000101111"
 	L_WR = "00000000000000000000000000001110"
 	MEM_WR = "00000000000000000000000000010110"
 	PC_INC = "00000000000000000000000000001000"
 	PC_WR = "00000000000000000000000000011001"
-	PC_WR_INT0 = "00000000000000000000000001000100"
-	PC_WR_INT1 = "00000000000000000000000001000101"
-	PC_WR_INT2 = "00000000000000000000000001000110"
-	PC_WR_INT3 = "00000000000000000000000001000111"
-	PC_WR_INT4 = "00000000000000000000000001001000"
+	PC_WR_JOYPAD_INT = "00000000000000000000000001001011"
+	PC_WR_LCD_STAT_INT = "00000000000000000000000001001000"
 	PC_WR_LSB = "00000000000000000000000000110001"
 	PC_WR_MSB = "00000000000000000000000000110010"
+	PC_WR_SERIAL_INT = "00000000000000000000000001001010"
+	PC_WR_TIMER_INT = "00000000000000000000000001001001"
+	PC_WR_V_BLANK_INT = "00000000000000000000000001000111"
 	PC_WR_WZ = "00000000000000000000000000110100"
 	SP_DEC = "00000000000000000000000000110011"
 	SP_INC = "00000000000000000000000000111000"
@@ -304,28 +341,31 @@ Analyzing hierarchy for module <ALU> in library <work> with parameters.
 	ALU_MUX1_LSB = "00000000000000000000000000100100"
 	ALU_MUX1_MSB = "00000000000000000000000000100111"
 	ALU_OUT_WR = "00000000000000000000000000011111"
+	A_ADD = "00000000000000000000000001001101"
 	A_INC = "00000000000000000000000000110000"
 	A_WR = "00000000000000000000000000010101"
-	A_WR_AND = "00000000000000000000000001000000"
+	A_WR_AND = "00000000000000000000000001000011"
 	A_WR_CPL = "00000000000000000000000000110110"
-	A_WR_OR = "00000000000000000000000001000001"
+	A_WR_OR = "00000000000000000000000001000100"
 	A_WR_RLA = "00000000000000000000000000111101"
-	A_WR_SUB = "00000000000000000000000001001010"
+	A_WR_RLCA = "00000000000000000000000000111111"
+	A_WR_RRA = "00000000000000000000000000111110"
+	A_WR_RRCA = "00000000000000000000000001000000"
+	A_WR_SUB = "00000000000000000000000001001100"
 	A_WR_XOR = "00000000000000000000000000110101"
 	BIT_OP_LSB = "00000000000000000000000000111010"
 	BIT_OP_MSB = "00000000000000000000000000111100"
-	B_DEC = "00000000000000000000000000111111"
+	B_DEC = "00000000000000000000000001000010"
 	B_INC = "00000000000000000000000000101010"
 	B_WR = "00000000000000000000000000010100"
 	CB_IR_WR = "00000000000000000000000000111001"
-	CLEAR_INT = "00000000000000000000000001001001"
-	CTRL_MSB = "00000000000000000000000001001010"
+	CTRL_MSB = "00000000000000000000000001001101"
 	C_DEC = "00000000000000000000000000110111"
 	C_INC = "00000000000000000000000000101011"
 	C_WR = "00000000000000000000000000010011"
 	DATA_BUS_LSB = "00000000000000000000000000000100"
 	DATA_BUS_MSB = "00000000000000000000000000000111"
-	D_DEC = "00000000000000000000000000111110"
+	D_DEC = "00000000000000000000000001000001"
 	D_INC = "00000000000000000000000000101100"
 	D_WR = "00000000000000000000000000010010"
 	E_INC = "00000000000000000000000000101101"
@@ -333,21 +373,21 @@ Analyzing hierarchy for module <ALU> in library <work> with parameters.
 	F_WR = "00000000000000000000000000010000"
 	H_INC = "00000000000000000000000000101110"
 	H_WR = "00000000000000000000000000001111"
-	IME_RESET = "00000000000000000000000001000010"
-	IME_SET = "00000000000000000000000001000011"
+	IME_RESET = "00000000000000000000000001000101"
+	IME_SET = "00000000000000000000000001000110"
 	IR_WR = "00000000000000000000000000001010"
 	L_INC = "00000000000000000000000000101111"
 	L_WR = "00000000000000000000000000001110"
 	MEM_WR = "00000000000000000000000000010110"
 	PC_INC = "00000000000000000000000000001000"
 	PC_WR = "00000000000000000000000000011001"
-	PC_WR_INT0 = "00000000000000000000000001000100"
-	PC_WR_INT1 = "00000000000000000000000001000101"
-	PC_WR_INT2 = "00000000000000000000000001000110"
-	PC_WR_INT3 = "00000000000000000000000001000111"
-	PC_WR_INT4 = "00000000000000000000000001001000"
+	PC_WR_JOYPAD_INT = "00000000000000000000000001001011"
+	PC_WR_LCD_STAT_INT = "00000000000000000000000001001000"
 	PC_WR_LSB = "00000000000000000000000000110001"
 	PC_WR_MSB = "00000000000000000000000000110010"
+	PC_WR_SERIAL_INT = "00000000000000000000000001001010"
+	PC_WR_TIMER_INT = "00000000000000000000000001001001"
+	PC_WR_V_BLANK_INT = "00000000000000000000000001000111"
 	PC_WR_WZ = "00000000000000000000000000110100"
 	SP_DEC = "00000000000000000000000000110011"
 	SP_INC = "00000000000000000000000000111000"
@@ -357,14 +397,22 @@ Analyzing hierarchy for module <ALU> in library <work> with parameters.
 	W_WR = "00000000000000000000000000001101"
 	Z_WR = "00000000000000000000000000001100"
 
-Analyzing hierarchy for module <ROM> in library <work> with parameters.
-	ADDRESS_WIDTH = "00000000000000000000000000001100"
-	FILENAME = "rtl/roms/GBC_boot_rom.txt"
-	MEM_SIZE = "00000000000000000000100100000000"
-
 Analyzing hierarchy for module <RAM> in library <work> with parameters.
 	ADDRESS_WIDTH = "00000000000000000000000000001101"
 	MEM_SIZE = "00000000000000000010000000000000"
+
+Analyzing hierarchy for module <RAM> in library <work> with parameters.
+	ADDRESS_WIDTH = "00000000000000000000000000001000"
+	MEM_SIZE = "00000000000000000000000010100000"
+
+Analyzing hierarchy for module <RAM> in library <work> with parameters.
+	ADDRESS_WIDTH = "00000000000000000000000000000110"
+	MEM_SIZE = "00000000000000000000000001000000"
+
+Analyzing hierarchy for module <ROM> in library <work> with parameters.
+	ADDRESS_WIDTH = "00000000000000000000000000001100"
+	FILENAME = "rtl/roms/GBC_boot_rom_MODIFIED.txt"
+	MEM_SIZE = "00000000000000000000100100000000"
 
 Analyzing hierarchy for module <RAM> in library <work> with parameters.
 	ADDRESS_WIDTH = "00000000000000000000000000001100"
@@ -374,15 +422,12 @@ Analyzing hierarchy for module <RAM> in library <work> with parameters.
 	ADDRESS_WIDTH = "00000000000000000000000000000111"
 	MEM_SIZE = "00000000000000000000000001111111"
 
-Analyzing hierarchy for module <RAM> in library <work> with parameters.
-	ADDRESS_WIDTH = "00000000000000000000000000000110"
-	MEM_SIZE = "00000000000000000000000001000000"
-
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <FPGB>.
+WARNING:Xst:852 - "rtl/FPGB.v" line 407: Unconnected input port 'STAT_coincidence_flag' of instance 'special_registers_inst' is tied to GND.
 Module <FPGB> is correct for synthesis.
  
 Analyzing module <systemPLL> in library <work>.
@@ -479,6 +524,10 @@ Module <chrontel_CH7301C_driver> is correct for synthesis.
     Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <OBUFDS_XCLK_inst> in unit <chrontel_CH7301C_driver>.
     Set user-defined property "IOSTANDARD =  DEFAULT" for instance <OBUFDS_XCLK_inst> in unit <chrontel_CH7301C_driver>.
     Set user-defined property "SLEW =  SLOW" for instance <OBUFDS_XCLK_inst> in unit <chrontel_CH7301C_driver>.
+Analyzing module <frame_buffer> in library <work>.
+WARNING:Xst:2211 - "ipcore_dir/RAM_dual_port_15b.v" line 106: Instantiating black box module <RAM_dual_port_15b>.
+Module <frame_buffer> is correct for synthesis.
+ 
 Analyzing module <cpu_top> in library <work>.
 	ADDR_BUS_DEC_WR = 32'sb00000000000000000000000000101001
 	ADDR_BUS_INC_WR = 32'sb00000000000000000000000000101000
@@ -492,28 +541,31 @@ Analyzing module <cpu_top> in library <work>.
 	ALU_MUX1_LSB = 32'sb00000000000000000000000000100100
 	ALU_MUX1_MSB = 32'sb00000000000000000000000000100111
 	ALU_OUT_WR = 32'sb00000000000000000000000000011111
+	A_ADD = 32'sb00000000000000000000000001001101
 	A_INC = 32'sb00000000000000000000000000110000
 	A_WR = 32'sb00000000000000000000000000010101
-	A_WR_AND = 32'sb00000000000000000000000001000000
+	A_WR_AND = 32'sb00000000000000000000000001000011
 	A_WR_CPL = 32'sb00000000000000000000000000110110
-	A_WR_OR = 32'sb00000000000000000000000001000001
+	A_WR_OR = 32'sb00000000000000000000000001000100
 	A_WR_RLA = 32'sb00000000000000000000000000111101
-	A_WR_SUB = 32'sb00000000000000000000000001001010
+	A_WR_RLCA = 32'sb00000000000000000000000000111111
+	A_WR_RRA = 32'sb00000000000000000000000000111110
+	A_WR_RRCA = 32'sb00000000000000000000000001000000
+	A_WR_SUB = 32'sb00000000000000000000000001001100
 	A_WR_XOR = 32'sb00000000000000000000000000110101
 	BIT_OP_LSB = 32'sb00000000000000000000000000111010
 	BIT_OP_MSB = 32'sb00000000000000000000000000111100
-	B_DEC = 32'sb00000000000000000000000000111111
+	B_DEC = 32'sb00000000000000000000000001000010
 	B_INC = 32'sb00000000000000000000000000101010
 	B_WR = 32'sb00000000000000000000000000010100
 	CB_IR_WR = 32'sb00000000000000000000000000111001
-	CLEAR_INT = 32'sb00000000000000000000000001001001
-	CTRL_MSB = 32'sb00000000000000000000000001001010
+	CTRL_MSB = 32'sb00000000000000000000000001001101
 	C_DEC = 32'sb00000000000000000000000000110111
 	C_INC = 32'sb00000000000000000000000000101011
 	C_WR = 32'sb00000000000000000000000000010011
 	DATA_BUS_LSB = 32'sb00000000000000000000000000000100
 	DATA_BUS_MSB = 32'sb00000000000000000000000000000111
-	D_DEC = 32'sb00000000000000000000000000111110
+	D_DEC = 32'sb00000000000000000000000001000001
 	D_INC = 32'sb00000000000000000000000000101100
 	D_WR = 32'sb00000000000000000000000000010010
 	E_INC = 32'sb00000000000000000000000000101101
@@ -521,21 +573,21 @@ Analyzing module <cpu_top> in library <work>.
 	F_WR = 32'sb00000000000000000000000000010000
 	H_INC = 32'sb00000000000000000000000000101110
 	H_WR = 32'sb00000000000000000000000000001111
-	IME_RESET = 32'sb00000000000000000000000001000010
-	IME_SET = 32'sb00000000000000000000000001000011
+	IME_RESET = 32'sb00000000000000000000000001000101
+	IME_SET = 32'sb00000000000000000000000001000110
 	IR_WR = 32'sb00000000000000000000000000001010
 	L_INC = 32'sb00000000000000000000000000101111
 	L_WR = 32'sb00000000000000000000000000001110
 	MEM_WR = 32'sb00000000000000000000000000010110
 	PC_INC = 32'sb00000000000000000000000000001000
 	PC_WR = 32'sb00000000000000000000000000011001
-	PC_WR_INT0 = 32'sb00000000000000000000000001000100
-	PC_WR_INT1 = 32'sb00000000000000000000000001000101
-	PC_WR_INT2 = 32'sb00000000000000000000000001000110
-	PC_WR_INT3 = 32'sb00000000000000000000000001000111
-	PC_WR_INT4 = 32'sb00000000000000000000000001001000
+	PC_WR_JOYPAD_INT = 32'sb00000000000000000000000001001011
+	PC_WR_LCD_STAT_INT = 32'sb00000000000000000000000001001000
 	PC_WR_LSB = 32'sb00000000000000000000000000110001
 	PC_WR_MSB = 32'sb00000000000000000000000000110010
+	PC_WR_SERIAL_INT = 32'sb00000000000000000000000001001010
+	PC_WR_TIMER_INT = 32'sb00000000000000000000000001001001
+	PC_WR_V_BLANK_INT = 32'sb00000000000000000000000001000111
 	PC_WR_WZ = 32'sb00000000000000000000000000110100
 	SP_DEC = 32'sb00000000000000000000000000110011
 	SP_INC = 32'sb00000000000000000000000000111000
@@ -559,28 +611,31 @@ Analyzing module <cpu_control> in library <work>.
 	ALU_MUX1_LSB = 32'sb00000000000000000000000000100100
 	ALU_MUX1_MSB = 32'sb00000000000000000000000000100111
 	ALU_OUT_WR = 32'sb00000000000000000000000000011111
+	A_ADD = 32'sb00000000000000000000000001001101
 	A_INC = 32'sb00000000000000000000000000110000
 	A_WR = 32'sb00000000000000000000000000010101
-	A_WR_AND = 32'sb00000000000000000000000001000000
+	A_WR_AND = 32'sb00000000000000000000000001000011
 	A_WR_CPL = 32'sb00000000000000000000000000110110
-	A_WR_OR = 32'sb00000000000000000000000001000001
+	A_WR_OR = 32'sb00000000000000000000000001000100
 	A_WR_RLA = 32'sb00000000000000000000000000111101
-	A_WR_SUB = 32'sb00000000000000000000000001001010
+	A_WR_RLCA = 32'sb00000000000000000000000000111111
+	A_WR_RRA = 32'sb00000000000000000000000000111110
+	A_WR_RRCA = 32'sb00000000000000000000000001000000
+	A_WR_SUB = 32'sb00000000000000000000000001001100
 	A_WR_XOR = 32'sb00000000000000000000000000110101
 	BIT_OP_LSB = 32'sb00000000000000000000000000111010
 	BIT_OP_MSB = 32'sb00000000000000000000000000111100
-	B_DEC = 32'sb00000000000000000000000000111111
+	B_DEC = 32'sb00000000000000000000000001000010
 	B_INC = 32'sb00000000000000000000000000101010
 	B_WR = 32'sb00000000000000000000000000010100
 	CB_IR_WR = 32'sb00000000000000000000000000111001
-	CLEAR_INT = 32'sb00000000000000000000000001001001
-	CTRL_MSB = 32'sb00000000000000000000000001001010
+	CTRL_MSB = 32'sb00000000000000000000000001001101
 	C_DEC = 32'sb00000000000000000000000000110111
 	C_INC = 32'sb00000000000000000000000000101011
 	C_WR = 32'sb00000000000000000000000000010011
 	DATA_BUS_LSB = 32'sb00000000000000000000000000000100
 	DATA_BUS_MSB = 32'sb00000000000000000000000000000111
-	D_DEC = 32'sb00000000000000000000000000111110
+	D_DEC = 32'sb00000000000000000000000001000001
 	D_INC = 32'sb00000000000000000000000000101100
 	D_WR = 32'sb00000000000000000000000000010010
 	E_INC = 32'sb00000000000000000000000000101101
@@ -588,21 +643,21 @@ Analyzing module <cpu_control> in library <work>.
 	F_WR = 32'sb00000000000000000000000000010000
 	H_INC = 32'sb00000000000000000000000000101110
 	H_WR = 32'sb00000000000000000000000000001111
-	IME_RESET = 32'sb00000000000000000000000001000010
-	IME_SET = 32'sb00000000000000000000000001000011
+	IME_RESET = 32'sb00000000000000000000000001000101
+	IME_SET = 32'sb00000000000000000000000001000110
 	IR_WR = 32'sb00000000000000000000000000001010
 	L_INC = 32'sb00000000000000000000000000101111
 	L_WR = 32'sb00000000000000000000000000001110
 	MEM_WR = 32'sb00000000000000000000000000010110
 	PC_INC = 32'sb00000000000000000000000000001000
 	PC_WR = 32'sb00000000000000000000000000011001
-	PC_WR_INT0 = 32'sb00000000000000000000000001000100
-	PC_WR_INT1 = 32'sb00000000000000000000000001000101
-	PC_WR_INT2 = 32'sb00000000000000000000000001000110
-	PC_WR_INT3 = 32'sb00000000000000000000000001000111
-	PC_WR_INT4 = 32'sb00000000000000000000000001001000
+	PC_WR_JOYPAD_INT = 32'sb00000000000000000000000001001011
+	PC_WR_LCD_STAT_INT = 32'sb00000000000000000000000001001000
 	PC_WR_LSB = 32'sb00000000000000000000000000110001
 	PC_WR_MSB = 32'sb00000000000000000000000000110010
+	PC_WR_SERIAL_INT = 32'sb00000000000000000000000001001010
+	PC_WR_TIMER_INT = 32'sb00000000000000000000000001001001
+	PC_WR_V_BLANK_INT = 32'sb00000000000000000000000001000111
 	PC_WR_WZ = 32'sb00000000000000000000000000110100
 	SP_DEC = 32'sb00000000000000000000000000110011
 	SP_INC = 32'sb00000000000000000000000000111000
@@ -626,28 +681,31 @@ Analyzing module <ALU> in library <work>.
 	ALU_MUX1_LSB = 32'sb00000000000000000000000000100100
 	ALU_MUX1_MSB = 32'sb00000000000000000000000000100111
 	ALU_OUT_WR = 32'sb00000000000000000000000000011111
+	A_ADD = 32'sb00000000000000000000000001001101
 	A_INC = 32'sb00000000000000000000000000110000
 	A_WR = 32'sb00000000000000000000000000010101
-	A_WR_AND = 32'sb00000000000000000000000001000000
+	A_WR_AND = 32'sb00000000000000000000000001000011
 	A_WR_CPL = 32'sb00000000000000000000000000110110
-	A_WR_OR = 32'sb00000000000000000000000001000001
+	A_WR_OR = 32'sb00000000000000000000000001000100
 	A_WR_RLA = 32'sb00000000000000000000000000111101
-	A_WR_SUB = 32'sb00000000000000000000000001001010
+	A_WR_RLCA = 32'sb00000000000000000000000000111111
+	A_WR_RRA = 32'sb00000000000000000000000000111110
+	A_WR_RRCA = 32'sb00000000000000000000000001000000
+	A_WR_SUB = 32'sb00000000000000000000000001001100
 	A_WR_XOR = 32'sb00000000000000000000000000110101
 	BIT_OP_LSB = 32'sb00000000000000000000000000111010
 	BIT_OP_MSB = 32'sb00000000000000000000000000111100
-	B_DEC = 32'sb00000000000000000000000000111111
+	B_DEC = 32'sb00000000000000000000000001000010
 	B_INC = 32'sb00000000000000000000000000101010
 	B_WR = 32'sb00000000000000000000000000010100
 	CB_IR_WR = 32'sb00000000000000000000000000111001
-	CLEAR_INT = 32'sb00000000000000000000000001001001
-	CTRL_MSB = 32'sb00000000000000000000000001001010
+	CTRL_MSB = 32'sb00000000000000000000000001001101
 	C_DEC = 32'sb00000000000000000000000000110111
 	C_INC = 32'sb00000000000000000000000000101011
 	C_WR = 32'sb00000000000000000000000000010011
 	DATA_BUS_LSB = 32'sb00000000000000000000000000000100
 	DATA_BUS_MSB = 32'sb00000000000000000000000000000111
-	D_DEC = 32'sb00000000000000000000000000111110
+	D_DEC = 32'sb00000000000000000000000001000001
 	D_INC = 32'sb00000000000000000000000000101100
 	D_WR = 32'sb00000000000000000000000000010010
 	E_INC = 32'sb00000000000000000000000000101101
@@ -655,21 +713,21 @@ Analyzing module <ALU> in library <work>.
 	F_WR = 32'sb00000000000000000000000000010000
 	H_INC = 32'sb00000000000000000000000000101110
 	H_WR = 32'sb00000000000000000000000000001111
-	IME_RESET = 32'sb00000000000000000000000001000010
-	IME_SET = 32'sb00000000000000000000000001000011
+	IME_RESET = 32'sb00000000000000000000000001000101
+	IME_SET = 32'sb00000000000000000000000001000110
 	IR_WR = 32'sb00000000000000000000000000001010
 	L_INC = 32'sb00000000000000000000000000101111
 	L_WR = 32'sb00000000000000000000000000001110
 	MEM_WR = 32'sb00000000000000000000000000010110
 	PC_INC = 32'sb00000000000000000000000000001000
 	PC_WR = 32'sb00000000000000000000000000011001
-	PC_WR_INT0 = 32'sb00000000000000000000000001000100
-	PC_WR_INT1 = 32'sb00000000000000000000000001000101
-	PC_WR_INT2 = 32'sb00000000000000000000000001000110
-	PC_WR_INT3 = 32'sb00000000000000000000000001000111
-	PC_WR_INT4 = 32'sb00000000000000000000000001001000
+	PC_WR_JOYPAD_INT = 32'sb00000000000000000000000001001011
+	PC_WR_LCD_STAT_INT = 32'sb00000000000000000000000001001000
 	PC_WR_LSB = 32'sb00000000000000000000000000110001
 	PC_WR_MSB = 32'sb00000000000000000000000000110010
+	PC_WR_SERIAL_INT = 32'sb00000000000000000000000001001010
+	PC_WR_TIMER_INT = 32'sb00000000000000000000000001001001
+	PC_WR_V_BLANK_INT = 32'sb00000000000000000000000001000111
 	PC_WR_WZ = 32'sb00000000000000000000000000110100
 	SP_DEC = 32'sb00000000000000000000000000110011
 	SP_INC = 32'sb00000000000000000000000000111000
@@ -680,17 +738,18 @@ Analyzing module <ALU> in library <work>.
 	Z_WR = 32'sb00000000000000000000000000001100
 Module <ALU> is correct for synthesis.
  
-Analyzing module <memory> in library <work>.
-Module <memory> is correct for synthesis.
+Analyzing module <memory_router> in library <work>.
+Module <memory_router> is correct for synthesis.
  
-Analyzing module <ROM> in library <work>.
-	ADDRESS_WIDTH = 32'sb00000000000000000000000000001100
-	FILENAME = "rtl/roms/GBC_boot_rom.txt"
-	MEM_SIZE = 32'sb00000000000000000000100100000000
-INFO:Xst:2546 - "rtl/ROM.v" line 28: reading initialization file "rtl/roms/GBC_boot_rom.txt".
-Module <ROM> is correct for synthesis.
+Analyzing module <mbc> in library <work>.
+Module <mbc> is correct for synthesis.
  
-    Set property "rom_style = block" for unit <ROM>.
+Analyzing module <dma_engine> in library <work>.
+Module <dma_engine> is correct for synthesis.
+ 
+Analyzing module <ppu> in library <work>.
+Module <ppu> is correct for synthesis.
+ 
 Analyzing module <RAM.1> in library <work>.
 	ADDRESS_WIDTH = 32'sb00000000000000000000000000001101
 	MEM_SIZE = 32'sb00000000000000000010000000000000
@@ -698,36 +757,52 @@ Module <RAM.1> is correct for synthesis.
  
     Set property "ram_style = block" for signal <ram>.
 Analyzing module <RAM.2> in library <work>.
-	ADDRESS_WIDTH = 32'sb00000000000000000000000000001100
-	MEM_SIZE = 32'sb00000000000000000001000000000000
+	ADDRESS_WIDTH = 32'sb00000000000000000000000000001000
+	MEM_SIZE = 32'sb00000000000000000000000010100000
 Module <RAM.2> is correct for synthesis.
  
     Set property "ram_style = block" for signal <ram>.
 Analyzing module <RAM.3> in library <work>.
-	ADDRESS_WIDTH = 32'sb00000000000000000000000000000111
-	MEM_SIZE = 32'sb00000000000000000000000001111111
+	ADDRESS_WIDTH = 32'sb00000000000000000000000000000110
+	MEM_SIZE = 32'sb00000000000000000000000001000000
 Module <RAM.3> is correct for synthesis.
  
     Set property "ram_style = block" for signal <ram>.
+Analyzing module <memory> in library <work>.
+Module <memory> is correct for synthesis.
+ 
+Analyzing module <ROM> in library <work>.
+	ADDRESS_WIDTH = 32'sb00000000000000000000000000001100
+	FILENAME = "rtl/roms/GBC_boot_rom_MODIFIED.txt"
+	MEM_SIZE = 32'sb00000000000000000000100100000000
+INFO:Xst:2546 - "rtl/ROM.v" line 28: reading initialization file "rtl/roms/GBC_boot_rom_MODIFIED.txt".
+Module <ROM> is correct for synthesis.
+ 
+    Set property "rom_style = block" for unit <ROM>.
 Analyzing module <RAM.4> in library <work>.
-	ADDRESS_WIDTH = 32'sb00000000000000000000000000000110
-	MEM_SIZE = 32'sb00000000000000000000000001000000
+	ADDRESS_WIDTH = 32'sb00000000000000000000000000001100
+	MEM_SIZE = 32'sb00000000000000000001000000000000
 Module <RAM.4> is correct for synthesis.
  
     Set property "ram_style = block" for signal <ram>.
+Analyzing module <RAM.5> in library <work>.
+	ADDRESS_WIDTH = 32'sb00000000000000000000000000000111
+	MEM_SIZE = 32'sb00000000000000000000000001111111
+Module <RAM.5> is correct for synthesis.
+ 
+    Set property "ram_style = block" for signal <ram>.
+Analyzing module <special_registers> in library <work>.
+Module <special_registers> is correct for synthesis.
+ 
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <VBK<7>> in unit <memory> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <VBK<6>> in unit <memory> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <VBK<5>> in unit <memory> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <VBK<4>> in unit <memory> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <VBK<3>> in unit <memory> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <VBK<2>> in unit <memory> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <VBK<1>> in unit <memory> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <decode_cpu_led> in unit <cpu_control> has a constant value of 1 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <OAM_DMA_state> in unit <dma_engine> has a constant value of 00 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <HDMA_state> in unit <dma_engine> has a constant value of 00 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <chrontel_serial_bus_driver>.
     Related source file is "rtl/chrontel_serial_bus_driver.v".
@@ -780,12 +855,143 @@ INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state> of Case statement line 242 wa
 Unit <chrontel_serial_bus_driver> synthesized.
 
 
+Synthesizing Unit <memory_router>.
+    Related source file is "rtl/memory_router.v".
+WARNING:Xst:647 - Input <address_bus_dma_rd> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <address_bus_dma_rd_we> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:737 - Found 8-bit latch for signal <data_out>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 8-bit latch for signal <data_dma>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 16-bit 16-to-1 multiplexer for signal <address_bus_offset>.
+    Found 16-bit 16-to-1 multiplexer for signal <address_bus_offset$mux0001>.
+    Found 16-bit 16-to-1 multiplexer for signal <address_bus_offset$mux0002>.
+    Found 16-bit subtractor for signal <address_bus_offset$share0000> created at line 1224.
+    Found 16-bit register for signal <address_bus_reg>.
+    Found 8-bit 16-to-1 multiplexer for signal <data_dma$mux0001>.
+    Found 8-bit 8-to-1 multiplexer for signal <data_dma$mux0002>.
+    Found 8-bit 8-to-1 multiplexer for signal <data_dma$mux0003>.
+    Found 8-bit 8-to-1 multiplexer for signal <data_dma$mux0004>.
+    Found 8-bit 16-to-1 multiplexer for signal <data_out$mux0002>.
+    Found 8-bit 8-to-1 multiplexer for signal <data_out$mux0003>.
+    Found 8-bit 6-to-1 multiplexer for signal <data_out$mux0004>.
+    Found 8-bit 8-to-1 multiplexer for signal <data_out$mux0006>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred 112 Multiplexer(s).
+Unit <memory_router> synthesized.
+
+
+Synthesizing Unit <mbc>.
+    Related source file is "rtl/mbc.v".
+Unit <mbc> synthesized.
+
+
+Synthesizing Unit <dma_engine>.
+    Related source file is "rtl/dma_engine.v".
+WARNING:Xst:647 - Input <HDMA2<3:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <HDMA3<7:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <HDMA4<3:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <VBK<7:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1305 - Output <wr_en_oam_dma_wr> is never assigned. Tied to value 0.
+WARNING:Xst:647 - Input <SVBK<7:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <OAM_DMA_address_bus_rd> is used but never assigned. This sourceless signal will be automatically connected to value 0000000000000000.
+    Found finite state machine <FSM_1> for signal <GDMA_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk4_2                    (rising_edge)        |
+    | Reset              | reset_n                   (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <GDMA_finished>.
+    Found 16-bit adder for signal <address_bus_dma_rd$addsub0000> created at line 117.
+    Found 16-bit subtractor for signal <address_bus_dma_wr$addsub0000> created at line 119.
+    Found 16-bit adder for signal <address_bus_dma_wr$addsub0001> created at line 119.
+    Found 16-bit adder for signal <dma_data_mux_sel_address$addsub0000>.
+    Found 16-bit subtractor for signal <DMA_source_address$addsub0000>.
+    Found 16-bit register for signal <GDMA_address_bus_rd>.
+    Found 12-bit register for signal <GDMA_address_bus_rd_count>.
+    Found 12-bit comparator less for signal <GDMA_address_bus_rd_count$cmp_lt0000> created at line 184.
+    Found 12-bit adder for signal <GDMA_address_bus_rd_count$share0000> created at line 154.
+    Found 12-bit register for signal <GDMA_count>.
+    Found 8-bit adder for signal <GDMA_count$add0000> created at line 163.
+    Found 12-bit comparator less for signal <GDMA_state$cmp_lt0000> created at line 175.
+    Found 12-bit subtractor for signal <GDMA_state$sub0000> created at line 175.
+    Found 12-bit register for signal <GDMA_transfer_count>.
+    Found 12-bit adder for signal <GDMA_transfer_count$addsub0000> created at line 177.
+    Found 1-bit register for signal <GDMA_wr_en_dma_wr>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  54 D-type flip-flop(s).
+	inferred   9 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <dma_engine> synthesized.
+
+
+Synthesizing Unit <special_registers>.
+    Related source file is "rtl/special_registers.v".
+WARNING:Xst:646 - Signal <IF_reg<7:5>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <LCDC>.
+    Found 8-bit register for signal <HDMA1>.
+    Found 8-bit register for signal <HDMA2>.
+    Found 8-bit register for signal <HDMA3>.
+    Found 8-bit register for signal <HDMA4>.
+    Found 8-bit register for signal <HDMA5>.
+    Found 8-bit register for signal <VBK>.
+    Found 8-bit register for signal <IE>.
+    Found 1-bit register for signal <DMA_start>.
+    Found 8-bit register for signal <BCPS_BGPI>.
+    Found 8-bit register for signal <LYC>.
+    Found 8-bit register for signal <OCPS_OBPI>.
+    Found 1-bit register for signal <led_out>.
+    Found 8-bit register for signal <WX>.
+    Found 8-bit register for signal <WY>.
+    Found 8-bit register for signal <BRLO>.
+    Found 8-bit register for signal <SCX>.
+    Found 8-bit register for signal <SCY>.
+    Found 8-bit register for signal <SVBK>.
+    Found 6-bit adder for signal <$add0000> created at line 461.
+    Found 6-bit adder for signal <$add0001> created at line 483.
+    Found 8-bit register for signal <IF_reg>.
+    Found 1-bit register for signal <joypad_int_clear>.
+    Found 1-bit register for signal <joypad_int_set>.
+    Found 1-bit register for signal <lcd_stat_int_clear>.
+    Found 1-bit register for signal <lcd_stat_int_set>.
+    Found 1-bit register for signal <LY_count_reset>.
+    Found 8-bit comparator greater for signal <LY_counter_reset$cmp_gt0000> created at line 306.
+    Found 2-bit register for signal <P1_JOYP_reg>.
+    Found 1-bit register for signal <serial_int_clear>.
+    Found 1-bit register for signal <serial_int_set>.
+    Found 5-bit register for signal <STAT_reg>.
+    Found 1-bit register for signal <timer_int_clear>.
+    Found 1-bit register for signal <timer_int_set>.
+    Found 1-bit register for signal <v_blank_int_clear>.
+    Found 1-bit register for signal <v_blank_int_set>.
+    Summary:
+	inferred 164 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <special_registers> synthesized.
+
+
 Synthesizing Unit <cpu_control>.
     Related source file is "rtl/cpu_control.v".
 WARNING:Xst:647 - Input <F<6:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <F<3:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <decode_service_isr> is used but never assigned. This sourceless signal will be automatically connected to value 0.
     Using one-hot encoding for signal <T_state>.
+WARNING:Xst:737 - Found 1-bit latch for signal <control_word_77>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <control_word_76>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <control_word_75>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <control_word_74>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <control_word_73>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -922,7 +1128,11 @@ WARNING:Xst:737 - Found 1-bit latch for signal <control_word_1>. Latches may be 
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <control_word_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <cpu_halt>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <service_isr>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <cpu_led>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 10-bit latch for signal <next_T_state_decoder>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
@@ -948,8 +1158,8 @@ Unit <cpu_control> synthesized.
 
 Synthesizing Unit <ALU>.
     Related source file is "rtl/ALU.v".
-WARNING:Xst:647 - Input <control_word<73:66>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <control_word<63:62>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <control_word<75:69>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <control_word<66:65>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <control_word<57:55>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <control_word<52:49>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <control_word<47:32>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -973,31 +1183,20 @@ WARNING:Xst:646 - Signal <ADD_3NIBBLES_16b> is assigned but never used. This unc
     Found 4-bit register for signal <F<7:4>>.
     Found 1-bit register for signal <F<0>>.
     Found 16-bit register for signal <ALU_out>.
-    Found 8-bit adder for signal <A$addsub0000> created at line 68.
+    Found 8-bit adder for signal <A$addsub0000> created at line 71.
     Found 16-bit subtractor for signal <DEC_16b>.
     Found 8-bit subtractor for signal <DEC_8b>.
     Found 1-bit 8-to-1 multiplexer for signal <F_7$mux0001>.
     Found 16-bit adder for signal <INC_16b>.
     Found 8-bit adder for signal <INC_8b>.
     Found 8-bit adder for signal <SUB_8b>.
-    Found 8-bit adder for signal <SUB_8b$addsub0000> created at line 107.
+    Found 8-bit adder for signal <SUB_8b$addsub0000> created at line 119.
     Found 8-bit xor2 for signal <XOR>.
     Summary:
 	inferred  29 D-type flip-flop(s).
 	inferred  14 Adder/Subtractor(s).
 	inferred   1 Multiplexer(s).
 Unit <ALU> synthesized.
-
-
-Synthesizing Unit <ROM>.
-    Related source file is "rtl/ROM.v".
-WARNING:Xst:1781 - Signal <rom> is used but never assigned. Tied to default value.
-    Found 2304x8-bit ROM for signal <data_out>.
-    Found 12-bit register for signal <addr_reg>.
-    Summary:
-	inferred   1 ROM(s).
-	inferred  12 D-type flip-flop(s).
-Unit <ROM> synthesized.
 
 
 Synthesizing Unit <RAM_1>.
@@ -1012,7 +1211,7 @@ Unit <RAM_1> synthesized.
 
 Synthesizing Unit <RAM_2>.
     Related source file is "rtl/RAM.v".
-    Found 4096x8-bit single-port RAM <Mram_ram> for signal <ram>.
+    Found 160x8-bit single-port RAM <Mram_ram> for signal <ram>.
     Found 8-bit register for signal <data_out>.
     Summary:
 	inferred   1 RAM(s).
@@ -1022,7 +1221,7 @@ Unit <RAM_2> synthesized.
 
 Synthesizing Unit <RAM_3>.
     Related source file is "rtl/RAM.v".
-    Found 127x8-bit single-port RAM <Mram_ram> for signal <ram>.
+    Found 64x8-bit single-port RAM <Mram_ram> for signal <ram>.
     Found 8-bit register for signal <data_out>.
     Summary:
 	inferred   1 RAM(s).
@@ -1030,14 +1229,35 @@ Synthesizing Unit <RAM_3>.
 Unit <RAM_3> synthesized.
 
 
+Synthesizing Unit <ROM>.
+    Related source file is "rtl/ROM.v".
+WARNING:Xst:1781 - Signal <rom> is used but never assigned. Tied to default value.
+    Found 2304x8-bit ROM for signal <data_out>.
+    Found 12-bit register for signal <addr_reg>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  12 D-type flip-flop(s).
+Unit <ROM> synthesized.
+
+
 Synthesizing Unit <RAM_4>.
     Related source file is "rtl/RAM.v".
-    Found 64x8-bit single-port RAM <Mram_ram> for signal <ram>.
+    Found 4096x8-bit single-port RAM <Mram_ram> for signal <ram>.
     Found 8-bit register for signal <data_out>.
     Summary:
 	inferred   1 RAM(s).
 	inferred   8 D-type flip-flop(s).
 Unit <RAM_4> synthesized.
+
+
+Synthesizing Unit <RAM_5>.
+    Related source file is "rtl/RAM.v".
+    Found 127x8-bit single-port RAM <Mram_ram> for signal <ram>.
+    Found 8-bit register for signal <data_out>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <RAM_5> synthesized.
 
 
 Synthesizing Unit <systemPLL>.
@@ -1050,17 +1270,47 @@ Synthesizing Unit <chrontel_CH7301C_driver>.
     Found 1-bit register for signal <DVI_DE>.
     Found 10-bit up counter for signal <counterX>.
     Found 10-bit up counter for signal <counterY>.
-    Found 10-bit comparator less for signal <DVI_DE$cmp_lt0000> created at line 40.
-    Found 10-bit comparator less for signal <DVI_DE$cmp_lt0001> created at line 40.
-    Found 10-bit comparator greatequal for signal <DVI_H$cmp_ge0000> created at line 33.
-    Found 10-bit comparator less for signal <DVI_H$cmp_lt0000> created at line 33.
-    Found 10-bit comparator greatequal for signal <DVI_V$cmp_ge0000> created at line 36.
-    Found 10-bit comparator less for signal <DVI_V$cmp_lt0000> created at line 36.
+    Found 10-bit comparator less for signal <DVI_DE$cmp_lt0000> created at line 44.
+    Found 10-bit comparator less for signal <DVI_DE$cmp_lt0001> created at line 44.
+    Found 10-bit comparator greatequal for signal <DVI_H$cmp_ge0000> created at line 37.
+    Found 10-bit comparator less for signal <DVI_H$cmp_lt0000> created at line 37.
+    Found 10-bit comparator greatequal for signal <DVI_V$cmp_ge0000> created at line 40.
+    Found 10-bit comparator less for signal <DVI_V$cmp_lt0000> created at line 40.
+    Found 10-bit comparator less for signal <pix_data$cmp_lt0000> created at line 48.
+    Found 10-bit comparator less for signal <pix_data$cmp_lt0001> created at line 48.
     Summary:
 	inferred   2 Counter(s).
 	inferred   1 D-type flip-flop(s).
-	inferred   6 Comparator(s).
+	inferred   8 Comparator(s).
 Unit <chrontel_CH7301C_driver> synthesized.
+
+
+Synthesizing Unit <frame_buffer>.
+    Related source file is "rtl/frame_buffer.v".
+WARNING:Xst:1780 - Signal <wr_en_frame_buf_2> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <wr_en_frame_buf_1> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <wr_en_frame_buf_0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <frame_out_sel> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <frame_buf_sel> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <data_out_frame_buf_2> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <data_out_frame_buf_1> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <data_out_frame_buf_0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <addr_frame_buf_2> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <addr_frame_buf_1> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <addr_frame_buf_0> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 15-bit register for signal <color_pixel_15b>.
+    Found 1-bit register for signal <color_pixel_wr_en>.
+    Found 1-bit register for signal <data_concat_state>.
+    Found 15-bit register for signal <data_in_addr>.
+    Found 15-bit adder for signal <data_in_addr$addsub0000> created at line 73.
+    Found 15-bit up counter for signal <data_out_addr>.
+    Found 2-bit register for signal <ppu_vblank_pulse>.
+    Found 2-bit register for signal <screen_out_vblank_pulse>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  36 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <frame_buffer> synthesized.
 
 
 Synthesizing Unit <cpu_top>.
@@ -1070,11 +1320,11 @@ WARNING:Xst:1780 - Signal <ACT> is never used or assigned. This unconnected sign
 WARNING:Xst:737 - Found 8-bit latch for signal <data_bus>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 1-bit register for signal <IME>.
-    Found 16-bit adder for signal <$add0000> created at line 439.
-    Found 16-bit adder for signal <$add0001> created at line 457.
-    Found 16-bit adder for signal <$add0002> created at line 460.
-    Found 16-bit subtractor for signal <$sub0000> created at line 442.
-    Found 16-bit adder for signal <address_bus$addsub0000> created at line 588.
+    Found 16-bit adder for signal <$add0000> created at line 473.
+    Found 16-bit adder for signal <$add0001> created at line 491.
+    Found 16-bit adder for signal <$add0002> created at line 494.
+    Found 16-bit subtractor for signal <$sub0000> created at line 476.
+    Found 16-bit adder for signal <address_bus$addsub0000> created at line 622.
     Found 16-bit subtractor for signal <address_bus_minus_1>.
     Found 16-bit adder for signal <address_bus_plus_1>.
     Found 16-bit 16-to-1 multiplexer for signal <ALU_input0>.
@@ -1085,10 +1335,10 @@ INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and 
     Found 8-bit updown counter for signal <D>.
     Found 8-bit up counter for signal <E>.
     Found 8-bit register for signal <H>.
-    Found 8-bit adder for signal <H$addsub0000> created at line 349.
+    Found 8-bit adder for signal <H$addsub0000> created at line 383.
     Found 8-bit register for signal <IR>.
     Found 8-bit register for signal <L>.
-    Found 8-bit adder for signal <L$addsub0000> created at line 373.
+    Found 8-bit adder for signal <L$addsub0000> created at line 407.
     Found 16-bit register for signal <PC>.
     Found 16-bit register for signal <SP>.
     Found 8-bit register for signal <W>.
@@ -1101,121 +1351,178 @@ INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and 
 Unit <cpu_top> synthesized.
 
 
+Synthesizing Unit <ppu>.
+    Related source file is "rtl/ppu.v".
+WARNING:Xst:647 - Input <LCDC<6:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <LCDC<2:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <BCPS_BGPI<7:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <OCPS_OBPI<7:6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <WX> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <WY> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <xTileCount<2:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <v_blank> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tile_parameters<7:4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_VRAM_bank1<15:13>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_VRAM_bank0<15:13>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_OAM<15:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <ppu_sel> equivalent to <ppu_mem_en> has been removed
+    Found finite state machine <FSM_2> for signal <ppu_state>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 20                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 10                                             |
+    | Clock              | clk_ppu                   (rising_edge)        |
+    | Reset              | reset_n                   (negative)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <color_pixel>.
+    Found 8-bit up counter for signal <counterY>.
+    Found 1-bit register for signal <color_pixel_good>.
+    Found 8-bit comparator less for signal <color_pixel_good$cmp_lt0000> created at line 260.
+    Found 4-bit register for signal <count>.
+    Found 4-bit subtractor for signal <count$addsub0000> created at line 267.
+    Found 9-bit up counter for signal <counterX>.
+    Found 8-bit register for signal <pixel0>.
+    Found 8-bit register for signal <pixel1>.
+    Found 8-bit register for signal <pixels_sent>.
+    Found 8-bit adder for signal <pixels_sent$addsub0000> created at line 265.
+    Found 16-bit register for signal <ppu_address>.
+    Found 16-bit adder for signal <ppu_address$addsub0000>.
+    Found 16-bit adder for signal <ppu_address$addsub0001> created at line 214.
+    Found 16-bit adder for signal <ppu_address$share0000> created at line 183.
+    Found 6-bit register for signal <ppu_bgd_pal_addr>.
+    Found 6-bit adder for signal <ppu_bgd_pal_addr$addsub0000> created at line 255.
+    Found 1-bit register for signal <ppu_mem_en>.
+    Found 8-bit comparator greatequal for signal <STAT_mode$cmp_ge0000> created at line 127.
+    Found 9-bit comparator less for signal <STAT_mode$cmp_lt0000> created at line 130.
+    Found 9-bit comparator less for signal <STAT_mode$cmp_lt0001> created at line 133.
+    Found 8-bit register for signal <tile_parameters>.
+    Found 8-bit register for signal <xPixelCount>.
+    Found 8-bit adder for signal <xPixelCount$addsub0000> created at line 273.
+    Found 8-bit adder for signal <xTileCount>.
+    Found 8-bit register for signal <yPixelCount>.
+    Found 8-bit adder for signal <yPixelCount$addsub0000> created at line 281.
+    Found 8-bit adder for signal <yTileCount>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred  84 D-type flip-flop(s).
+	inferred  10 Adder/Subtractor(s).
+	inferred   4 Comparator(s).
+Unit <ppu> synthesized.
+
+
 Synthesizing Unit <memory>.
     Related source file is "rtl/memory.v".
-WARNING:Xst:653 - Signal <wr_en_ext_ram_bank3> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <wr_en_ext_ram_bank2> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <wr_en_ext_ram_bank1> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:653 - Signal <wr_en_ext_ram_bank0> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:646 - Signal <data_out_ext_ram_bank3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <data_out_ext_ram_bank2> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <data_out_ext_ram_bank1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <data_out_ext_ram_bank0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <P1_JOYP<7:6>> is used but never assigned. This sourceless signal will be automatically connected to value 00.
-WARNING:Xst:653 - Signal <P1_JOYP<3:0>> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
-WARNING:Xst:646 - Signal <OCPS_OBPI<6>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <LCDC> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <BCPS_BGPI<6>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Register <v_blank_int_req> equivalent to <complete> has been removed
-WARNING:Xst:737 - Found 8-bit latch for signal <data_out>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 16-bit 16-to-1 multiplexer for signal <address_bus_offset>.
-    Found 6-bit adder for signal <$add0000> created at line 1257.
-    Found 6-bit adder for signal <$add0001> created at line 1272.
-    Found 16-bit 16-to-1 multiplexer for signal <address_bus_offset$mux0001>.
-    Found 16-bit 16-to-1 multiplexer for signal <address_bus_offset$mux0002>.
-    Found 16-bit 16-to-1 multiplexer for signal <address_bus_offset$mux0003>.
-    Found 16-bit subtractor for signal <address_bus_offset$share0000> created at line 568.
-    Found 16-bit register for signal <address_bus_reg>.
-    Found 1-bit register for signal <BCPS_BGPI<7>>.
-    Found 6-bit register for signal <BCPS_BGPI<5:0>>.
-    Found 1-bit register for signal <complete>.
-    Found 8-bit 8-to-1 multiplexer for signal <data_out$mux0003>.
-    Found 8-bit register for signal <IE>.
-    Found 8-bit register for signal <IF>.
-    Found 1-bit register for signal <OCPS_OBPI<7>>.
-    Found 6-bit register for signal <OCPS_OBPI<5:0>>.
-    Found 2-bit register for signal <P1_JOYP<5:4>>.
-    Found 8-bit register for signal <ROM_lockout_reg>.
-    Found 8-bit register for signal <SVBK>.
-    Found 1-bit register for signal <VBK<0>>.
-    Summary:
-	inferred  66 D-type flip-flop(s).
-	inferred   3 Adder/Subtractor(s).
-	inferred  72 Multiplexer(s).
+WARNING:Xst:647 - Input <reset_n> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank7> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank6> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank5> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank4> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank3<15:12>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank2<15:12>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank1<15:12>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_work_ram_bank0<15:12>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_ext_ram_bank3<15:13>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_ext_ram_bank2<15:13>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_ext_ram_bank1<15:13>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_ext_ram_bank0<15:13>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <address_bus_boot_rom<15:12>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <memory> synthesized.
 
 
 Synthesizing Unit <FPGB>.
     Related source file is "rtl/FPGB.v".
-WARNING:Xst:646 - Signal <v_blank_int_req> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:647 - Input <B_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <up_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <A_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <right_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <left_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <select_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <down_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <start_button> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1-bit register for signal <LED_test>.
+    Found 1-bit register for signal <debug_led>.
     Found 25-bit up counter for signal <LED_counter>.
     Summary:
 	inferred   1 Counter(s).
-	inferred   1 D-type flip-flop(s).
+	inferred   2 D-type flip-flop(s).
 Unit <FPGB> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
-WARNING:Xst:524 - All outputs of the instance <ext_ram_bank0> of the block <RAM_1> are unconnected in block <memory>.
-   This instance will be removed from the design along with all underlying logic
-WARNING:Xst:524 - All outputs of the instance <ext_ram_bank1> of the block <RAM_1> are unconnected in block <memory>.
-   This instance will be removed from the design along with all underlying logic
-WARNING:Xst:524 - All outputs of the instance <ext_ram_bank2> of the block <RAM_1> are unconnected in block <memory>.
-   This instance will be removed from the design along with all underlying logic
-WARNING:Xst:524 - All outputs of the instance <ext_ram_bank3> of the block <RAM_1> are unconnected in block <memory>.
-   This instance will be removed from the design along with all underlying logic
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 13
+# RAMs                                                 : 18
  127x8-bit single-port RAM                             : 1
+ 160x8-bit single-port RAM                             : 1
  4096x8-bit single-port RAM                            : 8
  64x8-bit single-port RAM                              : 2
- 8192x8-bit single-port RAM                            : 2
+ 8192x8-bit single-port RAM                            : 6
 # ROMs                                                 : 1
  2304x8-bit ROM                                        : 1
-# Adders/Subtractors                                   : 28
+# Adders/Subtractors                                   : 48
+ 12-bit adder                                          : 2
+ 12-bit subtractor                                     : 1
  13-bit adder                                          : 1
- 16-bit adder                                          : 6
- 16-bit subtractor                                     : 4
+ 15-bit adder                                          : 1
+ 16-bit adder                                          : 12
+ 16-bit subtractor                                     : 6
  17-bit adder                                          : 1
  3-bit subtractor                                      : 1
  4-bit adder                                           : 1
+ 4-bit subtractor                                      : 1
  5-bit adder                                           : 2
  5-bit subtractor                                      : 2
- 6-bit adder                                           : 2
- 8-bit adder                                           : 6
+ 6-bit adder                                           : 3
+ 8-bit adder                                           : 12
  8-bit subtractor                                      : 1
  9-bit subtractor                                      : 1
-# Counters                                             : 12
+# Counters                                             : 15
  10-bit up counter                                     : 2
+ 15-bit up counter                                     : 1
  25-bit up counter                                     : 1
  5-bit up counter                                      : 3
  6-bit up counter                                      : 2
- 8-bit up counter                                      : 1
+ 8-bit up counter                                      : 2
  8-bit updown counter                                  : 3
-# Registers                                            : 122
- 1-bit register                                        : 91
+ 9-bit up counter                                      : 1
+# Registers                                            : 184
+ 1-bit register                                        : 116
  10-bit register                                       : 1
- 12-bit register                                       : 1
- 16-bit register                                       : 1
+ 12-bit register                                       : 4
+ 15-bit register                                       : 1
+ 16-bit register                                       : 3
+ 2-bit register                                        : 3
  3-bit register                                        : 1
- 4-bit register                                        : 1
- 8-bit register                                        : 26
-# Latches                                              : 80
- 1-bit latch                                           : 69
+ 4-bit register                                        : 2
+ 5-bit register                                        : 1
+ 6-bit register                                        : 1
+ 8-bit register                                        : 51
+# Latches                                              : 86
+ 1-bit latch                                           : 74
  10-bit latch                                          : 9
- 8-bit latch                                           : 2
-# Comparators                                          : 6
+ 8-bit latch                                           : 3
+# Comparators                                          : 15
  10-bit comparator greatequal                          : 2
- 10-bit comparator less                                : 4
-# Multiplexers                                         : 8
+ 10-bit comparator less                                : 6
+ 12-bit comparator less                                : 2
+ 8-bit comparator greatequal                           : 1
+ 8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 1
+ 9-bit comparator less                                 : 2
+# Multiplexers                                         : 14
  1-bit 8-to-1 multiplexer                              : 1
- 16-bit 16-to-1 multiplexer                            : 6
- 8-bit 8-to-1 multiplexer                              : 1
+ 16-bit 16-to-1 multiplexer                            : 5
+ 8-bit 16-to-1 multiplexer                             : 2
+ 8-bit 6-to-1 multiplexer                              : 1
+ 8-bit 8-to-1 multiplexer                              : 5
 # Tristates                                            : 2
  1-bit tristate buffer                                 : 2
 # Xors                                                 : 1
@@ -1227,6 +1534,32 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <ppu_inst/ppu_state/FSM> on signal <ppu_state[1:11]> with one-hot encoding.
+----------------------
+ State | Encoding
+----------------------
+ 0000  | 00000000001
+ 0001  | 00000000010
+ 0010  | 00000000100
+ 0011  | 00000001000
+ 0100  | 00000010000
+ 0101  | 00000100000
+ 0110  | 00001000000
+ 0111  | 00010000000
+ 1000  | 00100000000
+ 1001  | 01000000000
+ 1010  | 10000000000
+----------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <dma_engine_inst/GDMA_state/FSM> on signal <GDMA_state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
 Analyzing FSM <FSM_0> for best encoding.
 Optimizing FSM <chrontel_serial_bus_driver_inst/state/FSM> on signal <state[1:16]> with one-hot encoding.
 ---------------------------
@@ -1249,6 +1582,15 @@ Optimizing FSM <chrontel_serial_bus_driver_inst/state/FSM> on signal <state[1:16
  1110  | 1000000000000000
  1111  | 0000000000000010
 ---------------------------
+Reading core <ipcore_dir/RAM_dual_port_15b.ngc>.
+Loading core <RAM_dual_port_15b> for timing and area information for instance <RAM_dual_port_15b_inst>.
+WARNING:Xst:1290 - Hierarchical block <ext_ram_bank1> is unconnected in block <memory_inst>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <ext_ram_bank2> is unconnected in block <memory_inst>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <ext_ram_bank3> is unconnected in block <memory_inst>.
+   It will be removed from the design.
+INFO:Xst:2261 - The FF/Latch <GDMA_count_0> in Unit <dma_engine_inst> is equivalent to the following 3 FFs/Latches, which will be removed : <GDMA_count_1> <GDMA_count_2> <GDMA_count_3> 
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
@@ -1265,22 +1607,23 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <GDMA_count_0> (without init value) has a constant value of 0 in block <dma_engine_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <F_0> (without init value) has a constant value of 0 in block <ALU_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <dev_address_store_0> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <dev_address_store_1> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <1>. This FF/Latch will be trimmed during the optimization process.
@@ -1314,6 +1657,14 @@ WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 i
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <tile_parameters_4> of sequential type is unconnected in block <ppu_inst>.
+WARNING:Xst:2677 - Node <tile_parameters_5> of sequential type is unconnected in block <ppu_inst>.
+WARNING:Xst:2677 - Node <tile_parameters_6> of sequential type is unconnected in block <ppu_inst>.
+WARNING:Xst:2677 - Node <tile_parameters_7> of sequential type is unconnected in block <ppu_inst>.
+WARNING:Xst:2677 - Node <IF_reg_5> of sequential type is unconnected in block <special_registers_inst>.
+WARNING:Xst:2677 - Node <IF_reg_6> of sequential type is unconnected in block <special_registers_inst>.
+WARNING:Xst:2677 - Node <IF_reg_7> of sequential type is unconnected in block <special_registers_inst>.
+WARNING:Xst:2404 -  FFs/Latches <IF_reg<7:5>> (without init value) have a constant value of 0 in block <special_registers>.
 
 Synthesizing (advanced) Unit <RAM_1>.
 INFO:Xst:3226 - The RAM <Mram_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <data_out>
@@ -1340,7 +1691,7 @@ INFO:Xst:3226 - The RAM <Mram_ram> will be implemented as a BLOCK RAM, absorbing
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 4096-word x 8-bit                   |          |
+    |     aspect ratio   | 160-word x 8-bit                    |          |
     |     mode           | write-first                         |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     enA            | connected to signal <en>            | high     |
@@ -1359,7 +1710,7 @@ INFO:Xst:3226 - The RAM <Mram_ram> will be implemented as a BLOCK RAM, absorbing
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 127-word x 8-bit                    |          |
+    |     aspect ratio   | 64-word x 8-bit                     |          |
     |     mode           | write-first                         |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     enA            | connected to signal <en>            | high     |
@@ -1378,7 +1729,7 @@ INFO:Xst:3226 - The RAM <Mram_ram> will be implemented as a BLOCK RAM, absorbing
     | ram_type           | Block                               |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 64-word x 8-bit                     |          |
+    |     aspect ratio   | 4096-word x 8-bit                   |          |
     |     mode           | write-first                         |          |
     |     clkA           | connected to signal <clk>           | rise     |
     |     enA            | connected to signal <en>            | high     |
@@ -1390,6 +1741,25 @@ INFO:Xst:3226 - The RAM <Mram_ram> will be implemented as a BLOCK RAM, absorbing
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
 Unit <RAM_4> synthesized (advanced).
+
+Synthesizing (advanced) Unit <RAM_5>.
+INFO:Xst:3226 - The RAM <Mram_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <data_out>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 127-word x 8-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     enA            | connected to signal <en>            | high     |
+    |     weA            | connected to signal <wr_en>         | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to signal <data_in>       |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <RAM_5> synthesized (advanced).
 
 Synthesizing (advanced) Unit <ROM>.
 INFO:Xst:3044 - The ROM <Mrom_data_out> will be implemented as a read-only BLOCK RAM, absorbing the register: <addr_reg>.
@@ -1410,51 +1780,69 @@ INFO:Xst:3225 - The RAM <Mrom_data_out> will be implemented as BLOCK RAM
     | optimization       | speed                               |          |
     -----------------------------------------------------------------------
 Unit <ROM> synthesized (advanced).
+WARNING:Xst:2677 - Node <tile_parameters_4> of sequential type is unconnected in block <ppu>.
+WARNING:Xst:2677 - Node <tile_parameters_5> of sequential type is unconnected in block <ppu>.
+WARNING:Xst:2677 - Node <tile_parameters_6> of sequential type is unconnected in block <ppu>.
+WARNING:Xst:2677 - Node <tile_parameters_7> of sequential type is unconnected in block <ppu>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# FSMs                                                 : 1
-# RAMs                                                 : 14
+# FSMs                                                 : 3
+# RAMs                                                 : 19
  127x8-bit single-port block RAM                       : 1
+ 160x8-bit single-port block RAM                       : 1
  2304x8-bit single-port block RAM                      : 1
  4096x8-bit single-port block RAM                      : 8
  64x8-bit single-port block RAM                        : 2
- 8192x8-bit single-port block RAM                      : 2
-# Adders/Subtractors                                   : 28
+ 8192x8-bit single-port block RAM                      : 6
+# Adders/Subtractors                                   : 48
+ 12-bit adder                                          : 2
+ 12-bit subtractor                                     : 1
  13-bit adder                                          : 1
- 16-bit adder                                          : 6
- 16-bit subtractor                                     : 4
+ 15-bit adder                                          : 1
+ 16-bit adder                                          : 12
+ 16-bit subtractor                                     : 6
  17-bit adder                                          : 1
  3-bit subtractor                                      : 1
  4-bit adder                                           : 1
+ 4-bit subtractor                                      : 1
  5-bit adder                                           : 2
  5-bit subtractor                                      : 2
- 6-bit adder                                           : 2
- 8-bit adder                                           : 6
+ 6-bit adder                                           : 3
+ 8-bit adder                                           : 12
  8-bit subtractor                                      : 1
  9-bit subtractor                                      : 1
-# Counters                                             : 12
+# Counters                                             : 15
  10-bit up counter                                     : 2
+ 15-bit up counter                                     : 1
  25-bit up counter                                     : 1
  5-bit up counter                                      : 3
  6-bit up counter                                      : 2
- 8-bit up counter                                      : 1
+ 8-bit up counter                                      : 2
  8-bit updown counter                                  : 3
-# Registers                                            : 228
- Flip-Flops                                            : 228
-# Latches                                              : 80
- 1-bit latch                                           : 69
+ 9-bit up counter                                      : 1
+# Registers                                            : 510
+ Flip-Flops                                            : 510
+# Latches                                              : 86
+ 1-bit latch                                           : 74
  10-bit latch                                          : 9
- 8-bit latch                                           : 2
-# Comparators                                          : 6
+ 8-bit latch                                           : 3
+# Comparators                                          : 15
  10-bit comparator greatequal                          : 2
- 10-bit comparator less                                : 4
-# Multiplexers                                         : 8
+ 10-bit comparator less                                : 6
+ 12-bit comparator less                                : 2
+ 8-bit comparator greatequal                           : 1
+ 8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 1
+ 9-bit comparator less                                 : 2
+# Multiplexers                                         : 13
  1-bit 8-to-1 multiplexer                              : 1
- 16-bit 16-to-1 multiplexer                            : 6
- 8-bit 8-to-1 multiplexer                              : 1
+ 16-bit 16-to-1 multiplexer                            : 5
+ 8-bit 16-to-1 multiplexer                             : 2
+ 8-bit 6-to-1 multiplexer                              : 1
+ 8-bit 8-to-1 multiplexer                              : 4
 # Xors                                                 : 1
  8-bit xor2                                            : 1
 
@@ -1465,8 +1853,19 @@ Macro Statistics
 =========================================================================
 WARNING:Xst:1710 - FF/Latch <dev_address_store_0> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dev_address_store_1> (without init value) has a constant value of 0 in block <chrontel_serial_bus_driver>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <GDMA_count_0> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GDMA_count_1> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GDMA_count_2> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GDMA_count_3> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <F_0> (without init value) has a constant value of 0 in block <ALU>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <control_word_16> (without init value) has a constant value of 0 in block <cpu_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <GDMA_address_bus_rd_0> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GDMA_address_bus_rd_1> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GDMA_address_bus_rd_2> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <GDMA_address_bus_rd_3> (without init value) has a constant value of 0 in block <dma_engine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <ppu_address_13> of sequential type is unconnected in block <ppu>.
+WARNING:Xst:2677 - Node <ppu_address_14> of sequential type is unconnected in block <ppu>.
+WARNING:Xst:2677 - Node <ppu_address_15> of sequential type is unconnected in block <ppu>.
 WARNING:Xst:1710 - FF/Latch <next_T_state_decoder_mux0002_2> (without init value) has a constant value of 0 in block <cpu_control>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <next_T_state_decoder_mux0002_3> (without init value) has a constant value of 0 in block <cpu_control>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <next_T_state_decoder_mux0002_4> (without init value) has a constant value of 0 in block <cpu_control>. This FF/Latch will be trimmed during the optimization process.
@@ -1529,23 +1928,41 @@ WARNING:Xst:1710 - FF/Latch <next_T_state_decoder_mux0003_7> (without init value
 WARNING:Xst:1710 - FF/Latch <next_T_state_decoder_mux0003_8> (without init value) has a constant value of 0 in block <cpu_control>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <next_T_state_decoder_mux0003_9> (without init value) has a constant value of 0 in block <cpu_control>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <next_T_state_decoder_mux0002_1> (without init value) has a constant value of 0 in block <cpu_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2170 - Unit special_registers : the following signal(s) form a combinatorial loop: LY_counter_reset.
 
 Optimizing unit <FPGB> ...
+
+Optimizing unit <dma_engine> ...
+
+Optimizing unit <special_registers> ...
 
 Optimizing unit <ALU> ...
 
 Optimizing unit <chrontel_CH7301C_driver> ...
 
+Optimizing unit <frame_buffer> ...
+
+Optimizing unit <memory_router> ...
+
 Optimizing unit <cpu_control> ...
+
+Optimizing unit <ppu> ...
 
 Optimizing unit <memory> ...
 
 Optimizing unit <cpu_top> ...
-WARNING:Xst:2677 - Node <cpu_top_inst/cpu_control_inst/control_word_73> of sequential type is unconnected in block <FPGB>.
+WARNING:Xst:2677 - Node <memory_inst/ext_ram_bank1/Mram_ram2> of sequential type is unconnected in block <FPGB>.
+WARNING:Xst:2677 - Node <memory_inst/ext_ram_bank1/Mram_ram1> of sequential type is unconnected in block <FPGB>.
+WARNING:Xst:2677 - Node <memory_inst/ext_ram_bank2/Mram_ram2> of sequential type is unconnected in block <FPGB>.
+WARNING:Xst:2677 - Node <memory_inst/ext_ram_bank3/Mram_ram2> of sequential type is unconnected in block <FPGB>.
+WARNING:Xst:2677 - Node <memory_inst/ext_ram_bank3/Mram_ram1> of sequential type is unconnected in block <FPGB>.
+WARNING:Xst:2677 - Node <memory_inst/ext_ram_bank2/Mram_ram1> of sequential type is unconnected in block <FPGB>.
 
 Mapping all equations...
+WARNING:Xst:2170 - Unit FPGB : the following signal(s) form a combinatorial loop: IF<4>, cpu_lcd_stat_int_clear, lcd_stat_int_req, IF<1>, IF<3>, cpu_serial_int_clear, cpu_joypad_int_clear, serial_int_req.
+WARNING:Xst:2170 - Unit FPGB : the following signal(s) form a combinatorial loop: IF<0>, IF<2>, cpu_v_blank_int_clear, cpu_timer_int_clear, v_blank_int_req.
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block FPGB, actual ratio is 8.
+Found area constraint ratio of 100 (+ 5) on block FPGB, actual ratio is 13.
 
 Final Macro Processing ...
 
@@ -1553,8 +1970,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 345
- Flip-Flops                                            : 345
+# Registers                                            : 661
+ Flip-Flops                                            : 661
 
 =========================================================================
 
@@ -1580,44 +1997,44 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 49
+# IOs                              : 60
 
 Cell Usage :
-# BELS                             : 2308
-#      GND                         : 1
-#      INV                         : 43
-#      LUT1                        : 80
-#      LUT2                        : 101
-#      LUT3                        : 138
-#      LUT4                        : 218
-#      LUT5                        : 297
-#      LUT6                        : 794
+# BELS                             : 3835
+#      GND                         : 2
+#      INV                         : 51
+#      LUT1                        : 136
+#      LUT2                        : 202
+#      LUT3                        : 267
+#      LUT4                        : 293
+#      LUT5                        : 540
+#      LUT6                        : 1317
 #      MULT_AND                    : 21
-#      MUXCY                       : 263
-#      MUXF7                       : 82
-#      MUXF8                       : 8
-#      VCC                         : 1
-#      XORCY                       : 261
-# FlipFlops/Latches                : 464
-#      FDC                         : 118
-#      FDCE                        : 181
-#      FDE                         : 22
-#      FDP                         : 6
-#      FDPE                        : 17
+#      MUXCY                       : 394
+#      MUXF7                       : 206
+#      MUXF8                       : 9
+#      VCC                         : 2
+#      XORCY                       : 395
+# FlipFlops/Latches                : 800
+#      FDC                         : 245
+#      FDCE                        : 337
+#      FDE                         : 40
+#      FDP                         : 7
+#      FDPE                        : 37
 #      FDR                         : 1
-#      LD                          : 44
-#      LD_1                        : 66
+#      LD                          : 55
+#      LD_1                        : 69
 #      ODDR                        : 9
-# RAMS                             : 17
-#      RAMB18                      : 5
-#      RAMB36_EXP                  : 12
+# RAMS                             : 32
+#      RAMB18                      : 9
+#      RAMB36_EXP                  : 23
 # Clock Buffers                    : 4
 #      BUFG                        : 4
-# IO Buffers                       : 47
+# IO Buffers                       : 50
 #      IBUF                        : 9
 #      IBUFGDS                     : 1
 #      IOBUF                       : 1
-#      OBUF                        : 34
+#      OBUF                        : 37
 #      OBUFDS                      : 1
 #      OBUFT                       : 1
 # Others                           : 1
@@ -1631,25 +2048,25 @@ Selected Device : 5vlx50tff1136-1
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             463  out of  28800     1%  
- Number of Slice LUTs:                 1671  out of  28800     5%  
-    Number used as Logic:              1671  out of  28800     5%  
+ Number of Slice Registers:             798  out of  28800     2%  
+ Number of Slice LUTs:                 2806  out of  28800     9%  
+    Number used as Logic:              2806  out of  28800     9%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1746
-   Number with an unused Flip Flop:    1283  out of   1746    73%  
-   Number with an unused LUT:            75  out of   1746     4%  
-   Number of fully used LUT-FF pairs:   388  out of   1746    22%  
-   Number of unique control sets:        53
+ Number of LUT Flip Flop pairs used:   3005
+   Number with an unused Flip Flop:    2207  out of   3005    73%  
+   Number with an unused LUT:           199  out of   3005     6%  
+   Number of fully used LUT-FF pairs:   599  out of   3005    19%  
+   Number of unique control sets:        89
 
 IO Utilization: 
- Number of IOs:                          49
- Number of bonded IOBs:                  49  out of    480    10%  
-    IOB Flip Flops/Latches:               1
+ Number of IOs:                          60
+ Number of bonded IOBs:                  52  out of    480    10%  
+    IOB Flip Flops/Latches:               2
 
 Specific Feature Utilization:
- Number of Block RAM/FIFO:               15  out of     60    25%  
-    Number using Block RAM only:         15
+ Number of Block RAM/FIFO:               28  out of     60    46%  
+    Number using Block RAM only:         28
  Number of BUFG/BUFGCTRLs:                4  out of     32    12%  
  Number of PLL_ADVs:                      1  out of      6    16%  
 
@@ -1674,11 +2091,15 @@ Clock Information:
 -----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------+
 Clock Signal                                                                                                                 | Clock buffer(FF name)                                                 | Load  |
 -----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------+
-systemPLL_inst/CLKOUT1_BUF                                                                                                   | BUFG                                                                  | 128   |
+systemPLL_inst/CLKOUT0_BUF                                                                                                   | BUFG                                                                  | 407   |
+systemPLL_inst/CLKOUT1_BUF                                                                                                   | BUFG                                                                  | 292   |
 systemPLL_inst/CLKOUT2_BUF                                                                                                   | BUFG                                                                  | 9     |
-memory_inst/data_out_not0001(memory_inst/data_out_not00011325:O)                                                             | NONE(*)(memory_inst/data_out_7)                                       | 8     |
-systemPLL_inst/CLKOUT0_BUF                                                                                                   | BUFG                                                                  | 234   |
-cpu_top_inst/cpu_control_inst/T_state_11                                                                                     | BUFG                                                                  | 66    |
+memory_router_inst/data_out_not0001(memory_router_inst/data_out_not0001388_f7:O)                                             | NONE(*)(memory_router_inst/data_out_7)                                | 8     |
+memory_router_inst/data_dma_not0001(memory_router_inst/data_dma_not0001267:O)                                                | NONE(*)(memory_router_inst/data_dma_7)                                | 8     |
+cpu_top_inst/cpu_control_inst/T_state_11                                                                                     | BUFG                                                                  | 69    |
+cpu_top_inst/cpu_control_inst/cpu_led_or0000(cpu_top_inst/cpu_control_inst/cpu_led_or00001:O)                                | NONE(*)(cpu_top_inst/cpu_control_inst/cpu_led)                        | 1     |
+cpu_top_inst/cpu_control_inst/service_isr_not0001(cpu_top_inst/cpu_control_inst/service_isr_not00012:O)                      | NONE(*)(cpu_top_inst/cpu_control_inst/service_isr)                    | 1     |
+cpu_top_inst/cpu_control_inst/cpu_halt_not0001(cpu_top_inst/cpu_control_inst/cpu_halt_not00011:O)                            | NONE(*)(cpu_top_inst/cpu_control_inst/cpu_halt)                       | 1     |
 cpu_top_inst/cpu_control_inst/T_state_4                                                                                      | NONE(cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_mux0001_0)   | 1     |
 cpu_top_inst/cpu_control_inst/decode_control_word_13_mux0000(cpu_top_inst/cpu_control_inst/decode_control_word_13_mux00001:O)| NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_mux0000_0)| 2     |
 cpu_top_inst/cpu_control_inst/next_T_state_decoder_or0003(cpu_top_inst/cpu_control_inst/next_T_state_decoder_or00031:O)      | NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_decoder_mux0004_0) | 4     |
@@ -1686,37 +2107,38 @@ cpu_top_inst/cpu_control_inst/next_T_state_decoder_or0002(cpu_top_inst/cpu_contr
 cpu_top_inst/cpu_control_inst/T_state_2                                                                                      | NONE(cpu_top_inst/cpu_control_inst/next_T_state_decoder_mux0002_0)    | 1     |
 cpu_top_inst/cpu_control_inst/next_T_state_decoder_or0001(cpu_top_inst/cpu_control_inst/next_T_state_decoder_or00011:O)      | NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_decoder_mux0001_0) | 5     |
 cpu_top_inst/cpu_control_inst/decode_control_word_56_mux0000(cpu_top_inst/cpu_control_inst/decode_control_word_56_mux00001:O)| NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_decoder_mux0000_0) | 2     |
-cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_not0001(cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_not0001211:O)| NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_0)        | 3     |
-cpu_top_inst/cpu_control_inst/next_T_state_decoder_not0001(cpu_top_inst/cpu_control_inst/next_T_state_decoder_not00011764:O) | NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_decoder_0)         | 7     |
+cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_not0001(cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_not0001166:O)| NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_prefixCB_0)        | 3     |
+cpu_top_inst/cpu_control_inst/next_T_state_decoder_not0001(cpu_top_inst/cpu_control_inst/next_T_state_decoder_not00011981:O) | NONE(*)(cpu_top_inst/cpu_control_inst/next_T_state_decoder_0)         | 7     |
 cpu_top_inst/data_bus_not0001(cpu_top_inst/data_bus_not00011:O)                                                              | NONE(*)(cpu_top_inst/data_bus_7)                                      | 8     |
-N0                                                                                                                           | NONE(memory_inst/VRAM_bank1/Mram_ram1)                                | 12    |
+N0                                                                                                                           | NONE(ppu_inst/VRAM_bank0/Mram_ram1)                                   | 14    |
 -----------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------+
-(*) These 9 clock signal(s) are generated by combinatorial logic,
+(*) These 13 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+-------+
-Control Signal                                                                                                       | Buffer(FF name)                                         | Load  |
----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+-------+
-chrontel_CH7301C_driver_inst/reset_n_inv(reset_n_inv1:O)                                                             | NONE(LED_counter_0)                                     | 263   |
-chrontel_serial_bus_driver_inst/rst_n_inv(chrontel_serial_bus_driver_inst/rst_n_inv1:O)                              | NONE(chrontel_serial_bus_driver_inst/bit_count_0)       | 32    |
-chrontel_serial_bus_driver_inst/bus_free_count_en_inv(chrontel_serial_bus_driver_inst/bus_free_count_en_inv1_INV_0:O)| NONE(chrontel_serial_bus_driver_inst/bus_free_counter_0)| 6     |
-chrontel_serial_bus_driver_inst/t_low_count_en_inv(chrontel_serial_bus_driver_inst/t_low_count_en_inv1_INV_0:O)      | NONE(chrontel_serial_bus_driver_inst/t_low_counter_0)   | 6     |
-chrontel_serial_bus_driver_inst/sh_count_en_inv(chrontel_serial_bus_driver_inst/sh_count_en_inv1_INV_0:O)            | NONE(chrontel_serial_bus_driver_inst/sh_counter_0)      | 5     |
-chrontel_serial_bus_driver_inst/ss_count_en_inv(chrontel_serial_bus_driver_inst/ss_count_en_inv1_INV_0:O)            | NONE(chrontel_serial_bus_driver_inst/ss_counter_0)      | 5     |
-chrontel_serial_bus_driver_inst/t_hi_count_en_inv(chrontel_serial_bus_driver_inst/t_hi_count_en_inv1_INV_0:O)        | NONE(chrontel_serial_bus_driver_inst/t_hi_counter_0)    | 5     |
----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------+-------+
+---------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Control Signal                                                                                                       | Buffer(FF name)                                                                                                                                                           | Load  |
+---------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+cpu_top_inst/ALU_inst/reset_n_inv(special_registers_inst/reset_n_inv471:O)                                           | NONE(LED_counter_0)                                                                                                                                                       | 547   |
+chrontel_CH7301C_driver_inst/reset_n_inv(chrontel_serial_bus_driver_inst/rst_n_inv1_INV_0:O)                         | NONE(chrontel_CH7301C_driver_inst/counterX_0)                                                                                                                             | 52    |
+frame_buffer_inst/RAM_dual_port_15b_inst/N1(frame_buffer_inst/RAM_dual_port_15b_inst/XST_GND:G)                      | NONE(frame_buffer_inst/RAM_dual_port_15b_inst/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/v5_noinit.ram/TRUE_DP.SINGLE_PRIM36.TDP)| 36    |
+chrontel_serial_bus_driver_inst/bus_free_count_en_inv(chrontel_serial_bus_driver_inst/bus_free_count_en_inv1_INV_0:O)| NONE(chrontel_serial_bus_driver_inst/bus_free_counter_0)                                                                                                                  | 6     |
+chrontel_serial_bus_driver_inst/t_low_count_en_inv(chrontel_serial_bus_driver_inst/t_low_count_en_inv1_INV_0:O)      | NONE(chrontel_serial_bus_driver_inst/t_low_counter_0)                                                                                                                     | 6     |
+chrontel_serial_bus_driver_inst/sh_count_en_inv(chrontel_serial_bus_driver_inst/sh_count_en_inv1_INV_0:O)            | NONE(chrontel_serial_bus_driver_inst/sh_counter_0)                                                                                                                        | 5     |
+chrontel_serial_bus_driver_inst/ss_count_en_inv(chrontel_serial_bus_driver_inst/ss_count_en_inv1_INV_0:O)            | NONE(chrontel_serial_bus_driver_inst/ss_counter_0)                                                                                                                        | 5     |
+chrontel_serial_bus_driver_inst/t_hi_count_en_inv(chrontel_serial_bus_driver_inst/t_hi_count_en_inv1_INV_0:O)        | NONE(chrontel_serial_bus_driver_inst/t_hi_counter_0)                                                                                                                      | 5     |
+---------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -1
 
-   Minimum period: 6.880ns (Maximum Frequency: 145.357MHz)
-   Minimum input arrival time before clock: 3.631ns
-   Maximum output required time after clock: 9.805ns
+   Minimum period: 11.656ns (Maximum Frequency: 85.795MHz)
+   Minimum input arrival time before clock: 2.822ns
+   Maximum output required time after clock: 10.471ns
    Maximum combinational path delay: 1.154ns
 
 Timing Detail:
@@ -1724,180 +2146,293 @@ Timing Detail:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'systemPLL_inst/CLKOUT1_BUF'
-  Clock period: 4.306ns (frequency: 232.234MHz)
-  Total number of paths / destination ports: 3740 / 137
--------------------------------------------------------------------------
-Delay:               4.306ns (Levels of Logic = 4)
-  Source:            chrontel_serial_bus_driver_inst/bus_free_counter_2 (FF)
-  Destination:       chrontel_serial_bus_driver_inst/data_to_send_store_3 (FF)
-  Source Clock:      systemPLL_inst/CLKOUT1_BUF rising
-  Destination Clock: systemPLL_inst/CLKOUT1_BUF rising
-
-  Data Path: chrontel_serial_bus_driver_inst/bus_free_counter_2 to chrontel_serial_bus_driver_inst/data_to_send_store_3
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              5   0.471   1.091  chrontel_serial_bus_driver_inst/bus_free_counter_2 (chrontel_serial_bus_driver_inst/bus_free_counter_2)
-     LUT6:I0->O           18   0.094   0.882  chrontel_serial_bus_driver_inst/bus_free_count_complete1 (chrontel_serial_bus_driver_inst/bus_free_count_complete)
-     LUT5:I1->O            7   0.094   1.006  chrontel_serial_bus_driver_inst/data_to_send_store_mux0000<3>11 (N1)
-     LUT6:I1->O            1   0.094   0.480  chrontel_serial_bus_driver_inst/data_to_send_store_mux0000<3>_SW1 (N543)
-     LUT5:I4->O            1   0.094   0.000  chrontel_serial_bus_driver_inst/data_to_send_store_mux0000<3> (chrontel_serial_bus_driver_inst/data_to_send_store_mux0000<3>)
-     FDE:D                    -0.018          chrontel_serial_bus_driver_inst/data_to_send_store_3
-    ----------------------------------------
-    Total                      4.306ns (0.847ns logic, 3.459ns route)
-                                       (19.7% logic, 80.3% route)
-
-=========================================================================
 Timing constraint: Default period analysis for Clock 'systemPLL_inst/CLKOUT0_BUF'
-  Clock period: 6.880ns (frequency: 145.357MHz)
-  Total number of paths / destination ports: 749146 / 707
+  Clock period: 11.656ns (frequency: 85.795MHz)
+  Total number of paths / destination ports: 7706087 / 779
 -------------------------------------------------------------------------
-Delay:               6.880ns (Levels of Logic = 20)
-  Source:            cpu_top_inst/Z_0 (FF)
-  Destination:       memory_inst/VRAM_bank1/Mram_ram1 (RAM)
+Delay:               11.656ns (Levels of Logic = 14)
+  Source:            ppu_inst/counterX_2 (FF)
+  Destination:       memory_inst/high_ram/Mram_ram (RAM)
   Source Clock:      systemPLL_inst/CLKOUT0_BUF rising
   Destination Clock: systemPLL_inst/CLKOUT0_BUF rising
 
-  Data Path: cpu_top_inst/Z_0 to memory_inst/VRAM_bank1/Mram_ram1
+  Data Path: ppu_inst/counterX_2 to memory_inst/high_ram/Mram_ram
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             4   0.471   0.352  cpu_top_inst/Z_0 (cpu_top_inst/Z_0)
+     FDCE:C->Q             8   0.471   1.011  ppu_inst/counterX_2 (ppu_inst/counterX_2)
+     LUT5:I0->O            1   0.094   0.710  ppu_inst/v_blank_int_sig24 (ppu_inst/v_blank_int_sig24)
+     LUT3:I0->O            2   0.094   0.485  ppu_inst/v_blank_int_sig71 (v_blank_int_sig)
+     LUT5:I4->O            4   0.094   0.496  special_registers_inst/IF_0_or00011 (IF<0>)
+     LUT3:I2->O           21   0.094   0.588  special_registers_inst/v_blank_int_req1 (v_blank_int_req)
+     LUT4:I3->O            2   0.094   0.581  cpu_top_inst/cpu_control_inst/cpu_lcd_stat_int_clear1 (cpu_lcd_stat_int_clear)
+     LUT4:I2->O            4   0.094   0.496  special_registers_inst/IF_1_or00001 (IF<1>)
+     LUT3:I2->O           20   0.094   1.077  special_registers_inst/lcd_stat_int_req1 (lcd_stat_int_req)
+     LUT5:I0->O            2   0.094   0.581  cpu_top_inst/cpu_control_inst/cpu_timer_int_clear1 (cpu_timer_int_clear)
+     LUT4:I2->O            4   0.094   0.496  special_registers_inst/IF_2_or00001 (IF<2>)
+     LUT3:I2->O           19   0.094   0.809  special_registers_inst/timer_int_req1 (timer_int_req)
+     LUT6:I3->O            2   0.094   0.581  cpu_top_inst/cpu_control_inst/cpu_serial_int_clear1 (cpu_serial_int_clear)
+     LUT4:I2->O            4   0.094   0.496  special_registers_inst/IF_3_or00001 (IF<3>)
+     LUT3:I2->O           34   0.094   0.608  special_registers_inst/serial_int_req1 (serial_int_req)
+     LUT6:I5->O           20   0.094   0.440  cpu_top_inst/cpu_control_inst/control_word_9_mux0000238 (address_bus_we)
+     RAMB18:ENA                0.414          memory_inst/high_ram/Mram_ram
+    ----------------------------------------
+    Total                     11.656ns (2.201ns logic, 9.455ns route)
+                                       (18.9% logic, 81.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'systemPLL_inst/CLKOUT1_BUF'
+  Clock period: 5.616ns (frequency: 178.063MHz)
+  Total number of paths / destination ports: 9539 / 1232
+-------------------------------------------------------------------------
+Delay:               5.616ns (Levels of Logic = 5)
+  Source:            ppu_inst/VRAM_bank0/Mram_ram2 (RAM)
+  Destination:       ppu_inst/ppu_address_12 (FF)
+  Source Clock:      systemPLL_inst/CLKOUT1_BUF rising
+  Destination Clock: systemPLL_inst/CLKOUT1_BUF rising
+
+  Data Path: ppu_inst/VRAM_bank0/Mram_ram2 to ppu_inst/ppu_address_12
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB36_EXP:REGCLKAL->DOA0    4   2.180   0.989  ppu_inst/VRAM_bank0/Mram_ram2 (data_VRAM_bank0<4>)
+     LUT5:I0->O            3   0.094   0.721  ppu_inst/Madd_ppu_address_addsub0001_cy<7>11 (ppu_inst/Madd_ppu_address_addsub0001_cy<7>)
+     LUT3:I0->O            2   0.094   0.715  ppu_inst/Madd_ppu_address_addsub0001_cy<9>11 (ppu_inst/Madd_ppu_address_addsub0001_cy<9>)
+     LUT6:I3->O            1   0.094   0.000  ppu_inst/ppu_address_mux0002<4>1 (ppu_inst/ppu_address_mux0002<4>)
+     MUXCY:S->O            0   0.372   0.000  ppu_inst/Madd_ppu_address_share0000_cy<11> (ppu_inst/Madd_ppu_address_share0000_cy<11>)
+     XORCY:CI->O           1   0.357   0.000  ppu_inst/Madd_ppu_address_share0000_xor<12> (ppu_inst/ppu_address_share0000<12>)
+     FDCE:D                   -0.018          ppu_inst/ppu_address_12
+    ----------------------------------------
+    Total                      5.616ns (3.191ns logic, 2.425ns route)
+                                       (56.8% logic, 43.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'cpu_top_inst/cpu_control_inst/service_isr_not0001'
+  Clock period: 10.600ns (frequency: 94.344MHz)
+  Total number of paths / destination ports: 16 / 1
+-------------------------------------------------------------------------
+Delay:               10.600ns (Levels of Logic = 13)
+  Source:            cpu_top_inst/cpu_control_inst/service_isr (LATCH)
+  Destination:       cpu_top_inst/cpu_control_inst/service_isr (LATCH)
+  Source Clock:      cpu_top_inst/cpu_control_inst/service_isr_not0001 falling
+  Destination Clock: cpu_top_inst/cpu_control_inst/service_isr_not0001 falling
+
+  Data Path: cpu_top_inst/cpu_control_inst/service_isr to cpu_top_inst/cpu_control_inst/service_isr
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q             127   0.736   0.855  cpu_top_inst/cpu_control_inst/service_isr (cpu_top_inst/cpu_control_inst/service_isr)
+     LUT3:I0->O            2   0.094   0.978  cpu_top_inst/cpu_control_inst/cpu_v_blank_int_clear1 (cpu_v_blank_int_clear)
+     LUT5:I0->O            4   0.094   0.496  special_registers_inst/IF_0_or00011 (IF<0>)
+     LUT3:I2->O           21   0.094   0.588  special_registers_inst/v_blank_int_req1 (v_blank_int_req)
+     LUT4:I3->O            2   0.094   0.581  cpu_top_inst/cpu_control_inst/cpu_lcd_stat_int_clear1 (cpu_lcd_stat_int_clear)
+     LUT4:I2->O            4   0.094   0.496  special_registers_inst/IF_1_or00001 (IF<1>)
+     LUT3:I2->O           20   0.094   1.077  special_registers_inst/lcd_stat_int_req1 (lcd_stat_int_req)
+     LUT5:I0->O            2   0.094   0.581  cpu_top_inst/cpu_control_inst/cpu_timer_int_clear1 (cpu_timer_int_clear)
+     LUT4:I2->O            4   0.094   0.496  special_registers_inst/IF_2_or00001 (IF<2>)
+     LUT3:I2->O           19   0.094   0.809  special_registers_inst/timer_int_req1 (timer_int_req)
+     LUT6:I3->O            2   0.094   0.581  cpu_top_inst/cpu_control_inst/cpu_serial_int_clear1 (cpu_serial_int_clear)
+     LUT4:I2->O            4   0.094   0.496  special_registers_inst/IF_3_or00001 (IF<3>)
+     LUT3:I2->O           34   0.094   0.608  special_registers_inst/serial_int_req1 (serial_int_req)
+     LUT6:I5->O            1   0.094   0.000  cpu_top_inst/cpu_control_inst/next_T_state<2>11 (cpu_top_inst/cpu_control_inst/service_isr_mux0000)
+     LD:D                     -0.071          cpu_top_inst/cpu_control_inst/service_isr
+    ----------------------------------------
+    Total                     10.600ns (1.958ns logic, 8.642ns route)
+                                       (18.5% logic, 81.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'cpu_top_inst/cpu_control_inst/cpu_halt_not0001'
+  Clock period: 1.652ns (frequency: 605.327MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               1.652ns (Levels of Logic = 1)
+  Source:            cpu_top_inst/cpu_control_inst/cpu_halt (LATCH)
+  Destination:       cpu_top_inst/cpu_control_inst/cpu_halt (LATCH)
+  Source Clock:      cpu_top_inst/cpu_control_inst/cpu_halt_not0001 falling
+  Destination Clock: cpu_top_inst/cpu_control_inst/cpu_halt_not0001 falling
+
+  Data Path: cpu_top_inst/cpu_control_inst/cpu_halt to cpu_top_inst/cpu_control_inst/cpu_halt
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               7   0.736   0.822  cpu_top_inst/cpu_control_inst/cpu_halt (cpu_top_inst/cpu_control_inst/cpu_halt)
+     LUT4:I0->O            1   0.094   0.000  cpu_top_inst/cpu_control_inst/cpu_halt_mux00001 (cpu_top_inst/cpu_control_inst/cpu_halt_mux0000)
+     LD:D                     -0.071          cpu_top_inst/cpu_control_inst/cpu_halt
+    ----------------------------------------
+    Total                      1.652ns (0.830ns logic, 0.822ns route)
+                                       (50.2% logic, 49.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'systemPLL_inst/CLKOUT1_BUF'
+  Total number of paths / destination ports: 23 / 23
+-------------------------------------------------------------------------
+Offset:              1.154ns (Levels of Logic = 1)
+  Source:            I2C_SDA_video (PAD)
+  Destination:       chrontel_serial_bus_driver_inst/sda_filt (FF)
+  Destination Clock: systemPLL_inst/CLKOUT1_BUF rising
+
+  Data Path: I2C_SDA_video to chrontel_serial_bus_driver_inst/sda_filt
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IOBUF:IO->O           1   0.818   0.336  I2C_SDA_video_IOBUF (N630)
+     FDC:D                    -0.018          chrontel_serial_bus_driver_inst/sda_filt
+    ----------------------------------------
+    Total                      1.154ns (0.818ns logic, 0.336ns route)
+                                       (70.9% logic, 29.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'systemPLL_inst/CLKOUT0_BUF'
+  Total number of paths / destination ports: 24 / 12
+-------------------------------------------------------------------------
+Offset:              2.102ns (Levels of Logic = 2)
+  Source:            ext_reset_n (PAD)
+  Destination:       dma_engine_inst/GDMA_address_bus_rd_count_11 (FF)
+  Destination Clock: systemPLL_inst/CLKOUT0_BUF rising
+
+  Data Path: ext_reset_n to dma_engine_inst/GDMA_address_bus_rd_count_11
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.818   0.581  ext_reset_n_IBUF (ext_reset_n_IBUF)
+     LUT3:I1->O           12   0.094   0.396  reset_n1 (reset_n)
+     FDE:CE                    0.213          dma_engine_inst/GDMA_address_bus_rd_count_0
+    ----------------------------------------
+    Total                      2.102ns (1.125ns logic, 0.977ns route)
+                                       (53.5% logic, 46.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'systemPLL_inst/CLKOUT2_BUF'
+  Total number of paths / destination ports: 9 / 9
+-------------------------------------------------------------------------
+Offset:              1.863ns (Levels of Logic = 2)
+  Source:            systemPLL_inst/PLL_ADV_INST:LOCKED (PAD)
+  Destination:       chrontel_CH7301C_driver_inst/DVI_DE (FF)
+  Destination Clock: systemPLL_inst/CLKOUT2_BUF rising
+
+  Data Path: systemPLL_inst/PLL_ADV_INST:LOCKED to chrontel_CH7301C_driver_inst/DVI_DE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    PLL_ADV:LOCKED        26   0.000   0.702  systemPLL_inst/PLL_ADV_INST (pll_locked)
+     LUT4:I2->O            1   0.094   0.973  chrontel_CH7301C_driver_inst/DVI_DE_and0000_SW0 (N133)
+     LUT5:I0->O            1   0.094   0.000  chrontel_CH7301C_driver_inst/DVI_DE_and00001 (chrontel_CH7301C_driver_inst/DVI_DE_and00001)
+     FDR:D                    -0.018          chrontel_CH7301C_driver_inst/DVI_DE
+    ----------------------------------------
+    Total                      1.863ns (0.188ns logic, 1.675ns route)
+                                       (10.1% logic, 89.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'memory_router_inst/data_out_not0001'
+  Total number of paths / destination ports: 16 / 8
+-------------------------------------------------------------------------
+Offset:              2.726ns (Levels of Logic = 4)
+  Source:            data_in_ext_cart_rom<7> (PAD)
+  Destination:       memory_router_inst/data_out_7 (LATCH)
+  Destination Clock: memory_router_inst/data_out_not0001 falling
+
+  Data Path: data_in_ext_cart_rom<7> to memory_router_inst/data_out_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.818   0.989  data_in_ext_cart_rom_7_IBUF (data_in_ext_cart_rom_7_IBUF)
+     LUT6:I1->O            1   0.094   0.480  memory_router_inst/data_out_mux0008<7>1 (memory_router_inst/data_out_mux0008<7>)
+     LUT5:I4->O            1   0.094   0.000  memory_router_inst/Mmux_data_out_mux0002_47 (memory_router_inst/Mmux_data_out_mux0002_47)
+     MUXF7:I0->O           1   0.251   0.000  memory_router_inst/Mmux_data_out_mux0002_2_f7_6 (memory_router_inst/data_out_mux0002<7>)
+     LD:D                     -0.071          memory_router_inst/data_out_7
+    ----------------------------------------
+    Total                      2.726ns (1.257ns logic, 1.469ns route)
+                                       (46.1% logic, 53.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'memory_router_inst/data_dma_not0001'
+  Total number of paths / destination ports: 16 / 8
+-------------------------------------------------------------------------
+Offset:              2.822ns (Levels of Logic = 4)
+  Source:            data_in_ext_cart_rom<7> (PAD)
+  Destination:       memory_router_inst/data_dma_7 (LATCH)
+  Destination Clock: memory_router_inst/data_dma_not0001 falling
+
+  Data Path: data_in_ext_cart_rom<7> to memory_router_inst/data_dma_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.818   0.989  data_in_ext_cart_rom_7_IBUF (data_in_ext_cart_rom_7_IBUF)
+     LUT6:I1->O            1   0.094   0.576  memory_router_inst/data_dma_mux0006<7>1 (memory_router_inst/data_dma_mux0006<7>)
+     LUT6:I4->O            1   0.094   0.000  memory_router_inst/Mmux_data_dma_mux0001_47 (memory_router_inst/Mmux_data_dma_mux0001_47)
+     MUXF7:I0->O           1   0.251   0.000  memory_router_inst/Mmux_data_dma_mux0001_2_f7_6 (memory_router_inst/data_dma_mux0001<7>)
+     LD:D                     -0.071          memory_router_inst/data_dma_7
+    ----------------------------------------
+    Total                      2.822ns (1.257ns logic, 1.565ns route)
+                                       (44.5% logic, 55.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'systemPLL_inst/CLKOUT1_BUF'
+  Total number of paths / destination ports: 22 / 7
+-------------------------------------------------------------------------
+Offset:              5.225ns (Levels of Logic = 3)
+  Source:            chrontel_CH7301C_driver_inst/counterY_2 (FF)
+  Destination:       DVI_V (PAD)
+  Source Clock:      systemPLL_inst/CLKOUT1_BUF rising
+
+  Data Path: chrontel_CH7301C_driver_inst/counterY_2 to DVI_V
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.471   0.800  chrontel_CH7301C_driver_inst/counterY_2 (chrontel_CH7301C_driver_inst/counterY_2)
+     LUT4:I0->O            1   0.094   0.973  chrontel_CH7301C_driver_inst/DVI_V_SW0 (N144)
+     LUT6:I1->O            2   0.094   0.341  chrontel_CH7301C_driver_inst/DVI_V (DVI_V_OBUF)
+     OBUF:I->O                 2.452          DVI_V_OBUF (DVI_V)
+    ----------------------------------------
+    Total                      5.225ns (3.111ns logic, 2.114ns route)
+                                       (59.5% logic, 40.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'systemPLL_inst/CLKOUT0_BUF'
+  Total number of paths / destination ports: 41057 / 18
+-------------------------------------------------------------------------
+Offset:              9.957ns (Levels of Logic = 29)
+  Source:            cpu_top_inst/Z_0 (FF)
+  Destination:       address_bus_offset_to_cart_rom<14> (PAD)
+  Source Clock:      systemPLL_inst/CLKOUT0_BUF rising
+
+  Data Path: cpu_top_inst/Z_0 to address_bus_offset_to_cart_rom<14>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             5   0.471   0.358  cpu_top_inst/Z_0 (cpu_top_inst/Z_0)
      INV:I->O              1   0.238   0.000  cpu_top_inst/Madd_address_bus_addsub0000_lut<0>_INV_0 (cpu_top_inst/Madd_address_bus_addsub0000_lut<0>)
      MUXCY:S->O            1   0.372   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<0> (cpu_top_inst/Madd_address_bus_addsub0000_cy<0>)
      MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<1> (cpu_top_inst/Madd_address_bus_addsub0000_cy<1>)
      MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<2> (cpu_top_inst/Madd_address_bus_addsub0000_cy<2>)
      MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<3> (cpu_top_inst/Madd_address_bus_addsub0000_cy<3>)
      MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<4> (cpu_top_inst/Madd_address_bus_addsub0000_cy<4>)
-     XORCY:CI->O           1   0.357   0.480  cpu_top_inst/Madd_address_bus_addsub0000_xor<5> (cpu_top_inst/address_bus_addsub0000<5>)
-     LUT6:I5->O            1   0.094   0.000  cpu_top_inst/address_bus<5>13 (cpu_top_inst/address_bus<5>12)
-     MUXF7:I0->O           1   0.251   0.000  cpu_top_inst/address_bus<5>1_f7 (cpu_top_inst/address_bus<5>1_f7)
-     MUXF8:I0->O          37   0.182   0.838  cpu_top_inst/address_bus<5>1_f8 (address_bus_cpu_out<5>)
-     LUT4:I1->O            1   0.094   0.710  memory_inst/address_bus_offset_mux0004<10>_SW7 (N402)
-     LUT6:I3->O            1   0.094   0.000  memory_inst/Msub_address_bus_offset_share0000_lut<5> (memory_inst/Msub_address_bus_offset_share0000_lut<5>)
-     MUXCY:S->O            1   0.372   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<5> (memory_inst/Msub_address_bus_offset_share0000_cy<5>)
-     MUXCY:CI->O           1   0.026   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<6> (memory_inst/Msub_address_bus_offset_share0000_cy<6>)
-     MUXCY:CI->O           1   0.026   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<7> (memory_inst/Msub_address_bus_offset_share0000_cy<7>)
-     MUXCY:CI->O           1   0.026   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<8> (memory_inst/Msub_address_bus_offset_share0000_cy<8>)
-     MUXCY:CI->O           1   0.026   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<9> (memory_inst/Msub_address_bus_offset_share0000_cy<9>)
-     MUXCY:CI->O           1   0.026   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<10> (memory_inst/Msub_address_bus_offset_share0000_cy<10>)
-     XORCY:CI->O           1   0.357   0.480  memory_inst/Msub_address_bus_offset_share0000_xor<11> (memory_inst/address_bus_offset_share0000<11>)
-     LUT6:I5->O           27   0.094   0.462  memory_inst/Mmux_address_bus_offset281 (address_bus_out_11_OBUF)
-     RAMB36_EXP:ADDRAL13        0.347          memory_inst/VRAM_bank1/Mram_ram1
+     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<5> (cpu_top_inst/Madd_address_bus_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<6> (cpu_top_inst/Madd_address_bus_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<7> (cpu_top_inst/Madd_address_bus_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<8> (cpu_top_inst/Madd_address_bus_addsub0000_cy<8>)
+     XORCY:CI->O           4   0.357   0.592  cpu_top_inst/Madd_address_bus_addsub0000_xor<9> (cpu_top_inst/address_bus_addsub0000<9>)
+     LUT6:I4->O            1   0.094   0.480  memory_router_inst/address_bus_offset_mux0000<0>11_SW0 (N671)
+     LUT6:I5->O           10   0.094   0.529  memory_router_inst/address_bus_offset_mux0000<0>11 (memory_router_inst/N40)
+     LUT6:I5->O            7   0.094   0.513  memory_router_inst/address_bus_offset_mux0000<11>11 (memory_router_inst/N67)
+     LUT6:I5->O            1   0.094   0.480  memory_router_inst/address_bus_offset_mux0000<11> (memory_router_inst/address_bus_offset_mux0000<11>)
+     LUT6:I5->O            1   0.094   0.000  memory_router_inst/Msub_address_bus_offset_share0000_lut<5> (memory_router_inst/Msub_address_bus_offset_share0000_lut<5>)
+     MUXCY:S->O            1   0.372   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<5> (memory_router_inst/Msub_address_bus_offset_share0000_cy<5>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<6> (memory_router_inst/Msub_address_bus_offset_share0000_cy<6>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<7> (memory_router_inst/Msub_address_bus_offset_share0000_cy<7>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<8> (memory_router_inst/Msub_address_bus_offset_share0000_cy<8>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<9> (memory_router_inst/Msub_address_bus_offset_share0000_cy<9>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<10> (memory_router_inst/Msub_address_bus_offset_share0000_cy<10>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<11> (memory_router_inst/Msub_address_bus_offset_share0000_cy<11>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<12> (memory_router_inst/Msub_address_bus_offset_share0000_cy<12>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<13> (memory_router_inst/Msub_address_bus_offset_share0000_cy<13>)
+     XORCY:CI->O           1   0.357   0.480  memory_router_inst/Msub_address_bus_offset_share0000_xor<14> (memory_router_inst/address_bus_offset_share0000<14>)
+     LUT4:I3->O            4   0.094   0.496  memory_router_inst/Mmux_address_bus_offset551 (address_bus_offset<14>)
+     LUT5:I4->O            1   0.094   0.336  mbc_inst/address_bus_out<14>1 (address_bus_offset_to_cart_rom_14_OBUF)
+     OBUF:I->O                 2.452          address_bus_offset_to_cart_rom_14_OBUF (address_bus_offset_to_cart_rom<14>)
     ----------------------------------------
-    Total                      6.880ns (3.557ns logic, 3.323ns route)
-                                       (51.7% logic, 48.3% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'cpu_top_inst/cpu_control_inst/T_state_11'
-  Clock period: 4.495ns (frequency: 222.471MHz)
-  Total number of paths / destination ports: 85 / 65
--------------------------------------------------------------------------
-Delay:               4.495ns (Levels of Logic = 4)
-  Source:            cpu_top_inst/cpu_control_inst/service_isr (LATCH)
-  Destination:       cpu_top_inst/cpu_control_inst/control_word_0 (LATCH)
-  Source Clock:      cpu_top_inst/cpu_control_inst/T_state_11 rising
-  Destination Clock: cpu_top_inst/cpu_control_inst/T_state_11 rising
-
-  Data Path: cpu_top_inst/cpu_control_inst/service_isr to cpu_top_inst/cpu_control_inst/control_word_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD_1:G->Q            95   0.732   1.208  cpu_top_inst/cpu_control_inst/service_isr (cpu_top_inst/cpu_control_inst/service_isr)
-     LUT6:I0->O            3   0.094   0.984  cpu_top_inst/cpu_control_inst/decode_control_word_0_mux0001211 (cpu_top_inst/cpu_control_inst/N69)
-     LUT5:I0->O            2   0.094   0.715  cpu_top_inst/cpu_control_inst/decode_control_word_0_mux0001278 (cpu_top_inst/cpu_control_inst/N56)
-     LUT6:I3->O            1   0.094   0.480  cpu_top_inst/cpu_control_inst/control_word_0_mux0000_SW0 (N107)
-     LUT6:I5->O            1   0.094   0.000  cpu_top_inst/cpu_control_inst/control_word_0_mux0000 (cpu_top_inst/cpu_control_inst/control_word_0_mux0000)
-     LD_1:D                   -0.071          cpu_top_inst/cpu_control_inst/control_word_0
-    ----------------------------------------
-    Total                      4.495ns (1.108ns logic, 3.387ns route)
-                                       (24.6% logic, 75.4% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'systemPLL_inst/CLKOUT1_BUF'
-  Total number of paths / destination ports: 45 / 23
--------------------------------------------------------------------------
-Offset:              2.187ns (Levels of Logic = 2)
-  Source:            ext_reset_n (PAD)
-  Destination:       chrontel_serial_bus_driver_inst/data_to_send_store_7 (FF)
-  Destination Clock: systemPLL_inst/CLKOUT1_BUF rising
-
-  Data Path: ext_reset_n to chrontel_serial_bus_driver_inst/data_to_send_store_7
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             7   0.818   0.609  ext_reset_n_IBUF (ext_reset_n_IBUF)
-     LUT2:I0->O           23   0.094   0.453  startup_reset_n1 (startup_reset_n)
-     FDE:CE                    0.213          chrontel_serial_bus_driver_inst/dev_address_store_2
-    ----------------------------------------
-    Total                      2.187ns (1.125ns logic, 1.062ns route)
-                                       (51.4% logic, 48.6% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'systemPLL_inst/CLKOUT2_BUF'
-  Total number of paths / destination ports: 48 / 24
--------------------------------------------------------------------------
-Offset:              3.133ns (Levels of Logic = 3)
-  Source:            ext_reset_n (PAD)
-  Destination:       chrontel_CH7301C_driver_inst/ODDR_inst11 (FF)
-  Destination Clock: systemPLL_inst/CLKOUT2_BUF rising
-
-  Data Path: ext_reset_n to chrontel_CH7301C_driver_inst/ODDR_inst11
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             7   0.818   0.743  ext_reset_n_IBUF (ext_reset_n_IBUF)
-     LUT3:I0->O            8   0.094   0.614  reset_n1 (reset_n)
-     LUT5:I3->O            1   0.094   0.336  chrontel_CH7301C_driver_inst/pix_data<8>1 (chrontel_CH7301C_driver_inst/pix_data<8>)
-     ODDR:D2                   0.434          chrontel_CH7301C_driver_inst/ODDR_inst4
-    ----------------------------------------
-    Total                      3.133ns (1.440ns logic, 1.693ns route)
-                                       (46.0% logic, 54.0% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'memory_inst/data_out_not0001'
-  Total number of paths / destination ports: 31 / 8
--------------------------------------------------------------------------
-Offset:              3.631ns (Levels of Logic = 5)
-  Source:            data_bus_in_ext<7> (PAD)
-  Destination:       memory_inst/data_out_7 (LATCH)
-  Destination Clock: memory_inst/data_out_not0001 falling
-
-  Data Path: data_bus_in_ext<7> to memory_inst/data_out_7
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             4   0.818   0.496  data_bus_in_ext_7_IBUF (data_bus_in_ext_7_IBUF)
-     LUT4:I3->O            1   0.094   0.789  memory_inst/data_out_mux0002<7>153 (memory_inst/data_out_mux0002<7>_bdd27)
-     LUT6:I2->O            1   0.094   0.576  memory_inst/data_out_mux0002<7>1626 (memory_inst/data_out_mux0002<7>1626)
-     LUT4:I2->O            1   0.094   0.576  memory_inst/data_out_mux0002<7>1746_SW0 (N453)
-     LUT6:I4->O            1   0.094   0.000  memory_inst/data_out_mux0002<7>1746 (memory_inst/data_out_mux0002<7>)
-     LD:D                     -0.071          memory_inst/data_out_7
-    ----------------------------------------
-    Total                      3.631ns (1.194ns logic, 2.437ns route)
-                                       (32.9% logic, 67.1% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'systemPLL_inst/CLKOUT1_BUF'
-  Total number of paths / destination ports: 22 / 7
--------------------------------------------------------------------------
-Offset:              5.270ns (Levels of Logic = 3)
-  Source:            chrontel_CH7301C_driver_inst/counterX_9 (FF)
-  Destination:       DVI_H (PAD)
-  Source Clock:      systemPLL_inst/CLKOUT1_BUF rising
-
-  Data Path: chrontel_CH7301C_driver_inst/counterX_9 to DVI_H
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              9   0.471   0.754  chrontel_CH7301C_driver_inst/counterX_9 (chrontel_CH7301C_driver_inst/counterX_9)
-     LUT3:I0->O            1   0.094   1.069  chrontel_CH7301C_driver_inst/DVI_H_SW0 (N911)
-     LUT6:I0->O            1   0.094   0.336  chrontel_CH7301C_driver_inst/DVI_H (DVI_H_OBUF)
-     OBUF:I->O                 2.452          DVI_H_OBUF (DVI_H)
-    ----------------------------------------
-    Total                      5.270ns (3.111ns logic, 2.159ns route)
-                                       (59.0% logic, 41.0% route)
+    Total                      9.957ns (5.693ns logic, 4.264ns route)
+                                       (57.2% logic, 42.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'systemPLL_inst/CLKOUT2_BUF'
@@ -1919,71 +2454,60 @@ Offset:              3.395ns (Levels of Logic = 1)
                                        (90.1% logic, 9.9% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'cpu_top_inst/cpu_control_inst/T_state_11'
-  Total number of paths / destination ports: 21920 / 16
+Timing constraint: Default OFFSET OUT AFTER for Clock 'cpu_top_inst/cpu_control_inst/cpu_led_or0000'
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              9.805ns (Levels of Logic = 9)
+Offset:              3.524ns (Levels of Logic = 1)
+  Source:            cpu_top_inst/cpu_control_inst/cpu_led (LATCH)
+  Destination:       cpu_led (PAD)
+  Source Clock:      cpu_top_inst/cpu_control_inst/cpu_led_or0000 falling
+
+  Data Path: cpu_top_inst/cpu_control_inst/cpu_led to cpu_led
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.736   0.336  cpu_top_inst/cpu_control_inst/cpu_led (cpu_top_inst/cpu_control_inst/cpu_led)
+     OBUF:I->O                 2.452          cpu_led_OBUF (cpu_led)
+    ----------------------------------------
+    Total                      3.524ns (3.188ns logic, 0.336ns route)
+                                       (90.5% logic, 9.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'cpu_top_inst/cpu_control_inst/T_state_11'
+  Total number of paths / destination ports: 21641 / 16
+-------------------------------------------------------------------------
+Offset:              10.471ns (Levels of Logic = 19)
   Source:            cpu_top_inst/cpu_control_inst/control_word_0 (LATCH)
-  Destination:       address_bus_out<15> (PAD)
+  Destination:       address_bus_offset_to_cart_rom<14> (PAD)
   Source Clock:      cpu_top_inst/cpu_control_inst/T_state_11 rising
 
-  Data Path: cpu_top_inst/cpu_control_inst/control_word_0 to address_bus_out<15>
+  Data Path: cpu_top_inst/cpu_control_inst/control_word_0 to address_bus_offset_to_cart_rom<14>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      LD_1:G->Q            48   0.732   1.199  cpu_top_inst/cpu_control_inst/control_word_0 (cpu_top_inst/cpu_control_inst/control_word_0)
-     LUT6:I0->O            3   0.094   0.800  cpu_top_inst/address_bus<12>1_SW2 (N304)
-     LUT5:I1->O           11   0.094   0.765  cpu_top_inst/address_bus<12>1 (address_bus_cpu_out<12>)
-     LUT6:I3->O           12   0.094   0.540  memory_inst/address_bus_offset_or00031 (memory_inst/address_bus_offset_or0003)
-     LUT4:I3->O            2   0.094   0.715  memory_inst/address_bus_offset_mux0000<4>1 (memory_inst/address_bus_offset_mux0000<4>)
-     LUT4:I1->O            1   0.094   0.000  memory_inst/Msub_address_bus_offset_share0000_lut<14> (memory_inst/Msub_address_bus_offset_share0000_lut<14>)
-     MUXCY:S->O            0   0.372   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<14> (memory_inst/Msub_address_bus_offset_share0000_cy<14>)
-     XORCY:CI->O           1   0.357   0.973  memory_inst/Msub_address_bus_offset_share0000_xor<15> (memory_inst/address_bus_offset_share0000<15>)
-     LUT5:I0->O            1   0.094   0.336  memory_inst/Mmux_address_bus_offset641 (address_bus_out_15_OBUF)
-     OBUF:I->O                 2.452          address_bus_out_15_OBUF (address_bus_out<15>)
+     LUT6:I0->O            4   0.094   1.085  cpu_top_inst/address_bus<9>1_SW2 (N586)
+     LUT6:I0->O            1   0.094   0.480  memory_router_inst/address_bus_offset_mux0000<0>11_SW0 (N671)
+     LUT6:I5->O           10   0.094   0.529  memory_router_inst/address_bus_offset_mux0000<0>11 (memory_router_inst/N40)
+     LUT6:I5->O            7   0.094   0.513  memory_router_inst/address_bus_offset_mux0000<11>11 (memory_router_inst/N67)
+     LUT6:I5->O            1   0.094   0.480  memory_router_inst/address_bus_offset_mux0000<11> (memory_router_inst/address_bus_offset_mux0000<11>)
+     LUT6:I5->O            1   0.094   0.000  memory_router_inst/Msub_address_bus_offset_share0000_lut<5> (memory_router_inst/Msub_address_bus_offset_share0000_lut<5>)
+     MUXCY:S->O            1   0.372   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<5> (memory_router_inst/Msub_address_bus_offset_share0000_cy<5>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<6> (memory_router_inst/Msub_address_bus_offset_share0000_cy<6>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<7> (memory_router_inst/Msub_address_bus_offset_share0000_cy<7>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<8> (memory_router_inst/Msub_address_bus_offset_share0000_cy<8>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<9> (memory_router_inst/Msub_address_bus_offset_share0000_cy<9>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<10> (memory_router_inst/Msub_address_bus_offset_share0000_cy<10>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<11> (memory_router_inst/Msub_address_bus_offset_share0000_cy<11>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<12> (memory_router_inst/Msub_address_bus_offset_share0000_cy<12>)
+     MUXCY:CI->O           1   0.026   0.000  memory_router_inst/Msub_address_bus_offset_share0000_cy<13> (memory_router_inst/Msub_address_bus_offset_share0000_cy<13>)
+     XORCY:CI->O           1   0.357   0.480  memory_router_inst/Msub_address_bus_offset_share0000_xor<14> (memory_router_inst/address_bus_offset_share0000<14>)
+     LUT4:I3->O            4   0.094   0.496  memory_router_inst/Mmux_address_bus_offset551 (address_bus_offset<14>)
+     LUT5:I4->O            1   0.094   0.336  mbc_inst/address_bus_out<14>1 (address_bus_offset_to_cart_rom_14_OBUF)
+     OBUF:I->O                 2.452          address_bus_offset_to_cart_rom_14_OBUF (address_bus_offset_to_cart_rom<14>)
     ----------------------------------------
-    Total                      9.805ns (4.477ns logic, 5.328ns route)
-                                       (45.7% logic, 54.3% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'systemPLL_inst/CLKOUT0_BUF'
-  Total number of paths / destination ports: 40022 / 16
--------------------------------------------------------------------------
-Offset:              9.547ns (Levels of Logic = 22)
-  Source:            cpu_top_inst/Z_0 (FF)
-  Destination:       address_bus_out<15> (PAD)
-  Source Clock:      systemPLL_inst/CLKOUT0_BUF rising
-
-  Data Path: cpu_top_inst/Z_0 to address_bus_out<15>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDCE:C->Q             4   0.471   0.352  cpu_top_inst/Z_0 (cpu_top_inst/Z_0)
-     INV:I->O              1   0.238   0.000  cpu_top_inst/Madd_address_bus_addsub0000_lut<0>_INV_0 (cpu_top_inst/Madd_address_bus_addsub0000_lut<0>)
-     MUXCY:S->O            1   0.372   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<0> (cpu_top_inst/Madd_address_bus_addsub0000_cy<0>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<1> (cpu_top_inst/Madd_address_bus_addsub0000_cy<1>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<2> (cpu_top_inst/Madd_address_bus_addsub0000_cy<2>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<3> (cpu_top_inst/Madd_address_bus_addsub0000_cy<3>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<4> (cpu_top_inst/Madd_address_bus_addsub0000_cy<4>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<5> (cpu_top_inst/Madd_address_bus_addsub0000_cy<5>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<6> (cpu_top_inst/Madd_address_bus_addsub0000_cy<6>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<7> (cpu_top_inst/Madd_address_bus_addsub0000_cy<7>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<8> (cpu_top_inst/Madd_address_bus_addsub0000_cy<8>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<9> (cpu_top_inst/Madd_address_bus_addsub0000_cy<9>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<10> (cpu_top_inst/Madd_address_bus_addsub0000_cy<10>)
-     MUXCY:CI->O           1   0.026   0.000  cpu_top_inst/Madd_address_bus_addsub0000_cy<11> (cpu_top_inst/Madd_address_bus_addsub0000_cy<11>)
-     XORCY:CI->O           3   0.357   0.491  cpu_top_inst/Madd_address_bus_addsub0000_xor<12> (cpu_top_inst/address_bus_addsub0000<12>)
-     LUT5:I4->O           11   0.094   0.765  cpu_top_inst/address_bus<12>1 (address_bus_cpu_out<12>)
-     LUT6:I3->O           12   0.094   0.540  memory_inst/address_bus_offset_or00031 (memory_inst/address_bus_offset_or0003)
-     LUT4:I3->O            2   0.094   0.715  memory_inst/address_bus_offset_mux0000<4>1 (memory_inst/address_bus_offset_mux0000<4>)
-     LUT4:I1->O            1   0.094   0.000  memory_inst/Msub_address_bus_offset_share0000_lut<14> (memory_inst/Msub_address_bus_offset_share0000_lut<14>)
-     MUXCY:S->O            0   0.372   0.000  memory_inst/Msub_address_bus_offset_share0000_cy<14> (memory_inst/Msub_address_bus_offset_share0000_cy<14>)
-     XORCY:CI->O           1   0.357   0.973  memory_inst/Msub_address_bus_offset_share0000_xor<15> (memory_inst/address_bus_offset_share0000<15>)
-     LUT5:I0->O            1   0.094   0.336  memory_inst/Mmux_address_bus_offset641 (address_bus_out_15_OBUF)
-     OBUF:I->O                 2.452          address_bus_out_15_OBUF (address_bus_out<15>)
-    ----------------------------------------
-    Total                      9.547ns (5.375ns logic, 4.172ns route)
-                                       (56.3% logic, 43.7% route)
+    Total                     10.471ns (4.873ns logic, 5.598ns route)
+                                       (46.5% logic, 53.5% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -2006,14 +2530,14 @@ Delay:               1.154ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 41.00 secs
-Total CPU time to Xst completion: 41.00 secs
+Total REAL time to Xst completion: 69.00 secs
+Total CPU time to Xst completion: 69.32 secs
  
 --> 
 
-Total memory usage is 471848 kilobytes
+Total memory usage is 504408 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  254 (   0 filtered)
-Number of infos    :   97 (   0 filtered)
+Number of warnings :  335 (   0 filtered)
+Number of infos    :  101 (   0 filtered)
 

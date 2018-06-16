@@ -7,13 +7,15 @@ module chrontel_CH7301C_driver(
 	DVI_V,
 	DVI_D,
 	XCLK_P,
-	XCLK_N
+	XCLK_N,
+	pix_data_in,
+	read_pixel_data
 	);
 
 input							clk25_2;
 input							clk25_2_270deg;
 input							reset_n;
-//input				[14:0]	pix_data;
+input				[14:0]	pix_data_in;
 
 output reg					DVI_DE;
 output						DVI_H;
@@ -21,10 +23,12 @@ output						DVI_V;
 output			[11:0]	DVI_D;
 output						XCLK_P;
 output						XCLK_N;
+output reg					read_pixel_data;
 
 reg					[9:0]	counterX;
 reg					[9:0]	counterY;
-reg			[14:0] pix_data;
+
+reg				[14:0]	pix_data;
 
 wire							XCLK_SE;
 
@@ -40,7 +44,16 @@ always @(posedge clk25_2_270deg) begin
 	DVI_DE <= ((counterX >= 10'd0) && (counterX < 10'd640) && (counterY >= 10'd0) && (counterY < 10'd480) && reset_n);
 end
 
-
+always @(*) begin
+	if ((counterX < 160) && (counterY < 144)) begin
+		pix_data = pix_data_in;
+		read_pixel_data = 1'b1;
+	end
+	else begin
+		pix_data = 15'h0000;
+		read_pixel_data = 1'b0;
+	end
+end
 
 // Counts 0 to 799 (800 pixels in X direction)
 always @(posedge clk25_2 or negedge reset_n) begin
@@ -73,28 +86,6 @@ always @(posedge clk25_2 or negedge reset_n) begin
 		end
 	end
 end
-
-
-// Temp data until implemented
-always @(*) begin
-	if (!reset_n) begin
-		pix_data <= 15'b111111111111111;
-	end
-	else begin
-		if ((counterY == 10'd0) || (counterY == 10'd1) || (counterY == 10'd2)) begin
-			pix_data <= 15'b111111111111111;
-		end
-		else if ((counterY == 10'd477) || (counterY == 10'd478) || (counterY == 10'd479)) begin
-			pix_data <= 15'b111111111111111;
-		end
-		else begin
-			pix_data <= {5'b00000, counterY};
-		end
-	end
-end
-// Temp data until implemented
-
-
 
 
 // Send pixel clock and data to the CH7301C device

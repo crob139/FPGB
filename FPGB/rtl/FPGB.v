@@ -22,7 +22,10 @@ module FPGB(
 	start_button,
 	select_button,
 	B_button,
-	A_button
+	A_button,
+	led_out,
+	cpu_led,
+	debug_led
 	);
 
 input 				ext_clk_p;
@@ -45,6 +48,11 @@ output				DVI_DE, DVI_H, DVI_V, DVI_RESET_B;
 output	[11:0]	DVI_D;
 output reg			LED_test;
 output				clk4_2;
+output				led_out;
+output				cpu_led;
+output reg			debug_led;
+
+wire					led_out, cpu_led;
 
 reg		[24:0]	LED_counter;
 
@@ -80,7 +88,8 @@ wire					dma_sel_OAM;
 wire					mem_enable_dma_rd, mem_enable_dma_wr;
 wire					boot_rom_switch;
 
-wire		[7:0]		P1_JOYP, IF, LCDC, STAT, VBK, BRLO, HDMA1, HDMA2, HDMA3, HDMA4, HDMA5, SVBK, OCPS_OBPI, BCPS_BGPI, IE, SCX, SCY;
+wire		[7:0]		P1_JOYP, IF, LCDC, STAT, VBK, BRLO, HDMA1, HDMA2, HDMA3, HDMA4, HDMA5, SVBK, OCPS_OBPI, BCPS_BGPI, IE, SCY, SCX;
+wire		[7:0]		LY, LYC, WY, WX;
 wire		[1:0]		STAT_mode;
 
 wire					v_blank_int_req, lcd_stat_int_req, timer_int_req, serial_int_req, joypad_int_req;
@@ -91,6 +100,10 @@ wire					IME;
 wire		[1:0]		ext_ram_bank_sel;
 
 wire		[7:0]		counterY;
+wire					color_pixel_good;
+wire		[7:0]		color_pixel;
+wire					read_pixel_data;
+wire		[14:0]	pix_data;
 
 wire					reset_n, startup_reset_n;
 wire		[7:0]		data_bus_cpu_out;
@@ -121,7 +134,7 @@ systemPLL systemPLL_inst(
 chrontel_serial_bus_driver chrontel_serial_bus_driver_inst(
 	.clk25_2							(clk25_2),
 	.enable							(!complete),
-	.rst_n							(startup_reset_n),
+	.rst_n							(pll_locked),
 	.complete						(complete),
 	.I2C_SCL_video					(I2C_SCL_video),
 	.I2C_SDA_video					(I2C_SDA_video)
@@ -131,14 +144,26 @@ assign DVI_RESET_B = 1'b1;
 chrontel_CH7301C_driver chrontel_CH7301C_driver_inst(
 	.clk25_2							(clk25_2),
 	.clk25_2_270deg				(clk25_2_270deg),
-	.reset_n							(reset_n),
+	.reset_n							(pll_locked),
 	.DVI_DE							(DVI_DE),
 	.DVI_H							(DVI_H),
 	.DVI_V							(DVI_V),
 	.DVI_D							(DVI_D),
 	.XCLK_P							(XCLK_P),
-	.XCLK_N							(XCLK_N)
-	//.pix_data						(pix_data) // This is for data to be sent to screen
+	.XCLK_N							(XCLK_N),
+	.pix_data_in					(pix_data),
+	.read_pixel_data				(read_pixel_data)
+	);
+
+frame_buffer frame_buffer_inst(
+	.clk_ppu							(clk25_2),
+	.reset_n							(reset_n),
+	.color_pixel_good				(color_pixel_good),
+	.color_pixel					(color_pixel),
+	.pixel_data_out				(pix_data),
+	.ppu_v_blank					(v_blank_int_sig),
+	.frame_read_complete			(DVI_V),
+	.read_pixel_data				(read_pixel_data)
 	);
 
 cpu_top cpu_top_inst(
@@ -161,7 +186,8 @@ cpu_top cpu_top_inst(
 	.cpu_serial_int_clear		(cpu_serial_int_clear),
 	.cpu_joypad_int_clear		(cpu_joypad_int_clear),
 	.DMA_start						(DMA_start),
-	.GDMA_finished					(GDMA_finished)
+	.GDMA_finished					(GDMA_finished),
+	.cpu_led							(cpu_led)
 	);
 
 memory_router memory_router_inst(
@@ -217,7 +243,12 @@ memory_router memory_router_inst(
 	.STAT								(STAT),
 	.SCY								(SCY),
 	.SCX								(SCX),
+	.LY								(LY),
+	.LYC								(LYC),
+	.LCDC								(LCDC),
 	.VBK								(VBK),
+	.WY								(WY),
+	.WX								(WX),
 	.BRLO								(BRLO),
 	.HDMA1							(HDMA1),
 	.HDMA2							(HDMA2),
@@ -314,7 +345,13 @@ ppu ppu_inst(
 	.BCPS_BGPI						(BCPS_BGPI),
 	.LCDC								(LCDC),
 	.v_blank_int_sig				(v_blank_int_sig),
-	.counterY						(counterY)
+	.counterY						(counterY),
+	.SCY								(SCY),
+	.SCX								(SCX),
+	.WY								(WY),
+	.WX								(WX),
+	.color_pixel_good				(color_pixel_good),
+	.color_pixel					(color_pixel)
 	);
 
 memory memory_inst(
@@ -375,21 +412,25 @@ special_registers special_registers_inst(
 	.data_in							(data_bus_cpu_out),
 	.STAT_mode						(STAT_mode),
 	.STAT_coincidence_flag		(),
-	.down_button					(down_button),
-	.up_button						(up_button),
-	.left_button					(left_button),
-	.right_button					(right_button),
-	.start_button					(start_button),
-	.select_button					(select_button),
-	.B_button						(B_button),
-	.A_button						(A_button),
+	.down_button					(1'b1),//(down_button),
+	.up_button						(1'b1),//(up_button),
+	.left_button					(1'b1),//(left_button),
+	.right_button					(1'b1),//(right_button),
+	.start_button					(1'b1),//(start_button),
+	.select_button					(1'b1),//(select_button),
+	.B_button						(1'b1),//(B_button),
+	.A_button						(1'b1),//(A_button),
 	.P1_JOYP							(P1_JOYP),
 	.IF								(IF),
 	.LCDC								(LCDC),
 	.STAT								(STAT),
 	.SCY								(SCY),
 	.SCX								(SCX),
+	.LY								(LY),
+	.LYC								(LYC),
 	.VBK								(VBK),
+	.WY								(WY),
+	.WX								(WX),
 	.BRLO								(BRLO),
 	.HDMA1							(HDMA1),
 	.HDMA2							(HDMA2),
@@ -418,7 +459,8 @@ special_registers special_registers_inst(
 	.joypad_int_sig				(joypad_int_sig),
 	.cpu_joypad_int_clear		(cpu_joypad_int_clear),
 	.joypad_int_req				(joypad_int_req),
-	.counterY						(counterY)
+	.counterY						(counterY),
+	.led_out							(led_out)
 	);
 
 // TEMP - DELETE
@@ -441,6 +483,17 @@ always @(posedge clk25_2 or negedge reset_n) begin
 		else begin
 			LED_counter <= LED_counter + 25'h1;
 			LED_test <= LED_test;
+		end
+	end
+end
+
+always @(posedge clk4_2 or negedge reset_n) begin
+	if (!reset_n) begin
+		debug_led <= 1'b0;
+	end
+	else begin
+		if (address_bus_cpu_out == 16'hFF0F) begin
+			debug_led <= 1'b1;
 		end
 	end
 end
